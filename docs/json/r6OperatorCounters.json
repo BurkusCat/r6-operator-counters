@@ -855,8 +855,8 @@
                 }, {
                     "id": "63",
                     "type": "Soft Counter",
-                    "startNode": "45",
-                    "endNode": "13",
+                    "startNode": "13",
+                    "endNode": "21",
                     "properties": {
                         "Description": "Echo's Yokai drone will cause Jackal's goggles to be kicked off."
                     }
@@ -1146,7 +1146,7 @@
                     "startNode": "41",
                     "endNode": "31",
                     "properties": {
-                        "Description": "If careful, Twitch's Drone can easily shoot Mute's Signal Disruptor."
+                        "Description": "If careful, Twitch's Drone can shoot Mute's Signal Disruptor."
                     }
                 }, {
                     "id": "97",
