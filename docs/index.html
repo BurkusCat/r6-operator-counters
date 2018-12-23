@@ -1,6 +1,16 @@
 <!doctype html>
 <html>
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131330692-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-131330692-1');
+        </script>
+        
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="A graph visualisation of how different operators counter each other in Rainbow Six Siege.">
@@ -20,7 +30,7 @@
     </head>
     <body>
         <div id="neo4jd3"></div>
-        <a href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg" alt="Contribute on GitHub"></a>
+        <a target="_blank" href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg"alt="Contribute on GitHub"></a>
 
         <!-- Scripts -->
         <script src="js/d3.min.js"></script>
@@ -88,7 +98,7 @@
                     onRelationshipDoubleClick: function(relationship) {
 
                     },
-                    zoomFit: true
+                    zoomFit: false
                 });
             }
 
