@@ -1124,6 +1124,110 @@
                     "properties": {
                         "Description": "Hibana's X-KAIROS pellets can destroy Castle's Armor Panel if necessary."
                     }
+                }, {
+                    "id": "94",
+                    "type": "Minor Counter",
+                    "startNode": "43",
+                    "endNode": "41",
+                    "properties": {
+                        "Description": "Vigil's ERC-7 allows him to remove himself from Twitch's Drone camera."
+                    }
+                }, {
+                    "id": "95",
+                    "type": "Hard Counter",
+                    "startNode": "41",
+                    "endNode": "3",
+                    "properties": {
+                        "Description": "Twitch's Drone can easily shoot Bandit's Shock Wire."
+                    }
+                }, {
+                    "id": "96",
+                    "type": "Hard Counter",
+                    "startNode": "41",
+                    "endNode": "31",
+                    "properties": {
+                        "Description": "If careful, Twitch's Drone can easily shoot Mute's Signal Disruptor."
+                    }
+                }, {
+                    "id": "97",
+                    "type": "Soft Counter",
+                    "startNode": "41",
+                    "endNode": "23",
+                    "properties": {
+                        "Description": "Twitch's Drone can shoot Kaid's Electroclaws."
+                    }
+                }, {
+                    "id": "98",
+                    "type": "Soft Counter",
+                    "startNode": "41",
+                    "endNode": "1",
+                    "properties": {
+                        "Description": "Twitch's Drone can shoot Alibi's Prismas."
+                    }
+                }, {
+                    "id": "99",
+                    "type": "Soft Counter",
+                    "startNode": "41",
+                    "endNode": "1",
+                    "properties": {
+                        "Description": "Twitch's Drone can shoot Alibi's Prismas."
+                    }
+                }, {
+                    "id": "100",
+                    "type": "Minor Counter",
+                    "startNode": "41",
+                    "endNode": "13",
+                    "properties": {
+                        "Description": "Twitch's Drone can shoot Echo's Drone but it is unable to see it when it is cloaked."
+                    }
+                }, {
+                    "id": "101",
+                    "type": "Soft Counter",
+                    "startNode": "41",
+                    "endNode": "14",
+                    "properties": {
+                        "Description": "Twitch's Drone can shoot Ela's Grzmot mines."
+                    }
+                }, {
+                    "id": "102",
+                    "type": "Hard Counter",
+                    "startNode": "41",
+                    "endNode": "22",
+                    "properties": {
+                        "Description": "Twitch's Drone can shoot Jäger's ADS."
+                    }
+                }, {
+                    "id": "103",
+                    "type": "Soft Counter",
+                    "startNode": "41",
+                    "endNode": "24",
+                    "properties": {
+                        "Description": "Twitch's Drone can shoot Kapkan's Entry Denial Devices."
+                    }
+                }, {
+                    "id": "104",
+                    "type": "Soft Counter",
+                    "startNode": "41",
+                    "endNode": "25",
+                    "properties": {
+                        "Description": "Twitch's Drone can shoot Lesion's Gu mines."
+                    }
+                }, {
+                    "id": "105",
+                    "type": "Minor Counter",
+                    "startNode": "41",
+                    "endNode": "27",
+                    "properties": {
+                        "Description": "Twitch's Drone can temporarily disable Maestro's Evil Eye cameras by shooting at them when they are closed."
+                    }
+                }, {
+                    "id": "106",
+                    "type": "Minor Counter",
+                    "startNode": "39",
+                    "endNode": "1",
+                    "properties": {
+                        "Description": "Thatcher's EMP grenades can disable Alibi's Prisma for a short period of time."
+                    }
                 }]
             }
         }]
