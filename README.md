@@ -2,7 +2,7 @@
 
 A graph visualisation of counterplay in Rainbow Six Siege.
 
-![R6 Opeartor Counters](https://i.imgur.com/8bRZsdb.png)
+![R6 Operator Counters](https://i.imgur.com/8bRZsdb.png)
 
 ## Features
 
@@ -37,6 +37,9 @@ The main webpage - r6-operator-counters\docs\index.html
 Neo4j JSON file with operator data - r6-operator-counters\docs\json\r6OperatorCounters
 neo4jd3 enhancements such as styling - r6-operator-counter\src\main
 ```
+
+## r6counters.com
+Any pull requests that get merged into master will trigger a build of the website. This build will get published to AWS and will be hosted at [http://r6counters.com/](http://r6counters.com/) after a short period.
 
 ## What's coming?
 
