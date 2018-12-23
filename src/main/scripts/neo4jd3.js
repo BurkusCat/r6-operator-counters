@@ -107,7 +107,10 @@ function Neo4jD3(_selector, _options) {
     }
 
     function appendInfoElementProperty(cls, property, value) {
-        appendInfoElement(cls, false, property, value);
+        // we don't want to show an ID property
+        if (property !== '&lt;id&gt;') {
+            appendInfoElement(cls, false, property, value);
+        }
     }
 
     function appendInfoElementRelationship(cls, relationship) {
