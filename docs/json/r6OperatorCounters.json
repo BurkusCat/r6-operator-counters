@@ -8,240 +8,240 @@
                     "labels": ["Alibi"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GIS",
+                        "operation": "Operation Para Bellum"
                     }
                 }, {
                     "id": "2",
                     "labels": ["Ash"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "FBI SWAT",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "3",
                     "labels": ["Bandit"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GSG 9",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "4",
                     "labels": ["Blackbeard"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "SEALs",
+                        "operation": "Operation Dust Line"
                     }
                 }, {
                     "id": "5",
                     "labels": ["Blitz"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "GSG 9",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "6",
                     "labels": ["Buck"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
+                        "side": "Attacker",
+                        "organization": "JTF2",
                         "operation": "Operation Black Ice"
                     }
                 }, {
                     "id": "7",
                     "labels": ["Capitão"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "BOPE",
+                        "operation": "Operation Skull Rain"
                     }
                 }, {
                     "id": "8",
                     "labels": ["Castle"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "FBI SWAT",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "9",
                     "labels": ["Caveira"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "BOPE",
+                        "operation": "Operation Skull Rain"
                     }
                 }, {
                     "id": "10",
                     "labels": ["Clash"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GSUTR",
+                        "operation": "Operation Grim Sky"
                     }
                 }, {
                     "id": "11",
                     "labels": ["Doc"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GIGN",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "12",
                     "labels": ["Dokkaebi"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "SMB",
+                        "operation": "Operation White Noise"
                     }
                 }, {
                     "id": "13",
                     "labels": ["Echo"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "SAT",
+                        "operation": "Operation Red Crow"
                     }
                 }, {
                     "id": "14",
                     "labels": ["Ela"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GROM",
+                        "operation": "Operation Blood Orchid"
                     }
                 }, {
                     "id": "15",
                     "labels": ["Finka"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "CBRN",
+                        "operation": "Operation Chimera"
                     }
                 }, {
                     "id": "16",
                     "labels": ["Frost"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
+                        "organization": "JTF2",
                         "operation": "Operation Black Ice"
                     }
                 }, {
                     "id": "17",
                     "labels": ["Fuze"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "Spetsnaz",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "18",
                     "labels": ["Glaz"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "Spetsnaz",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "19",
                     "labels": ["Hibana"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "SAT",
+                        "operation": "Operation Red Crow"
                     }
                 }, {
                     "id": "20",
                     "labels": ["IQ"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "GSG 9",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "21",
                     "labels": ["Jackal"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "GEO",
+                        "operation": "Operation Velvet Shell"
                     }
                 }, {
                     "id": "22",
                     "labels": ["Jäger"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GSG 9",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "23",
                     "labels": ["Kaid"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GIGR",
+                        "operation": "Operation Wind Bastion"
                     }
                 },  {
                     "id": "24",
                     "labels": ["Kapkan"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GIGR",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "25",
                     "labels": ["Lesion"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "SDU",
+                        "operation": "Operation Blood Orchid"
                     }
                 }, {
                     "id": "26",
                     "labels": ["Lion"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "CBRN",
+                        "operation": "Operation Chimera"
                     }
                 }, {
                     "id": "27",
                     "labels": ["Maestro"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GIS",
+                        "operation": "Operation Para Bellum"
                     }
                 }, {
                     "id": "28",
                     "labels": ["Maverick"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "GSUTR",
+                        "operation": "Operation Grim Sky"
                     }
                 }, {
                     "id": "29",
                     "labels": ["Mira"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GEO",
+                        "operation": "Operation Velvet Shell"
                     }
                 }, {
                     "id": "30",
                     "labels": ["Montagne"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "GIGN",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "31",
@@ -249,47 +249,47 @@
                     "properties": {
                         "side": "Defender",
                         "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "32",
                     "labels": ["Nomad"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "GIGR",
+                        "operation": "Operation Wind Bastion"
                     }
                 }, {
                     "id": "33",
                     "labels": ["Pulse"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "FBI SWAT",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "34",
                     "labels": ["Recruit"],
                     "properties": {
                         "side": "Attacker/Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "N/A",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "35",
                     "labels": ["Rook"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "GIGN",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "36",
                     "labels": ["Sledge"],
                     "properties": {
-                        "side": "Defender",
+                        "side": "Attacker",
                         "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "37",
@@ -297,71 +297,71 @@
                     "properties": {
                         "side": "Defender",
                         "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "38",
                     "labels": ["Tachanka"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "Spetsnaz",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "39",
                     "labels": ["Thatcher"],
                     "properties": {
-                        "side": "Defender",
+                        "side": "Attacker",
                         "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "40",
                     "labels": ["Thermite"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "FBI SWAT",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "41",
                     "labels": ["Twitch"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "GIGN",
+                        "operation": "N/A"
                     }
                 }, {
                     "id": "42",
                     "labels": ["Valkyrie"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "SEALs",
+                        "operation": "Operation Dust Line"
                     }
                 }, {
                     "id": "43",
                     "labels": ["Vigil"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "organization": "SMB",
+                        "operation": "Operation White Noise"
                     }
                 }, {
                     "id": "44",
                     "labels": ["Ying"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "SDU",
+                        "operation": "Operation Blood Orchid"
                     }
                 }, {
                     "id": "45",
                     "labels": ["Zofia"],
                     "properties": {
-                        "side": "Defender",
-                        "organization": "SAS",
-                        "operation": "Operation Black Ice"
+                        "side": "Attacker",
+                        "organization": "GROM",
+                        "operation": "Operation White Noise"
                     }
                 }],
                 "relationships": [{
