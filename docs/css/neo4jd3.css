@@ -24,6 +24,7 @@ body {
   left: 0;
   margin-left: 10px;
   margin-bottom: 5px;
+  font: 15px Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 .neo4jd3-info {

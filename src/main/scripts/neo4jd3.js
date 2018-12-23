@@ -102,17 +102,30 @@ function Neo4jD3(_selector, _options) {
         }
     }
 
+    /**
+     * Change the counter levels shown on the graph. Loads the original JSON,
+     * filters it, and resets the data to the new filtered set.
+     * @param hard Boolean for whether hard counters should be shown
+     * @param soft Boolean for whether soft counters should be shown
+     * @param minor Boolean for whether minor counters should be shown
+     */
     function changeCounterLevel(hard, soft, minor) {
         d3.json(options.neo4jDataUrl, function(error, data) {
             if (error) {
                 throw error;
             }
             data = filterDataByCounterLevel(data, hard, soft, minor);
-            simulation = initSimulation();
             resetWithNeo4jData(data);
         });
     }
 
+    /**
+     * Filter graph data to only show certain counter relationships
+     * @param data The original graph data
+     * @param hard Boolean for whether hard counters should be shown
+     * @param soft Boolean for whether soft counters should be shown
+     * @param minor Boolean for whether minor counters should be shown
+     */
     function filterDataByCounterLevel(data, hard, soft, minor) {
         data.results.forEach(function(result) {
             result.data.forEach(function(data) {
@@ -131,6 +144,10 @@ function Neo4jD3(_selector, _options) {
         return data;
     }
 
+    /**
+     * Resets the graph to the data specified.
+     * @param neo4jData The data to reset the graph to 
+     */
     function resetWithNeo4jData(neo4jData) {
         // Call the init method again with new data
         var newOptions = Object.assign(options, { neo4jData: neo4jData });
