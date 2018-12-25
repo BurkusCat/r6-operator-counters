@@ -13,6 +13,12 @@ body {
   background-color: #333;
 }
 
+.link {
+  stroke: white;
+  stroke-opacity: 0.6;
+  fill: none;
+}
+
 .neo4jd3-graph {
   border: 1px solid #ddd;
   border-radius: 5px;
