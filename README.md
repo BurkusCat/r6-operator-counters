@@ -46,7 +46,8 @@ Any pull requests that get merged into master will trigger a build of the websit
 
 ## What's coming?
 
-* Filtering
+* More filtering
+* More views
 
 ## Copyright and license
 

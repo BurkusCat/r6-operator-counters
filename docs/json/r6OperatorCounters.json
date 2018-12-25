@@ -613,14 +613,6 @@
                         "Description": "Thatcher's EMP Grenades can destroy Lesion's Gu mines."
                     }
                 }, {
-                    "id": "33",
-                    "type": "Hard Counter",
-                    "startNode": "39",
-                    "endNode": "25",
-                    "properties": {
-                        "Description": "Thatcher's EMP Grenades can destroy Lesion's Gu mines."
-                    }
-                }, {
                     "id": "34",
                     "type": "Hard Counter",
                     "startNode": "39",
@@ -651,22 +643,6 @@
                     "endNode": "3",
                     "properties": {
                         "Description": "Thatcher's EMP Grenades can destroy Bandit's Shock Wire."
-                    }
-                }, {
-                    "id": "38",
-                    "type": "Hard Counter",
-                    "startNode": "39",
-                    "endNode": "31",
-                    "properties": {
-                        "Description": "Thatcher's EMP Grenades can destroy Mute's Signal Disruptors."
-                    }
-                }, {
-                    "id": "39",
-                    "type": "Hard Counter",
-                    "startNode": "39",
-                    "endNode": "23",
-                    "properties": {
-                        "Description": "Thatcher's EMP Grenades can destroy Kaid's Electroclaws."
                     }
                 }, {
                     "id": "41",
@@ -877,14 +853,6 @@
                         "Description": "Thatcher's EMP Grenades can can disable Pulse's Heartbeat Sensor for a period of time."
                     }
                 }, {
-                    "id": "65",
-                    "type": "Soft Counter",
-                    "startNode": "39",
-                    "endNode": "33",
-                    "properties": {
-                        "Description": "Thatcher's EMP Grenades can can disable Pulse's Heartbeat Sensor for a period of time."
-                    }
-                }, {
                     "id": "66",
                     "type": "Soft Counter",
                     "startNode": "7",
@@ -922,14 +890,6 @@
                     "startNode": "45",
                     "endNode": "10",
                     "properties": {
-                        "Description": "Zofia can fire Concussion Grenades from her LIFELINE Grenade Launcher. Clash is very vulnerable after being hit by one of these grenades."
-                    }
-                }, {
-                    "id": "70",
-                    "type": "Hard Counter",
-                    "startNode": "45",
-                    "endNode": "10",
-                    "properties": {
                         "Description": "Zofia's Concussion Grenades can make Clash very vulnerable."
                     }
                 }, {
@@ -947,14 +907,6 @@
                     "endNode": "29",
                     "properties": {
                         "Description": "Twitch's Drone can easily pop out Mira' Black Mirrors."
-                    }
-                }, {
-                    "id": "73",
-                    "type": "Soft Counter",
-                    "startNode": "8",
-                    "endNode": "6",
-                    "properties": {
-                        "Description": "Castle's Armor Panels cannot easily be destroyed by Buck's Skeleton Key shotgun."
                     }
                 }, {
                     "id": "73",
@@ -1088,7 +1040,7 @@
                     "id": "89",
                     "type": "Minor Counter",
                     "startNode": "20",
-                    "endNode": "1",
+                    "endNode": "10",
                     "properties": {
                         "Description": "IQ's Electronics Detector can detect Clash's Electro Shield when it is firing."
                     }
@@ -1158,14 +1110,6 @@
                     }
                 }, {
                     "id": "98",
-                    "type": "Soft Counter",
-                    "startNode": "41",
-                    "endNode": "1",
-                    "properties": {
-                        "Description": "Twitch's Drone can shoot Alibi's Prismas."
-                    }
-                }, {
-                    "id": "99",
                     "type": "Soft Counter",
                     "startNode": "41",
                     "endNode": "1",

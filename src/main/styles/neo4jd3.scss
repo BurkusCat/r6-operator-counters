@@ -10,7 +10,15 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+    background-color: #333;
 }
+
+.link {
+  stroke: white;
+  stroke-opacity: 0.6;
+  fill: none;
+  //stroke-width: 0.5px;
+} 
 
 .neo4jd3-graph {
     border: 1px solid #ddd;
