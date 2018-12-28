@@ -101,7 +101,7 @@
                     },
                     minCollision: 80,
                     neo4jDataUrl: 'json/r6OperatorCounters.json',
-                    nodeRadius: 25,
+                    nodeRadius: 35,
                     counters: [document.querySelector('#hardCounters').checked, document.querySelector('#softCounters').checked,
                         document.querySelector('#minorCounters').checked],
                     onNodeDoubleClick: function(node) {
@@ -114,6 +114,8 @@
                 };
 
             function init() {
+                neo4jd3Options.counters = [document.querySelector('#hardCounters').checked, document.querySelector('#softCounters').checked,
+                        document.querySelector('#minorCounters').checked];
                 neo4jd3 = new Neo4jd3('#neo4jd3', neo4jd3Options);
             }
 
