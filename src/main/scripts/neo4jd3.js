@@ -805,11 +805,14 @@ function Neo4jD3(_selector, _options) {
     function tickCurvedRelationshipsOverlay(d) {
         var source = d.outline.source,
             target = d.outline.target,
-            middle = d.outline.middle,
-            u = d.outline.u;
-        return 'M ' + source.x + ', ' + source.y + ' ' +
-            'Q ' + (middle.x + 8 * u.x) + ' ' + (middle.y + 8 * u.y) + ' ' + target.x + ' ' + target.y +
-            'Q  ' + (middle.x - 8 * u.x) + ' ' + (middle.y - 8 * u.y) + '  ' + source.x + ' ' + source.y +
+            middle = d.outline.middle;
+        var lineThickness = 5;
+        return 'M ' + (source.x + lineThickness) + ', ' + (source.y + lineThickness) + ' ' +
+            'Q ' + (middle.x + lineThickness) + ' ' + (middle.y + lineThickness) + ' ' + (target.x - lineThickness) + ' ' + (target.y - lineThickness) +
+            'Q  ' + (middle.x - lineThickness) + ' ' + (middle.y - lineThickness) + '  ' + (source.x - lineThickness)  + ' ' + (source.y - lineThickness)  +
+            'Z M ' + (target.x - lineThickness) + ', ' + (target.y - lineThickness) + ' ' +
+            'Q ' + (middle.x - lineThickness) + ' ' + (middle.y - lineThickness) + ' ' + (source.x + lineThickness) + ' ' + (source.y + lineThickness) +
+            'Q  ' + (middle.x + lineThickness) + ' ' + (middle.y + lineThickness) + '  ' + (target.x + lineThickness)  + ' ' + (target.y + lineThickness)  +
             'Z';
     }
 
