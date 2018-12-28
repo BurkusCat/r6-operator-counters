@@ -26,7 +26,6 @@ function Neo4jD3(_selector, _options) {
             counters: [true, true, false]
         },
         builtRelations = {},
-        relationCount = {},
         VERSION = '0.0.1';
 
     function appendGraph(container) {
@@ -576,7 +575,8 @@ function Neo4jD3(_selector, _options) {
                     }
                 });
 
-                data.graph.relationships.forEach(function(relationship) {
+                var rels = data.graph.relationships;
+                rels.forEach(function(relationship) {
                     if (relationship.startNode === relationship.endNode) {
                         return;
                     }
@@ -585,29 +585,19 @@ function Neo4jD3(_selector, _options) {
                     graph.relationships.push(relationship);
                 });
 
-                data.graph.relationships.sort(function(a, b) {
-                    if (a.source > b.source) {
-                        return 1;
-                    } else if (a.source < b.source) {
-                        return -1;
-                    } else {
-                        if (a.target > b.target) {
-                            return 1;
+                for (var i = 0; i < rels.length; i++) {
+                    for (var j = i; j < rels.length; j++) {
+                        if (!rels[i].linknum) {
+                            rels[i].linknum = 1;
                         }
-
-                        if (a.target < b.target) {
-                            return -1;
-                        } else {
-                            return 0;
+                        if (!rels[j].linknum) {
+                            rels[j].linknum = 1;
                         }
-                    }
-                });
-
-                for (var i = 0; i < data.graph.relationships.length; i++) {
-                    if (i !== 0 && data.graph.relationships[i].source === data.graph.relationships[i-1].source && data.graph.relationships[i].target === data.graph.relationships[i-1].target) {
-                        data.graph.relationships[i].linknum = data.graph.relationships[i - 1].linknum + 1;
-                    } else {
-                        data.graph.relationships[i].linknum = 1;
+                        // if a bi-directional relationship, update linknum to 2
+                        if (rels[i].source === rels[j].target && rels[i].target === rels[j].source) {
+                            rels[i].linknum = 2;
+                            rels[j].linknum = 2;
+                        }
                     }
                 }
             });
@@ -691,29 +681,7 @@ function Neo4jD3(_selector, _options) {
             relationships: relationships.length
         };
     }
-/*
-    function smoothTransform(elem, translate, scale) {
-        var animationMilliseconds = 5000,
-            timeoutMilliseconds = 50,
-            steps = parseInt(animationMilliseconds / timeoutMilliseconds);
-
-        setTimeout(function() {
-            smoothTransformStep(elem, translate, scale, timeoutMilliseconds, 1, steps);
-        }, timeoutMilliseconds);
-    }
-
-    function smoothTransformStep(elem, translate, scale, timeoutMilliseconds, step, steps) {
-        var progress = step / steps;
-
-        elem.attr('transform', 'translate(' + (translate[0] * progress) + ', ' + (translate[1] * progress) + ') scale(' + (scale * progress) + ')');
-
-        if (step < steps) {
-            setTimeout(function() {
-                smoothTransformStep(elem, translate, scale, timeoutMilliseconds, step + 1, steps);
-            }, timeoutMilliseconds);
-        }
-    }
-*/
+    
     function stickNode(d) {
         d.fx = d3.event.x;
         d.fy = d3.event.y;
@@ -734,32 +702,24 @@ function Neo4jD3(_selector, _options) {
 
     function tickRelationships() {
         if (relationship) {
-            relationship.attr('transform', function(d) {
-                if (!d.linkn) {
-                  var key = d.source.id + '@@' + d.target.id;
-                  if (!relationCount[key]) {
-                    relationCount[key] = 1;
-                  }
-                  d.linkn = relationCount[key]++;
-                }
-  
+            relationship.attr('transform', function(d) {  
                 var center = {x: 0, y: 0},
                   angle = rotation(d.source, d.target),
                   u = unitaryVector(d.source, d.target),
                   n = unitaryNormalVector(d.source, d.target),
-                  g = rotatePoint(center, u, -10 * d.linkn),
+                  g = rotatePoint(center, u, -10),
                   source = rotatePoint(center, {
                     x: 0 + (options.nodeRadius + 1) * u.x - n.x,
                     y: 0 + (options.nodeRadius + 1) * u.y - n.y
-                  }, angle + 10 * d.linkn),
+                  }, angle + 10),
                   target = rotatePoint(center, {
                     x: d.target.x - d.source.x - (options.nodeRadius + 2) * g.x,
                     y: d.target.y - d.source.y - (options.nodeRadius + 2) * g.y
                   }, angle),
                   uu = unitaryNormalVector(source, target),
                   middle = {
-                    x: (source.x + target.x) / 2 + uu.x * 20 * d.linkn,
-                    y: (source.y + target.y) / 2 + uu.y * 20 * d.linkn
+                    x: (source.x + target.x) / 2 + uu.x * 20,
+                    y: (source.y + target.y) / 2 + uu.y * 20
                   };
                 d.outline = { middle: middle, source: source, target: target, u: uu };
 
@@ -773,47 +733,121 @@ function Neo4jD3(_selector, _options) {
     }
 
     function tickRelationshipsOutlines() {
-        relationship.each(function (relationship) {
-          var rel = d3.select(this),
-            outline = rel.select('.outline');
-          outline.attr('d', function (d) {
-            var source = d.outline.source,
-              target = d.outline.target,
-              middle = d.outline.middle;
-            return 'M '+target.x+', '+target.y+' '+
+        relationship.each(function () {
+            var outline = d3.select(this).select('.outline');
+            var text = d3.select(this).select('.text');
+            outline.attr('d', function (d) {
+                if (d.linknum === 1) {
+                    return tickStraightRelationshipsOutline(d, text);
+                } else {
+                    return tickCurvedRelationshipsOutline(d);
+                }
+            });
+        });
+    }
+
+    function tickStraightRelationshipsOutline(d, text) {
+        var center = { x: 0, y: 0 },
+            angle = rotation(d.source, d.target),
+            textBoundingBox = text.node().getBBox(),
+            textPadding = 5,
+            u = unitaryVector(d.source, d.target),
+            textMargin = { x: (d.target.x - d.source.x - (textBoundingBox.width + textPadding) * u.x) * 0.5, y: (d.target.y - d.source.y - (textBoundingBox.width + textPadding) * u.y) * 0.5 },
+            n = unitaryNormalVector(d.source, d.target),
+            rotatedPointA1 = rotatePoint(center, { x: textMargin.x - n.x, y: textMargin.y - n.y }, angle),
+            rotatedPointB1 = rotatePoint(center, { x: 0 + (options.nodeRadius + 1) * u.x, y: 0 + (options.nodeRadius + 1) * u.y }, angle),
+            rotatedPointA2 = rotatePoint(center, { x: d.target.x - d.source.x - (options.nodeRadius + 1) * u.x, y: d.target.y - d.source.y - (options.nodeRadius + 1) * u.y }, angle),
+            rotatedPointB2 = rotatePoint(center, { x: d.target.x - d.source.x - textMargin.x - n.x, y: d.target.y - d.source.y - textMargin.y - n.y }, angle),;
+
+        return 'M ' + rotatedPointA1.x + ' ' + rotatedPointA1.y +
+            ' L ' + rotatedPointB1.x + ' ' + rotatedPointB1.y +
+            ' Z M ' + rotatedPointA2.x + ' ' + rotatedPointA2.y +
+            ' L ' + rotatedPointB2.x + ' ' + rotatedPointB2.y +
+            ' Z';
+    }
+
+    function tickCurvedRelationshipsOutline(d) {
+        var source = d.outline.source,
+        target = d.outline.target,
+        middle = d.outline.middle;
+        return 'M ' + target.x + ', ' + target.y + ' ' +
             'Q ' + middle.x + ' ' + middle.y + ' ' + source.x + ' ' + source.y + ' ' +
             'Q ' + middle.x + ' ' + middle.y + ' ' + target.x + ', ' + target.y;
-          });
-        });
-      }
+    }
 
-      function tickRelationshipsOverlays() {
+    function tickRelationshipsOverlays() {
         relationshipOverlay.attr('d', function (d) {
-          var source = d.outline.source,
+            if (d.linknum === 1) {
+                return tickStraightRelationshipsOverlay(d);
+            } else {
+                return tickCurvedRelationshipsOverlay(d);
+            }
+        });
+    }
+
+    function tickStraightRelationshipsOverlay(d) {
+        var center = { x: 0, y: 0 },
+            angle = rotation(d.source, d.target),
+            n1 = unitaryNormalVector(d.source, d.target),
+            n = unitaryNormalVector(d.source, d.target, 50),
+            rotatedPointA = rotatePoint(center, { x: 0 - n.x, y: 0 - n.y }, angle),
+            rotatedPointB = rotatePoint(center, { x: d.target.x - d.source.x - n.x, y: d.target.y - d.source.y - n.y }, angle),
+            rotatedPointC = rotatePoint(center, { x: d.target.x - d.source.x + n.x - n1.x, y: d.target.y - d.source.y + n.y - n1.y }, angle),
+            rotatedPointD = rotatePoint(center, { x: 0 + n.x - n1.x, y: 0 + n.y - n1.y }, angle);
+
+        return 'M ' + rotatedPointA.x + ' ' + rotatedPointA.y +
+            ' L ' + rotatedPointB.x + ' ' + rotatedPointB.y +
+            ' L ' + rotatedPointC.x + ' ' + rotatedPointC.y +
+            ' L ' + rotatedPointD.x + ' ' + rotatedPointD.y +
+            ' Z';
+    }
+
+    function tickCurvedRelationshipsOverlay(d) {
+        var source = d.outline.source,
             target = d.outline.target,
             middle = d.outline.middle,
             u = d.outline.u;
-          return 'M ' + source.x + ', ' + source.y + ' ' +
-              'Q ' + (middle.x + 8 * u.x) + ' '+(middle.y + 8 * u.y) + ' ' + target.x + ' ' + target.y +
-              'Q  ' + (middle.x - 8 * u.x) + ' '+(middle.y - 8 * u.y) + '  ' + source.x + ' ' + source.y +
-              'Z';
-        });
-      }
+        return 'M ' + source.x + ', ' + source.y + ' ' +
+            'Q ' + (middle.x + 8 * u.x) + ' ' + (middle.y + 8 * u.y) + ' ' + target.x + ' ' + target.y +
+            'Q  ' + (middle.x - 8 * u.x) + ' ' + (middle.y - 8 * u.y) + '  ' + source.x + ' ' + source.y +
+            'Z';
+    }
 
-      function tickRelationshipsTexts() {
+    function tickRelationshipsTexts() {
         relationshipText.attr('transform', function (d) {
-          var angle = (rotation(d.source, d.target) + 360) % 360,
+            if (d.linknum === 1) {
+                return tickStraightRelationshipsText(d);
+            } else {
+                return tickCurvedRelationshipsText(d);
+            }
+        });
+    }
+
+    function tickStraightRelationshipsText(d) {
+        var angle = (rotation(d.source, d.target) + 360) % 360,
+            mirror = angle > 90 && angle < 270,
+            center = { x: 0, y: 0 },
+            n = unitaryNormalVector(d.source, d.target),
+            nWeight = mirror ? 2 : -3,
+            point = { x: (d.target.x - d.source.x) * 0.5 + n.x * nWeight, y: (d.target.y - d.source.y) * 0.5 + n.y * nWeight },
+            rotatedPoint = rotatePoint(center, point, angle);
+
+        return 'translate(' + rotatedPoint.x + ', ' + rotatedPoint.y + ') rotate(' + (mirror ? 180 : 0) + ')';
+    }
+
+    function tickCurvedRelationshipsText(d) {
+        var angle = (rotation(d.source, d.target) + 360) % 360,
             mirror = angle > 90 && angle < 270,
             source = d.outline.source,
             target = d.outline.target,
             u = d.outline.u,
             middle = {
-              x: (source.x + target.x) / 2 + u.x * (mirror ? 8 : 10) * d.linkn + u.x,
-              y: (source.y + target.y) / 2 + u.y * (mirror ? 8 : 10) * d.linkn + u.y
+                x: (source.x + target.x) / 2 + u.x * (mirror ? 8 : 10) + u.x,
+                y: (source.y + target.y) / 2 + u.y * (mirror ? 8 : 10) + u.y
             };
-          return 'translate(' + middle.x + ', ' + middle.y + ') rotate(' + (mirror ? 180 : 0) + ')';
-        });
-      }
+        return 'translate(' + middle.x + ', ' + middle.y + ') rotate(' + (mirror ? 180 : 0) + ')';
+    }
+
 
     function toString(d) {
         var s = d.labels ? d.labels[0] : d.type;
@@ -929,7 +963,6 @@ function Neo4jD3(_selector, _options) {
         svgTranslate = [fullWidth / 2 - svgScale * midX, fullHeight / 2 - svgScale * midY];
 
         svg.attr('transform', 'translate(' + svgTranslate[0] + ', ' + svgTranslate[1] + ') scale(' + svgScale + ')');
-//        smoothTransform(svgTranslate, svgScale);
     }
 
     init(_selector, _options);
