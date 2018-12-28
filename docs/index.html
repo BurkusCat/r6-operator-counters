@@ -33,12 +33,12 @@
     <body>
         <div id="neo4jd3"></div>
         <a target="_blank" href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg"alt="Contribute on GitHub"></a>
-		<div class="checkboxes" style="">  
-			<input type="checkbox" id="hardCounters" name="hardCounters" checked onclick="counterFilter();">
+		<div class="checkboxes">  
+			<input type="checkbox" id="hardCounters" name="hardCounters" checked onclick="init();">
 			<label for="hardCounters">Hard counters</label>
-			<input type="checkbox" id="softCounters" name="softCounters" checked onclick="counterFilter();">
+			<input type="checkbox" id="softCounters" name="softCounters" checked onclick="init();">
 			<label for="softCounters">Soft counters</label>
-			<input type="checkbox" id="minorCounters" name="minorCounters" onclick="counterFilter();">
+			<input type="checkbox" id="minorCounters" name="minorCounters" onclick="init();">
 			<label for="minorCounters">Minor counters</label>
 		</div>
 
@@ -46,16 +46,8 @@
         <script src="js/d3.min.js"></script>
         <script src="js/neo4jd3.js?v=0.0.1"></script>
         <script type="text/javascript">
-			let neo4jd3;
-			
-			function counterFilter() {
-				var hard = document.querySelector('#hardCounters').checked;
-				var soft = document.querySelector('#softCounters').checked;
-				var minor = document.querySelector('#minorCounters').checked;
-				neo4jd3.changeCounterLevel(hard, soft, minor);
-			}
-            function init() {
-                neo4jd3 = new Neo4jd3('#neo4jd3', {
+            let neo4jd3;
+            let neo4jd3Options = {
                     highlight: [
                     ],
                     icons: {
@@ -110,6 +102,8 @@
                     minCollision: 80,
                     neo4jDataUrl: 'json/r6OperatorCounters.json',
                     nodeRadius: 25,
+                    counters: [document.querySelector('#hardCounters').checked, document.querySelector('#softCounters').checked,
+                        document.querySelector('#minorCounters').checked],
                     onNodeDoubleClick: function(node) {
 
                     },
@@ -117,7 +111,10 @@
 
                     },
                     zoomFit: false
-                });
+                };
+
+            function init() {
+                neo4jd3 = new Neo4jd3('#neo4jd3', neo4jd3Options);
             }
 
             window.onload = init;
