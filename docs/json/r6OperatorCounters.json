@@ -566,7 +566,7 @@
                     }
                 }, {
                     "id": "28",
-                    "type": "Soft Counter",
+                    "type": "Minor Counter",
                     "startNode": "22",
                     "endNode": "18",
                     "properties": {
