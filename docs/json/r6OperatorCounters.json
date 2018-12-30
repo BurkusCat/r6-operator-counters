@@ -626,7 +626,7 @@
                     "startNode": "39",
                     "endNode": "42",
                     "properties": {
-                        "Description": "Thatcher's EMP Grenades can destroy Valkyrie's Black Eyes."
+                        "Description": "Thatcher's EMP Grenades can disable Valkyrie's Black Eyes for a short period of time."
                     }
                 }, {
                     "id": "36",
