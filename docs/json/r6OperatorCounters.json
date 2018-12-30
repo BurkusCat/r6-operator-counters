@@ -666,7 +666,7 @@
                     "startNode": "39",
                     "endNode": "13",
                     "properties": {
-                        "Description": "Thatcher's EMP Grenades can destroy Echo's Drone."
+                        "Description": "Thatcher's EMP Grenades disables Echo's Drone and forces it to the ground."
                     }
                 }, {
                     "id": "44",
