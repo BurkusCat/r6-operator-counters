@@ -192,7 +192,7 @@
                     "labels": ["Kapkan"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "GIGR",
+                        "organization": "Spetsnaz",
                         "operation": "N/A"
                     }
                 }, {
@@ -566,7 +566,7 @@
                     }
                 }, {
                     "id": "28",
-                    "type": "Soft Counter",
+                    "type": "Minor Counter",
                     "startNode": "22",
                     "endNode": "18",
                     "properties": {
@@ -626,7 +626,7 @@
                     "startNode": "39",
                     "endNode": "42",
                     "properties": {
-                        "Description": "Thatcher's EMP Grenades can destroy Valkyrie's Black Eyes."
+                        "Description": "Thatcher's EMP Grenades can disable Valkyrie's Black Eyes for a short period of time."
                     }
                 }, {
                     "id": "36",
@@ -666,7 +666,7 @@
                     "startNode": "39",
                     "endNode": "13",
                     "properties": {
-                        "Description": "Thatcher's EMP Grenades can destroy Echo's Drone."
+                        "Description": "Thatcher's EMP Grenades disables Echo's Drone and forces it to the ground."
                     }
                 }, {
                     "id": "44",
@@ -682,7 +682,7 @@
                     "startNode": "23",
                     "endNode": "19",
                     "properties": {
-                        "Description": "Kaid's Electroclaws can electrify reinforced walls. Hibana's X-KAIROS pellets will be instantly destroyed if they are on an electrified wall. Bandit can 'trick' Hibana's pellets."
+                        "Description": "Kaid's Electroclaws can electrify reinforced walls. Hibana's X-KAIROS pellets will be instantly destroyed if they are on an electrified wall. Kaid can 'trick' Hibana's pellets."
                     }
                 }, {
                     "id": "46",
@@ -730,7 +730,7 @@
                     "startNode": "12",
                     "endNode": "27",
                     "properties": {
-                        "Description": "Dokkaebi can hack a defender's phone to gain access to the Maverick's Evil Eye cameras. She cannot fire his cameras, however."
+                        "Description": "Dokkaebi can hack a defender's phone to gain access to the Maestro's Evil Eye cameras. She cannot fire his cameras, however."
                     }
                 }, {
                     "id": "52",
@@ -907,14 +907,6 @@
                     "endNode": "29",
                     "properties": {
                         "Description": "Twitch's Drone can easily pop out Mira' Black Mirrors."
-                    }
-                }, {
-                    "id": "73",
-                    "type": "Soft Counter",
-                    "startNode": "8",
-                    "endNode": "6",
-                    "properties": {
-                        "Description": "Castle's Armor Panels cannot easily be destroyed by Buck's Skeleton Key shotgun."
                     }
                 }, {
                     "id": "74",
@@ -1171,6 +1163,14 @@
                     "endNode": "1",
                     "properties": {
                         "Description": "Thatcher's EMP grenades can disable Alibi's Prisma for a short period of time."
+                    }
+                }, {
+                    "id": "107",
+                    "type": "Hard Counter",
+                    "startNode": "7",
+                    "endNode": "10",
+                    "properties": {
+                        "Description": "Capitão's Tactical Crossbow can fire asphyxiating bolts that can be used to easily take out Clash."
                     }
                 }]
             }
