@@ -909,14 +909,6 @@
                         "Description": "Twitch's Drone can easily pop out Mira' Black Mirrors."
                     }
                 }, {
-                    "id": "73",
-                    "type": "Soft Counter",
-                    "startNode": "8",
-                    "endNode": "6",
-                    "properties": {
-                        "Description": "Castle's Armor Panels cannot easily be destroyed by Buck's Skeleton Key shotgun."
-                    }
-                }, {
                     "id": "74",
                     "type": "Minor Counter",
                     "startNode": "43",
