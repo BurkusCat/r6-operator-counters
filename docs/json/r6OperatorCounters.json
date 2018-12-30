@@ -1164,6 +1164,14 @@
                     "properties": {
                         "Description": "Thatcher's EMP grenades can disable Alibi's Prisma for a short period of time."
                     }
+                }, {
+                    "id": "107",
+                    "type": "Hard Counter",
+                    "startNode": "7",
+                    "endNode": "10",
+                    "properties": {
+                        "Description": "Capitão's Tactical Crossbow can fire asphyxiating bolts that can be used to easily take out Clash."
+                    }
                 }]
             }
         }]
