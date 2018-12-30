@@ -682,7 +682,7 @@
                     "startNode": "23",
                     "endNode": "19",
                     "properties": {
-                        "Description": "Kaid's Electroclaws can electrify reinforced walls. Hibana's X-KAIROS pellets will be instantly destroyed if they are on an electrified wall. Bandit can 'trick' Hibana's pellets."
+                        "Description": "Kaid's Electroclaws can electrify reinforced walls. Hibana's X-KAIROS pellets will be instantly destroyed if they are on an electrified wall. Kaid can 'trick' Hibana's pellets."
                     }
                 }, {
                     "id": "46",
