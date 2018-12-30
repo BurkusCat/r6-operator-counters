@@ -68,16 +68,40 @@ function Neo4jD3(_selector, _options) {
                       .attr('class', 'nodes');
   
         svg.append("svg:defs").append("svg:marker")
-            .attr("id", "triangle")
+            .attr("id", "hardTriangle")
             .attr("refX", 2)
             .attr("refY", 2)
             .attr("markerWidth", 30)
             .attr("markerHeight", 30)
             .attr("markerUnits", "userSpaceOnUse")
-            .attr("orient", "auto")
+            .attr("orient", "0")
             .append("path")
-            .attr("d", "M 0 0 4 2 0 4 1 2")
-            .style("fill", "#a5abb6");
+            .attr("d", "M 0 0 8 2 0 4 1 2")
+            .attr("class", "hardcountertriangle");
+  
+        svg.append("svg:defs").append("svg:marker")
+            .attr("id", "softTriangle")
+            .attr("refX", 2)
+            .attr("refY", 2)
+            .attr("markerWidth", 30)
+            .attr("markerHeight", 30)
+            .attr("markerUnits", "userSpaceOnUse")
+            .attr("orient", "0")
+            .append("path")
+            .attr("d", "M 0 0 8 2 0 4 1 2")
+            .attr("class", "softcountertriangle");
+  
+        svg.append("svg:defs").append("svg:marker")
+            .attr("id", "minorTriangle")
+            .attr("refX", 2)
+            .attr("refY", 2)
+            .attr("markerWidth", 30)
+            .attr("markerHeight", 30)
+            .attr("markerUnits", "userSpaceOnUse")
+            .attr("orient", "0")
+            .append("path")
+            .attr("d", "M 0 0 8 2 0 4 1 2")
+            .attr("class", "minorcountertriangle");
     }
 
     function appendImageToNode(node) {
@@ -266,9 +290,25 @@ function Neo4jD3(_selector, _options) {
 
     function appendOutlineToRelationship(r) {
         return r.append('path')
-            .attr('class', 'outline link')
-            .attr('fill', '#a5abb6')
-            .attr("marker-end", "url(#triangle)");
+            .attr('class', function(d) {
+                if (d.type === 'Hard Counter') {
+                    return 'outline link hardcounter';
+                } else if (d.type === 'Soft Counter') {
+                    return 'outline link softcounter';
+                } else if (d.type === 'Minor Counter') {
+                    return 'outline link minorcounter';
+                }
+                return 'outline link';
+            })
+            .attr('marker-end', function(d) {
+                if (d.type === 'Hard Counter') {
+                    return 'url(#hardTriangle)';
+                } else if (d.type === 'Soft Counter') {
+                    return 'url(#softTriangle)';
+                } else {
+                    return 'url(#minorTriangle)';
+                }
+            });
     }
 
     function appendOverlayToRelationship(r) {
@@ -284,7 +324,8 @@ function Neo4jD3(_selector, _options) {
                 .attr('pointer-events', 'none')
                 .attr('text-anchor', 'middle')
                 .text(function(d) {
-                    var text = d.type;//builtRelations[`${d.startNode},${d.endNode},${d.type},`] ? '  '.repeat(d.type.length): d.type;
+                    var text = d.type;
+                    //builtRelations[`${d.startNode},${d.endNode},${d.type},`] ? '  '.repeat(d.type.length): d.type;
                     //builtRelations[`${d.endNode},${d.startNode},${d.type},`] = true;
                     builtRelations[d.endNode+','+d.startNode+','+d.type+','] = true;
                     return text;
