@@ -18,13 +18,12 @@ A graph visualisation of counterplay in Rainbow Six Siege.
 
 ## Running
 
-First of all, make sure you have [ruby](https://www.ruby-lang.org/en/downloads/) and sass gem installed. Then, clone the repository, install all dependencies, build and serve the project.
+Clone the repository, install all dependencies, build and serve the project.
 
 ```bash
-> gem install sass
 > git clone https://github.com/BurkusCat/r6-operator-counters.git
 > npm install
-> gulp
+> npm start
 ```
 
 Open `http://localhost:8080` in your favorite browser.
@@ -34,10 +33,11 @@ Open `http://localhost:8080` in your favorite browser.
 I am hoping that this project will be a fun place for open source newcomers (like myself). Feel free to take a look at the issues or come up with your own improvements for the project. I am happy to review pull requests and I can answer questions you might have.
 
 Key places to look if you want to update something in this project:
+
 ```
-Operator SVGs/Images - r6-operator-counters\docs\img\svg\
-The main webpage - r6-operator-counters\docs\index.html
-Neo4j JSON file with operator data - r6-operator-counters\docs\json\r6OperatorCounters
+Operator SVGs/Images - r6-operator-counters\src\images\svg\
+The main webpage - r6-operator-counters\src\index.html
+Neo4j JSON file with operator data - r6-operator-counters\src\json\r6OperatorCounters.json
 neo4jd3 enhancements such as styling - r6-operator-counter\src\main
 ```
 
