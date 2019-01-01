@@ -773,6 +773,14 @@
                         "Description": "If a defender's phone is dropped into barbed wire electrified by Kaid's Electroclaws, it is destroyed."
                     }
                 }, {
+                    "id": "110",
+                    "type": "Hard Counter",
+                    "startNode": "14",
+                    "endNode": "30",
+                    "properties": {
+                        "Description": "Ela's Grzmot mines also cause Montagne's shield to retract."
+                    }
+                }, {
                     "id": "56",
                     "type": "Soft Counter",
                     "startNode": "14",
