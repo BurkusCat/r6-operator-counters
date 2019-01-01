@@ -1172,6 +1172,22 @@
                     "properties": {
                         "Description": "Thatcher's EMP grenades can disable Alibi's Prisma for a short period of time."
                     }
+                }, {
+                    "id": "108",
+                    "type": "Minor Counter",
+                    "startNode": "11",
+                    "endNode": "7",
+                    "properties": {
+                        "Description": "Doc's stim pistol can heal damage done by Capitão's asphyxiation bolts."
+                    }
+                }, {
+                    "id": "109",
+                    "type": "Minor Counter",
+                    "startNode": "11",
+                    "endNode": "41",
+                    "properties": {
+                        "Description": "Doc's stim pistol can heal damage done by Twitch's shock drone."
+                    }
                 }]
             }
         }]
