@@ -9,7 +9,8 @@ var autoprefixer = require('gulp-autoprefixer'),
 gulp.task('static', function() {
 	gulp.src(conf.paths.src + '/html/index.html')
 	.pipe(gulp.dest(conf.paths.dist))
-	
+	gulp.src(conf.paths.src + '/humans.txt')
+	.pipe(gulp.dest(conf.paths.dist))	
 	gulp.src(conf.paths.src + '/json/r6OperatorCounters.json')
-    .pipe(gulp.dest(conf.paths.dist + '/json'));
+    	.pipe(gulp.dest(conf.paths.dist + '/json'));
 });

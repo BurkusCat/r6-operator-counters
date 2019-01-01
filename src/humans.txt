@@ -1,9 +1,0 @@
-Making a contribution to R6 Operator Counters? Feel free to add your name here along with one or two social media pages.
-
-/* CONTRIBUTORS */
-	Name: Ronan Burke
-	Twitter: @BurkusCat
-	YouTube: https://www.youtube.com/c/BurkusCat
-
-    Name: Alex Guzenski
-    Linkedin: https://www.linkedin.com/in/aguzenski/

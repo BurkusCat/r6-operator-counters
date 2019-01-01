@@ -3,4 +3,4 @@
 coverage
 node_modules
 target
-/dist/
+dist
