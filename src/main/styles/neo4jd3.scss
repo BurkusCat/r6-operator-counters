@@ -20,8 +20,6 @@ body {
 }
 
 .link {
-  stroke: #a5abb6;
-  fill: none;
 } 
 
 .neo4jd3-graph {
@@ -146,10 +144,6 @@ body {
 
 .relationship {
     cursor: default;
-
-    line {
-        stroke: #aaa;
-    }
 
     .outline {
         cursor: default;

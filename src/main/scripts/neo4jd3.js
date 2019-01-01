@@ -292,13 +292,13 @@ function Neo4jD3(_selector, _options) {
         return r.append('path')
             .attr('class', function(d) {
                 if (d.type === 'Hard Counter') {
-                    return 'outline link hardcounter';
+                    return 'outline hardcounter';
                 } else if (d.type === 'Soft Counter') {
-                    return 'outline link softcounter';
+                    return 'outline softcounter';
                 } else if (d.type === 'Minor Counter') {
-                    return 'outline link minorcounter';
+                    return 'outline minorcounter';
                 }
-                return 'outline link';
+                return 'outline';
             })
             .attr('marker-end', function(d) {
                 if (d.type === 'Hard Counter') {
