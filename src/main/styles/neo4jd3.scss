@@ -19,14 +19,6 @@ body {
     background-color: #333;
 }
 
-.link {
-} 
-
-.neo4jd3-graph {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
 .checkboxes {
     position: absolute; 
     bottom: 0; 
@@ -100,46 +92,6 @@ body {
         border: 1px solid rgb(154, 161, 172);
         color: white;
     }
-}
-
-.node {
-    &.node-highlighted {
-        .ring {
-            -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)';
-            filter: alpha(opacity=50);
-            opacity: .5;
-            stroke: #888;
-            stroke-width: 12px;
-        }
-    }
-
-    .outline {
-        cursor: pointer;
-        pointer-events: all;
-        stroke-width: 2px;
-    }
-
-    .ring {
-        fill: none;
-        -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
-        filter: alpha(opacity=0);
-        opacity: 0;
-        stroke: #6ac6ff;
-        stroke-width: 8px;
-    }
-
-    .text {
-        &.icon {
-            font-family: FontAwesome;
-        }
-    }
-}
-
-.node.selected .ring,
-.node:hover .ring {
-    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
-    filter: alpha(opacity=30);
-    opacity: .3;
 }
 
 .relationship {
