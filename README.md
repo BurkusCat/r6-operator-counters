@@ -36,9 +36,10 @@ Key places to look if you want to update something in this project:
 
 ```
 Operator SVGs/Images - r6-operator-counters\src\images\svg\
-The main webpage - r6-operator-counters\src\index.html
+The main webpage - r6-operator-counters\src\html\index.html
 Neo4j JSON file with operator data - r6-operator-counters\src\json\r6OperatorCounters.json
-neo4jd3 enhancements such as styling - r6-operator-counter\src\main
+Neo4jd3 script - r6-operator-counter\src\main\scripts\neo4jd3.js
+Stylesheets - r6-operator-counter\src\main\styles
 ```
 
 ## r6counters.com
