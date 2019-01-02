@@ -192,7 +192,7 @@
                     "labels": ["Kapkan"],
                     "properties": {
                         "side": "Defender",
-                        "organization": "GIGR",
+                        "organization": "Spetsnaz",
                         "operation": "N/A"
                     }
                 }, {
@@ -566,7 +566,7 @@
                     }
                 }, {
                     "id": "28",
-                    "type": "Soft Counter",
+                    "type": "Minor Counter",
                     "startNode": "22",
                     "endNode": "18",
                     "properties": {
@@ -626,7 +626,7 @@
                     "startNode": "39",
                     "endNode": "42",
                     "properties": {
-                        "Description": "Thatcher's EMP Grenades can destroy Valkyrie's Black Eyes."
+                        "Description": "Thatcher's EMP Grenades can disable Valkyrie's Black Eyes for a short period of time."
                     }
                 }, {
                     "id": "36",
@@ -666,7 +666,7 @@
                     "startNode": "39",
                     "endNode": "13",
                     "properties": {
-                        "Description": "Thatcher's EMP Grenades can destroy Echo's Drone."
+                        "Description": "Thatcher's EMP Grenades disables Echo's Drone and forces it to the ground."
                     }
                 }, {
                     "id": "44",
@@ -682,7 +682,7 @@
                     "startNode": "23",
                     "endNode": "19",
                     "properties": {
-                        "Description": "Kaid's Electroclaws can electrify reinforced walls. Hibana's X-KAIROS pellets will be instantly destroyed if they are on an electrified wall. Bandit can 'trick' Hibana's pellets."
+                        "Description": "Kaid's Electroclaws can electrify reinforced walls. Hibana's X-KAIROS pellets will be instantly destroyed if they are on an electrified wall. Kaid can 'trick' Hibana's pellets."
                     }
                 }, {
                     "id": "46",
@@ -730,7 +730,7 @@
                     "startNode": "12",
                     "endNode": "27",
                     "properties": {
-                        "Description": "Dokkaebi can hack a defender's phone to gain access to the Maverick's Evil Eye cameras. She cannot fire his cameras, however."
+                        "Description": "Dokkaebi can hack a defender's phone to gain access to the Maestro's Evil Eye cameras. She cannot fire his cameras, however."
                     }
                 }, {
                     "id": "52",
@@ -909,14 +909,6 @@
                         "Description": "Twitch's Drone can easily pop out Mira' Black Mirrors."
                     }
                 }, {
-                    "id": "73",
-                    "type": "Soft Counter",
-                    "startNode": "8",
-                    "endNode": "6",
-                    "properties": {
-                        "Description": "Castle's Armor Panels cannot easily be destroyed by Buck's Skeleton Key shotgun."
-                    }
-                }, {
                     "id": "74",
                     "type": "Minor Counter",
                     "startNode": "43",
@@ -982,7 +974,7 @@
                     }
                 }, {
                     "id": "82",
-                    "type": "Soft Counter",
+                    "type": "Hard Counter",
                     "startNode": "20",
                     "endNode": "42",
                     "properties": {
@@ -1187,6 +1179,86 @@
                     "endNode": "41",
                     "properties": {
                         "Description": "Doc's stim pistol can heal damage done by Twitch's shock drone."
+                    }
+                }, {
+                    "id": "110",
+                    "type": "Hard Counter",
+                    "startNode": "7",
+                    "endNode": "10",
+                    "properties": {
+                        "Description": "Capitão's Tactical Crossbow can fire asphyxiating bolts that can be used to easily take out Clash."
+                    }
+                }, {
+                    "id": "111",
+                    "type": "Soft Counter",
+                    "startNode": "44",
+                    "endNode": "22",
+                    "properties": {
+                        "Description": "Ying has the ability to place her Candela on a breachable surface releasing all 6 Flash Charges. This drains all three ADSs."
+                    }
+                }, {
+                    "id": "112",
+                    "type": "Soft Counter",
+                    "startNode": "39",
+                    "endNode": "10",
+                    "properties": {
+                        "Description": "Thatcher's EMP Grenades can temporarily disable Clash's taser."
+                    }
+                }, {
+                    "id": "113",
+                    "type": "Hard Counter",
+                    "startNode": "45",
+                    "endNode": "8",
+                    "properties": {
+                        "Description": "Zofia's Impact Grenades can destroy Castle's Armor Panels."
+                    }
+                }, {
+                    "id": "114",
+                    "type": "Hard Counter",
+                    "startNode": "45",
+                    "endNode": "27",
+                    "properties": {
+                        "Description": "Zofia's Impact Grenades can destroy Maestro's Evil Eye cameras while they are closed."
+                    }
+                }, {
+                    "id": "115",
+                    "type": "Hard Counter",
+                    "startNode": "2",
+                    "endNode": "27",
+                    "properties": {
+                        "Description": "Ash's Breaching Rounds can destroy Maestro's Evil Eye cameras while they are closed."
+                    }
+                }, {
+                    "id": "116",
+                    "type": "Soft Counter",
+                    "startNode": "15",
+                    "endNode": "9",
+                    "properties": {
+                        "Description": "Finka can use her Adrenal Surge to revive a downed ally preventing an interrogation from Caveira. This ally cannot be downed again."
+                    }
+                }, {
+                    "id": "117",
+                    "type": "Soft Counter",
+                    "startNode": "28",
+                    "endNode": "29",
+                    "properties": {
+                        "Description": "Although vulnerable while doing it, Maverick can use his Breaching Torch to drop the glass from Mira's Black Mirror from the opposite side of a reinforced wall."
+                    }
+                }, {
+                    "id": "118",
+                    "type": "Hard Counter",
+                    "startNode": "19",
+                    "endNode": "29",
+                    "properties": {
+                        "Description": "Hibana's X-KAIROS pellets can destroy Mira's Black Mirror."
+                    }
+                }, {
+                    "id": "119",
+                    "type": "Minor Counter",
+                    "startNode": "5",
+                    "endNode": "29",
+                    "properties": {
+                        "Description": "Blitz can use his Flash Shield to blind Defenders on the other side of Mira's Black Mirrors."
                     }
                 }]
             }
