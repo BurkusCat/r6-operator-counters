@@ -1242,10 +1242,10 @@
                     "startNode": "28",
                     "endNode": "29",
                     "properties": {
-                        "Description": "Although vulnerable while doing it, Maverick can use his Breaching Torn to drop the glass from Mira's Black Mirror from the opposite side of a reinforced wall."
+                        "Description": "Although vulnerable while doing it, Maverick can use his Breaching Torch to drop the glass from Mira's Black Mirror from the opposite side of a reinforced wall."
                     }
                 }, {
-                    "id": "18",
+                    "id": "118",
                     "type": "Hard Counter",
                     "startNode": "19",
                     "endNode": "29",
