@@ -58,42 +58,24 @@ function Neo4jD3(_selector, _options) {
 
         svgNodes = svg.append('g')
                       .attr('class', 'nodes');
-  
+        
+        addTriangleMarkerEnds(svg, 'hard');
+        addTriangleMarkerEnds(svg, 'soft');
+        addTriangleMarkerEnds(svg, 'minor');
+    }
+
+    function addTriangleMarkerEnds(svg, type) {
         svg.append("svg:defs").append("svg:marker")
-            .attr("id", "hardTriangle")
-            .attr("refX", 2)
-            .attr("refY", 2)
-            .attr("markerWidth", 30)
-            .attr("markerHeight", 30)
+            .attr("id", type + "Triangle")
+            .attr("refX", 3)
+            .attr("refY", 3)
+            .attr("markerWidth", 10)
+            .attr("markerHeight", 10)
             .attr("markerUnits", "userSpaceOnUse")
             .attr("orient", "0")
             .append("path")
-            .attr("d", "M 0 0 8 2 0 4 1 2")
-            .attr("class", "hardcountertriangle");
-  
-        svg.append("svg:defs").append("svg:marker")
-            .attr("id", "softTriangle")
-            .attr("refX", 2)
-            .attr("refY", 2)
-            .attr("markerWidth", 30)
-            .attr("markerHeight", 30)
-            .attr("markerUnits", "userSpaceOnUse")
-            .attr("orient", "0")
-            .append("path")
-            .attr("d", "M 0 0 8 2 0 4 1 2")
-            .attr("class", "softcountertriangle");
-  
-        svg.append("svg:defs").append("svg:marker")
-            .attr("id", "minorTriangle")
-            .attr("refX", 2)
-            .attr("refY", 2)
-            .attr("markerWidth", 30)
-            .attr("markerHeight", 30)
-            .attr("markerUnits", "userSpaceOnUse")
-            .attr("orient", "0")
-            .append("path")
-            .attr("d", "M 0 0 8 2 0 4 1 2")
-            .attr("class", "minorcountertriangle");
+            .attr("d", "M0,0 L0,6 L9,3 z")
+            .attr("class", type + "countertriangle");
     }
 
     function appendImageToNode(node) {
