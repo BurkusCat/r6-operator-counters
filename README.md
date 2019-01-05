@@ -45,6 +45,14 @@ Stylesheets - r6-operator-counter\src\main\styles
 ## r6counters.com
 Any pull requests that get merged into master will trigger a build of the website. This build will get published to AWS and will be hosted at [https://r6counters.com/](https://r6counters.com/) after a day.
 
+## Contributors
+Thank you to [all the contributors](https://github.com/BurkusCat/r6-operator-counters/graphs/contributors) to R6 Operator Counters.
+
+
+
+[View our humans.txt file with more info about this project's contributors.](
+https://raw.githubusercontent.com/BurkusCat/r6-operator-counters/master/src/main/humans.txt)
+
 ## What's coming?
 
 * More filtering
