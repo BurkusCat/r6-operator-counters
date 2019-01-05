@@ -557,6 +557,23 @@ function Neo4jD3(_selector, _options) {
         return simulation;
     }
 
+    /**
+     * Unreezes all nodes. This means they can be effected by simlulation forces
+     */
+    function unfreezeAllNodes() {
+        for(var i = 0; i < nodes.length; i++){
+            unfreezeNode(nodes[i]);
+        }
+    }
+
+    /**
+     * Freezes all nodes in their current position
+     */
+    function freezeAllNodes() {
+        for(var i = 0; i < nodes.length; i++){
+            freezeNode(nodes[i]);
+        }
+    }
     function loadNeo4jData() {
         nodes = [];
         relationships = [];
@@ -705,9 +722,30 @@ function Neo4jD3(_selector, _options) {
         };
     }
     
+    /**
+     * Used for dragging and sticking a node's position
+     * @param d the node being dragged 
+     */
     function stickNode(d) {
         d.fx = d3.event.x;
         d.fy = d3.event.y;
+    }
+
+    /**
+     * Freezes a node in its current position
+     * @param d the node to be frozen
+     */
+    function freezeNode(d) {
+        d.fx = d.x;
+        d.fy = d.y;
+    }
+
+    /**
+     * Unfreezes a node letting it be effected by simulation forces again
+     * @param d the node to be unfrozen
+     */
+    function unfreezeNode(d) {
+        d.fx = d.fy = null;
     }
 
     function tick() {
@@ -999,7 +1037,9 @@ function Neo4jD3(_selector, _options) {
         size: size,
         updateWithD3Data: updateWithD3Data,
         updateWithNeo4jData: updateWithNeo4jData,
-        version: version
+        version: version,
+        unfreezeAllNodes: unfreezeAllNodes,
+        freezeAllNodes: freezeAllNodes
     };
 }
 
