@@ -3,6 +3,12 @@
     padding: 0px;
 }
 
+:root {
+    --hard-counter-color: rgb(255, 213, 213);
+    --soft-counter-color: rgb(213, 213, 255);
+    --minor-counter-color: rgb(216, 255, 211);
+}
+
 body {
     font: 13px 'Helvetica Neue',Helvetica,Arial,sans-serif;
     font-size: 20px;
@@ -13,26 +19,41 @@ body {
     background-color: #333;
 }
 
-.link {
-  stroke: white;
-  stroke-opacity: 0.6;
-  fill: none;
-  //stroke-width: 0.5px;
-} 
-
-.neo4jd3-graph {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
 .checkboxes {
-    color:white;
     position: absolute; 
     bottom: 0; 
     left: 0;
     margin-left: 10px;
     margin-bottom: 5px;    
     font: 15px Helvetica Neue,Helvetica,Arial,sans-serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.hardcounter {
+    color: var(--hard-counter-color);
+    stroke: var(--hard-counter-color);
+}
+
+.softcounter {
+    color: var(--soft-counter-color);
+    stroke: var(--soft-counter-color);
+}
+
+.minorcounter {
+    color:var(--minor-counter-color);
+    stroke: var(--minor-counter-color);
+}
+
+.hardcountertriangle {
+    fill: var(--hard-counter-color);
+}
+
+.softcountertriangle {
+    fill: var(--soft-counter-color);
+}
+
+.minorcountertriangle {
+    fill: var(--minor-counter-color);
 }
 
 .neo4jd3-info {
@@ -73,54 +94,8 @@ body {
     }
 }
 
-.node {
-    &.node-highlighted {
-        .ring {
-            -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)';
-            filter: alpha(opacity=50);
-            opacity: .5;
-            stroke: #888;
-            stroke-width: 12px;
-        }
-    }
-
-    .outline {
-        cursor: pointer;
-        fill: rgb(165, 171, 182);
-        pointer-events: all;
-        stroke: rgb(154, 161, 172);
-        stroke-width: 2px;
-    }
-
-    .ring {
-        fill: none;
-        -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
-        filter: alpha(opacity=0);
-        opacity: 0;
-        stroke: #6ac6ff;
-        stroke-width: 8px;
-    }
-
-    .text {
-        &.icon {
-            font-family: FontAwesome;
-        }
-    }
-}
-
-.node.selected .ring,
-.node:hover .ring {
-    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
-    filter: alpha(opacity=30);
-    opacity: .3;
-}
-
 .relationship {
     cursor: default;
-
-    line {
-        stroke: #aaa;
-    }
 
     .outline {
         cursor: default;
