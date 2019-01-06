@@ -19,6 +19,32 @@ body {
     background-color: #333;
 }
 
+#startButton {
+    background:url(../img/site/simulation-play.jpg) no-repeat;
+    display: none;
+}
+
+#stopButton {
+    background:url(../img/site/simulation-pause.jpg) no-repeat;
+    display: block;
+}
+
+button {
+    transition: opacity 0.25s;
+    opacity: 0.5;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    width: 50px;
+    height: 50px;
+    border: none;
+}
+button:hover {
+    opacity: 1.0;
+}
+
 .checkboxes {
     position: absolute; 
     bottom: 0; 

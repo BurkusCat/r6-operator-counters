@@ -42,9 +42,11 @@
 			<input type="checkbox" id="softCounters" name="softCounters" checked onclick="init();"> 
 			<label for="softCounters" class="softcounter">Soft counters</label> 
 			<input type="checkbox" id="minorCounters" name="minorCounters" onclick="init();"> 
-			<label for="minorCounters" class="minorcounter">Minor counters</label> 
-		</div> 
- 
+			<label for="minorCounters" class="minorcounter">Minor counters</label>
+        </div>
+        <button id="startButton" onclick="unfreezeAllNodes();"></button>
+        <button id="stopButton" onclick="freezeAllNodes();"></button>
+
         <!-- Scripts --> 
         <script src="js/d3.min.js"></script> 
         <script src="js/neo4jd3.js?v=0.0.1"></script> 
@@ -114,12 +116,30 @@
  
                     }, 
                     zoomFit: false 
-                }; 
+                };
+
+            var startButton = document.getElementById("startButton"); 
+            var stopButton = document.getElementById("stopButton"); 
  
-            function init() { 
+            function init() {
+                startButton.style.display = "none"; 
+                stopButton.style.display = "block"; 
+
                 neo4jd3Options.counters = [document.querySelector('#hardCounters').checked, document.querySelector('#softCounters').checked, 
                         document.querySelector('#minorCounters').checked]; 
                 neo4jd3 = new Neo4jd3('#neo4jd3', neo4jd3Options); 
+            } 
+ 
+            function unfreezeAllNodes() { 
+                startButton.style.display = "none"; 
+                stopButton.style.display = "block"; 
+                neo4jd3.unfreezeAllNodes(); 
+            } 
+
+            function freezeAllNodes() { 
+                stopButton.style.display = "none"; 
+                startButton.style.display = "block"; 
+                neo4jd3.freezeAllNodes(); 
             } 
  
             window.onload = init; 

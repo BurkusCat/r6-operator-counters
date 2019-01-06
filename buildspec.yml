@@ -4,6 +4,7 @@ phases:
   pre_build:
     commands:
        - echo Installing source NPM dependencies...
+       - npm install
        - npm install --global gulp-cli
        - echo Finished installing NPM dependencies.
   build:
