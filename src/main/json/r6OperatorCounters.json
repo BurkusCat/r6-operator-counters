@@ -363,6 +363,22 @@
                         "organization": "GROM",
                         "operation": "Operation White Noise"
                     }
+                }, {
+                    "id": "46",
+                    "labels": ["Gridlock"],
+                    "properties": {
+                        "side": "Attacker",
+                        "organization": "SASR",
+                        "operation": "Operation Burnt Horizon"
+                    }
+                }, {
+                    "id": "47",
+                    "labels": ["Mozzie"],
+                    "properties": {
+                        "side": "Defender",
+                        "organization": "SASR",
+                        "operation": "Operation Burnt Horizon"
+                    }
                 }],
                 "relationships": [{
                     "id": "1",
