@@ -1316,6 +1316,14 @@
                     "properties": {
                         "Description": "Gridlock's Trax Stingers can impede Caveira's strong roaming capabilities."
                     }
+                }, {
+                    "id": "124",
+                    "type": "Soft Counter",
+                    "startNode": "7",
+                    "endNode": "29",
+                    "properties": {
+                        "Description": "Capitão's Tactical Crossbow can fire asphyxiating bolts that can be used to safely and easily flush out Defender's using Mira's Black Mirrors."
+                    }
                 }]
             }
         }]
