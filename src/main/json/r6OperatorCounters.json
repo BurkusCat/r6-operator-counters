@@ -1284,6 +1284,38 @@
                     "properties": {
                         "Description": "Blitz can use his Flash Shield to blind Defenders on the other side of Mira's Black Mirrors."
                     }
+                }, {
+                    "id": "120",
+                    "type": "Hard Counter",
+                    "startNode": "20",
+                    "endNode": "47",
+                    "properties": {
+                        "Description": "IQ's Electronics Detector can detect Mozzie's Pests or Attacker drones that have been hacked by a Pest."
+                    }
+                }, {
+                    "id": "121",
+                    "type": "Minor Counter",
+                    "startNode": "12",
+                    "endNode": "47",
+                    "properties": {
+                        "Description": "Dokkaebi can hack a defender's phone to gain access to drones hacked by Mozzie's Pests. Attackers, however, will not regain movement control of the drones."
+                    }
+                }, {
+                    "id": "122",
+                    "type": "Soft Counter",
+                    "startNode": "46",
+                    "endNode": "43",
+                    "properties": {
+                        "Description": "Gridlock's Trax Stingers can impede Vigil's strong roaming capabilities."
+                    }
+                }, {
+                    "id": "123",
+                    "type": "Soft Counter",
+                    "startNode": "46",
+                    "endNode": "9",
+                    "properties": {
+                        "Description": "Gridlock's Trax Stingers can impede Caveira's strong roaming capabilities."
+                    }
                 }]
             }
         }]
