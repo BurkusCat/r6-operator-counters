@@ -446,11 +446,11 @@
                     }
                 }, {
                     "id": "9",
-                    "type": "Soft Counter",
+                    "type": "Hard Counter",
                     "startNode": "31",
                     "endNode": "12",
                     "properties": {
-                        "Description": "When standing within range of Mute's Signal Disruptor, a defender's phone will not ring when Dokkaebi activates her Logic Bomb. It does not stop a phone that is already ringing, however."
+                        "Description": "When standing within range of Mute's Signal Disruptor, a defender's phone will not ring when Dokkaebi activates her Logic Bomb. A ringing phone will stop if you step within range of a Signal Disruptor."
                     }
                 }, {
                     "id": "10",
