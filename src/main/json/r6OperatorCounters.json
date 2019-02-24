@@ -363,6 +363,22 @@
                         "organization": "GROM",
                         "operation": "Operation White Noise"
                     }
+                }, {
+                    "id": "46",
+                    "labels": ["Gridlock"],
+                    "properties": {
+                        "side": "Attacker",
+                        "organization": "SASR",
+                        "operation": "Operation Burnt Horizon"
+                    }
+                }, {
+                    "id": "47",
+                    "labels": ["Mozzie"],
+                    "properties": {
+                        "side": "Defender",
+                        "organization": "SASR",
+                        "operation": "Operation Burnt Horizon"
+                    }
                 }],
                 "relationships": [{
                     "id": "1",
@@ -430,11 +446,11 @@
                     }
                 }, {
                     "id": "9",
-                    "type": "Soft Counter",
+                    "type": "Hard Counter",
                     "startNode": "31",
                     "endNode": "12",
                     "properties": {
-                        "Description": "When standing within range of Mute's Signal Disruptor, a defender's phone will not ring when Dokkaebi activates her Logic Bomb. It does not stop a phone that is already ringing, however."
+                        "Description": "When standing within range of Mute's Signal Disruptor, a defender's phone will not ring when Dokkaebi activates her Logic Bomb. A ringing phone will stop if you step within range of a Signal Disruptor."
                     }
                 }, {
                     "id": "10",
@@ -914,7 +930,7 @@
                     "startNode": "41",
                     "endNode": "29",
                     "properties": {
-                        "Description": "Twitch's Drone can easily pop out Mira' Black Mirrors."
+                        "Description": "Twitch's Drone can easily pop out Mira's Black Mirrors."
                     }
                 }, {
                     "id": "74",
@@ -1186,7 +1202,7 @@
                     "startNode": "11",
                     "endNode": "41",
                     "properties": {
-                        "Description": "Doc's stim pistol can heal damage done by Twitch's shock drone."
+                        "Description": "Doc's stim pistol can heal damage done by Twitch's Shock Drone."
                     }
                 }, {
                     "id": "110",
@@ -1267,6 +1283,54 @@
                     "endNode": "29",
                     "properties": {
                         "Description": "Blitz can use his Flash Shield to blind Defenders on the other side of Mira's Black Mirrors."
+                    }
+                }, {
+                    "id": "120",
+                    "type": "Hard Counter",
+                    "startNode": "20",
+                    "endNode": "47",
+                    "properties": {
+                        "Description": "IQ's Electronics Detector can detect Mozzie's Pests or Attacker drones that have been hacked by a Pest."
+                    }
+                }, {
+                    "id": "121",
+                    "type": "Minor Counter",
+                    "startNode": "12",
+                    "endNode": "47",
+                    "properties": {
+                        "Description": "Dokkaebi can hack a defender's phone to gain access to drones hacked by Mozzie's Pests. Attackers, however, will not regain movement control of the drones."
+                    }
+                }, {
+                    "id": "122",
+                    "type": "Soft Counter",
+                    "startNode": "46",
+                    "endNode": "43",
+                    "properties": {
+                        "Description": "Gridlock's Trax Stingers can impede Vigil's strong roaming capabilities."
+                    }
+                }, {
+                    "id": "123",
+                    "type": "Soft Counter",
+                    "startNode": "46",
+                    "endNode": "9",
+                    "properties": {
+                        "Description": "Gridlock's Trax Stingers can impede Caveira's strong roaming capabilities."
+                    }
+                }, {
+                    "id": "124",
+                    "type": "Soft Counter",
+                    "startNode": "7",
+                    "endNode": "29",
+                    "properties": {
+                        "Description": "Capitão's Tactical Crossbow can fire asphyxiating bolts that can be used to safely and easily flush out defenders using Mira's Black Mirrors."
+                    }
+                }, {
+                    "id": "125",
+                    "type": "Hard Counter",
+                    "startNode": "47",
+                    "endNode": "41",
+                    "properties": {
+                        "Description": "Mozzie's Pests can hack Twitch's Shock Drone. The hacked drone can still shoot darts."
                     }
                 }]
             }
