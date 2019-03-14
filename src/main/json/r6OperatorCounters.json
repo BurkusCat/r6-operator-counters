@@ -1332,6 +1332,14 @@
                     "properties": {
                         "Description": "Mozzie's Pests can hack Twitch's Shock Drone. The hacked drone can still shoot darts."
                     }
+                }, {
+                    "id": "126",
+                    "type": "Soft Counter",
+                    "startNode": "41",
+                    "endNode": "13",
+                    "properties": {
+                        "Description": "Twitch's drone can shoot down Echo's drone."
+                    }
                 }]
             }
         }]
