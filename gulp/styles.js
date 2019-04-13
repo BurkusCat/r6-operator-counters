@@ -13,6 +13,5 @@ gulp.task('styles', function() {
         .pipe(rename({ suffix: '.min' }))
         .pipe(sass())
         .pipe(gulp.dest(conf.paths.dist + '/css'))
-        .pipe(cssnano())
-        .pipe(connect.reload())
+        .pipe(cssnano());
 });
