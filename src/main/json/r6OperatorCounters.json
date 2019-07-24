@@ -1340,6 +1340,14 @@
                     "properties": {
                         "Description": "Twitch's drone can shoot down Echo's drone."
                     }
+                }, {
+                    "id": "127",
+                    "type": "Hard Counter",
+                    "startNode": "43",
+                    "endNode": "26",
+                    "properties": {
+                        "Description": "Vigil cannot be detected by Lion's EE-ONE-D drone scan when his ER7-C gadget is active."
+                    }
                 }]
             }
         }]
