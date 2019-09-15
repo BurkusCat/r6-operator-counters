@@ -1348,6 +1348,15 @@
                     "properties": {
                         "Description": "Vigil cannot be detected by Lion's EE-ONE-D drone scan when his ER7-C gadget is active."
                     }
+                }, 
+                {
+                    "id": "128",
+                    "type": "Soft Counter",
+                    "startNode": "18",
+                    "endNode": "37",
+                    "properties": {
+                        "Description": "The Thermal Feedback System on Glaz's OTs-03 can see through Smoke's Gas Grenades."
+                    }
                 }]
             }
         }]
