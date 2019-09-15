@@ -379,6 +379,38 @@
                         "organization": "SASR",
                         "operation": "Operation Burnt Horizon"
                     }
+                }, {
+                    "id": "48",
+                    "labels": ["Nøkk"],
+                    "properties": {
+                        "side": "Attacker",
+                        "organization": "JGK",
+                        "operation": "Operation Phantom Sight"
+                    }
+                }, {
+                    "id": "49",
+                    "labels": ["Warden"],
+                    "properties": {
+                        "side": "Defender",
+                        "organization": "USSS",
+                        "operation": "Operation Phantom Sight"
+                    }
+                }, {
+                    "id": "50",
+                    "labels": ["Amaru"],
+                    "properties": {
+                        "side": "Attacker",
+                        "organization": "APCA",
+                        "operation": "Operation Ember Rise"
+                    }
+                }, {
+                    "id": "51",
+                    "labels": ["Goyo"],
+                    "properties": {
+                        "side": "Defender",
+                        "organization": "FES",
+                        "operation": "Operation Ember Rise"
+                    }
                 }],
                 "relationships": [{
                     "id": "1",
