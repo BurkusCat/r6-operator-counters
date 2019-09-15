@@ -37,11 +37,11 @@
         <div id="neo4jd3"></div> 
         <a target="_blank" href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg" alt="Contribute on GitHub"></a> 
 		<div class="checkboxes">   
-			<input type="checkbox" id="hardCounters" name="hardCounters" checked onclick="init();"> 
+			<input type="radio" id="hardCounters" name="counters" checked onclick="init();"> 
 			<label for="hardCounters" class="hardcounter">Hard counters</label> 
-			<input type="checkbox" id="softCounters" name="softCounters" checked onclick="init();"> 
+			<input type="radio" id="softCounters" name="counters" onclick="init();"> 
 			<label for="softCounters" class="softcounter">Soft counters</label> 
-			<input type="checkbox" id="minorCounters" name="minorCounters" onclick="init();"> 
+			<input type="radio" id="minorCounters" name="counters" onclick="init();"> 
 			<label for="minorCounters" class="minorcounter">Minor counters</label>
         </div>
         <button id="startButton" onclick="unfreezeAllNodes();"></button>
