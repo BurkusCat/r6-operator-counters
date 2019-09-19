@@ -37,11 +37,11 @@
         <div id="neo4jd3"></div> 
         <a target="_blank" href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg" alt="Contribute on GitHub"></a> 
 		<div class="checkboxes">   
-			<input type="checkbox" id="hardCounters" name="hardCounters" checked onclick="init();"> 
+			<input type="radio" id="hardCounters" name="counters" checked onclick="init();"> 
 			<label for="hardCounters" class="hardcounter">Hard counters</label> 
-			<input type="checkbox" id="softCounters" name="softCounters" checked onclick="init();"> 
+			<input type="radio" id="softCounters" name="counters" onclick="init();"> 
 			<label for="softCounters" class="softcounter">Soft counters</label> 
-			<input type="checkbox" id="minorCounters" name="minorCounters" onclick="init();"> 
+			<input type="radio" id="minorCounters" name="counters" onclick="init();"> 
 			<label for="minorCounters" class="minorcounter">Minor counters</label>
         </div>
         <button id="startButton" onclick="unfreezeAllNodes();"></button>
@@ -59,6 +59,7 @@
                     }, 
                     images: { 
                         'Alibi': 'img/svg/alibi.svg', 
+                        'Amaru': 'img/svg/amaru.svg', 
                         'Ash': 'img/svg/ash.svg', 
                         'Bandit': 'img/svg/bandit.svg', 
                         'Blackbeard': 'img/svg/blackbeard.svg', 
@@ -76,6 +77,7 @@
                         'Frost': 'img/svg/frost.svg', 
                         'Fuze': 'img/svg/fuze.svg', 
                         'Glaz': 'img/svg/glaz.svg', 
+                        'Goyo': 'img/svg/goyo.svg', 
                         'Gridlock': 'img/svg/gridlock.svg', 
                         'Hibana': 'img/svg/hibana.svg', 
                         'IQ': 'img/svg/iq.svg', 
@@ -91,6 +93,7 @@
                         'Montagne': 'img/svg/montagne.svg', 
                         'Mozzie': 'img/svg/mozzie.svg', 
                         'Mute': 'img/svg/mute.svg', 
+                        'Nøkk': 'img/svg/nøkk.svg', 
                         'Nomad': 'img/svg/nomad.svg', 
                         'Pulse': 'img/svg/pulse.svg', 
                         'Recruit': 'img/svg/recruit-blue.svg', 
@@ -103,6 +106,7 @@
                         'Twitch': 'img/svg/twitch.svg', 
                         'Valkyrie': 'img/svg/valkyrie.svg', 
                         'Vigil': 'img/svg/vigil.svg', 
+                        'Warden': 'img/svg/warden.svg', 
                         'Ying': 'img/svg/ying.svg', 
                         'Zofia': 'img/svg/zofia.svg' 
                     }, 

@@ -379,6 +379,38 @@
                         "organization": "SASR",
                         "operation": "Operation Burnt Horizon"
                     }
+                }, {
+                    "id": "48",
+                    "labels": ["Nøkk"],
+                    "properties": {
+                        "side": "Attacker",
+                        "organization": "JGK",
+                        "operation": "Operation Phantom Sight"
+                    }
+                }, {
+                    "id": "49",
+                    "labels": ["Warden"],
+                    "properties": {
+                        "side": "Defender",
+                        "organization": "USSS",
+                        "operation": "Operation Phantom Sight"
+                    }
+                }, {
+                    "id": "50",
+                    "labels": ["Amaru"],
+                    "properties": {
+                        "side": "Attacker",
+                        "organization": "APCA",
+                        "operation": "Operation Ember Rise"
+                    }
+                }, {
+                    "id": "51",
+                    "labels": ["Goyo"],
+                    "properties": {
+                        "side": "Defender",
+                        "organization": "FES",
+                        "operation": "Operation Ember Rise"
+                    }
                 }],
                 "relationships": [{
                     "id": "1",
@@ -1348,9 +1380,105 @@
                     "properties": {
                         "Description": "Vigil cannot be detected by Lion's EE-ONE-D drone scan when his ER7-C gadget is active."
                     }
+                }, {
+                    "id": "128",
+                    "type": "Hard Counter",
+                    "startNode": "48",
+                    "endNode": "1",
+                    "properties": {
+                        "Description": "Nøkk's HEL allows her to walk through or attack Alibi's Prismas without triggering their tracking."
+                    }
+                }, {
+                    "id": "129",
+                    "type": "Soft Counter",
+                    "startNode": "48",
+                    "endNode": "13",
+                    "properties": {
+                        "Description": "Nøkk's HEL will remove her image from Echo's drones. Echo's drone will show that she is nearby, however."
+                    }
+                }, {
+                    "id": "130",
+                    "type": "Soft Counter",
+                    "startNode": "48",
+                    "endNode": "47",
+                    "properties": {
+                        "Description": "Nøkk's HEL will remove her image from Mozzie's stolen drones. The hacked drones can still detect when she is nearby, however."
+                    }
+                }, {
+                    "id": "131",
+                    "type": "Hard Counter",
+                    "startNode": "48",
+                    "endNode": "42",
+                    "properties": {
+                        "Description": "Nøkk's HEL will remove her image from Valkyrie's Black Eye cameras."
+                    }
+                }, {
+                    "id": "132",
+                    "type": "Hard Counter",
+                    "startNode": "48",
+                    "endNode": "27",
+                    "properties": {
+                        "Description": "Nøkk's HEL will remove her image from Maestro's Evil Eye cameras."
+                    }
+                }, {
+                    "id": "133",
+                    "type": "Hard Counter",
+                    "startNode": "20",
+                    "endNode": "49",
+                    "properties": {
+                        "Description": "IQ's Electronics Detector can detect Warden's smart glasses when they are active."
+                    }
+                }, {
+                    "id": "134",
+                    "type": "Hard Counter",
+                    "startNode": "39",
+                    "endNode": "49",
+                    "properties": {
+                        "Description": "Thatcher's EMP grenades can disable Warden's smart glasses."
+                    }
+                }, {
+                    "id": "135",
+                    "type": "Hard Counter",
+                    "startNode": "49",
+                    "endNode": "44",
+                    "properties": {
+                        "Description": "Warden's smart glasses resist the flashes of Ying's Candelas."
+                    }
+                }, {
+                    "id": "136",
+                    "type": "Hard Counter",
+                    "startNode": "8",
+                    "endNode": "50",
+                    "properties": {
+                        "Description": "Castle's Armor Panels prevent Amaru's Garra Hook from targeting windows."
+                    }
+                }, {
+                    "id": "137",
+                    "type": "Hard Counter",
+                    "startNode": "24",
+                    "endNode": "50",
+                    "properties": {
+                        "Description": "Amaru cannot shoot Kapkan's Entry Denial Devices when she is grappling to a window. She is gauranteed to be hit by the trap."
+                    }
+                }, {
+                    "id": "138",
+                    "type": "Hard Counter",
+                    "startNode": "16",
+                    "endNode": "50",
+                    "properties": {
+                        "Description": "Amaru cannot shoot Frost's Welcome Mats when she is grappling to a window. She is gauranteed to be hit by the trap."
+                    }
+                }, {
+                    "id": "139",
+                    "type": "Minor Counter",
+                    "startNode": "51",
+                    "endNode": "41",
+                    "properties": {
+                        "Description": "Goyo's Volcán Shield cannot be detonated by Twitch's Drones."
+                    }
                 }, 
                 {
-                    "id": "128",
+                    "id": "140",
                     "type": "Soft Counter",
                     "startNode": "18",
                     "endNode": "37",
