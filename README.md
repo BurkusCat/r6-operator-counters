@@ -60,4 +60,4 @@ https://raw.githubusercontent.com/BurkusCat/r6-operator-counters/master/src/main
 
 ## Copyright and license
 
-Code and documentation copyright 2018 the author. Code released under the [MIT license](LICENSE). Docs released under [Creative Commons](docs/LICENSE).
+Code and documentation copyright 2019 the author. Code released under the [MIT license](LICENSE). Docs released under [Creative Commons](docs/LICENSE).
