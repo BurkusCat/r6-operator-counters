@@ -1492,7 +1492,7 @@
                     "startNode": "12",
                     "endNode": "9",
                     "properties": {
-                        "Description": "Dokkaebi can ring Caveira's phone if she was sneaking around nearby."
+                        "Description": "Dokkaebi can use her Logic Bomb to ring Caveria's phone. This will reveal Caveria's position when roaming even if Silent Step is active."
                     }
                 }]
             }
