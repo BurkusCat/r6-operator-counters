@@ -1487,12 +1487,12 @@
                     }
                 },
                 {
-                    "id": "141",
+                    "id": "142",
                     "type": "Minor Counter",
                     "startNode": "12",
                     "endNode": "9",
                     "properties": {
-                        "Description": "Dokkaebi can ring Dokkaebi's phone if she was sneaking around nearby."
+                        "Description": "Dokkaebi can ring Caveira's phone if she was sneaking around nearby."
                     }
                 }]
             }
