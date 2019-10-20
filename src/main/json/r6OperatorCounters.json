@@ -1485,6 +1485,15 @@
                     "properties": {
                         "Description": "The Thermal Feedback System on Glaz's OTs-03 can see through Smoke's Gas Grenades."
                     }
+                },
+                {
+                    "id": "141",
+                    "type": "Minor Counter",
+                    "startNode": "12",
+                    "endNode": "9",
+                    "properties": {
+                        "Description": "Dokkaebi can ring Dokkaebi's phone if she was sneaking around nearby."
+                    }
                 }]
             }
         }]
