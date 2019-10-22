@@ -1485,14 +1485,24 @@
                     "properties": {
                         "Description": "The Thermal Feedback System on Glaz's OTs-03 can see through Smoke's Gas Grenades."
                     }
-                }, {
+                },
+                {
                     "id": "141",
                     "type": "Soft Counter",
                     "startNode": "20",
                     "endNode": "23",
                     "properties": {
                         "Description": "IQ's Electronics Detector can detect and shoot Kaid's electroclaws through breakable surfaces."
-                    } 
+                    }
+                },
+                {
+                    "id": "142",
+                    "type": "Minor Counter",
+                    "startNode": "12",
+                    "endNode": "9",
+                    "properties": {
+                        "Description": "Dokkaebi can use her Logic Bomb to ring Caveria's phone. This will reveal Caveria's position when roaming even if Silent Step is active."
+                    }
                 }]
             }
         }]
