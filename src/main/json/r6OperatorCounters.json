@@ -1487,6 +1487,15 @@
                     }
                 },
                 {
+                    "id": "141",
+                    "type": "Soft Counter",
+                    "startNode": "20",
+                    "endNode": "23",
+                    "properties": {
+                        "Description": "IQ's Electronics Detector can detect and shoot Kaid's electroclaws through breakable surfaces."
+                    }
+                },
+                {
                     "id": "142",
                     "type": "Minor Counter",
                     "startNode": "12",
