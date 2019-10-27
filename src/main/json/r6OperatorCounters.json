@@ -1476,7 +1476,7 @@
                     "properties": {
                         "Description": "Goyo's Volcán Shield cannot be detonated by Twitch's Drones."
                     }
-                }, 
+                },
                 {
                     "id": "140",
                     "type": "Soft Counter",
@@ -1502,6 +1502,33 @@
                     "endNode": "9",
                     "properties": {
                         "Description": "Dokkaebi can use her Logic Bomb to ring Caveria's phone. This will reveal Caveria's position when roaming even if Silent Step is active."
+                    }
+                },
+                {
+                  "id": "143",
+                  "type": "Hard Counter",
+                  "startNode": "48".
+                  "endNode": "47",
+                  "properties": {
+                      "Description": "Nøkk's HEL will remove her image from Mozzie's drones."
+                  }
+                },
+                {
+                    "id": "144",
+                    "type": "Hard Counter",
+                    "startNode": "39",
+                    "endNode": "47",
+                    "properties": {
+                        "Description": "Thatcher's EMP Grenades can destroy Mozzie's Pests"
+                    }
+                },
+                {
+                    "id": "144",
+                    "type": "Soft Counter",
+                    "startNode": "39",
+                    "endNode": "43",
+                    "properties": {
+                        "Description": "Thatcher's EMP Grenades can temporarily disable Vigil's ERC-7"
                     }
                 }]
             }
