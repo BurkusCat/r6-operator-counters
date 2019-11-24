@@ -62,7 +62,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-ruby-sass": "^2.1.0",
-    "gulp-uglify": "^2.0.0",
+    "gulp-terser": "^1.2.0",
     "gulp-uncache": "^0.4.0-beta1",
     "gulp-util": "^3.0.7",
     "hoek": ">=4.2.1",
