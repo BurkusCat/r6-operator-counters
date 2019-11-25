@@ -17,7 +17,7 @@ var _ = require('lodash'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     source = require('vinyl-source-stream'),
-    uglify = require('gulp-uglify'),
+    terser = require('gulp-terser'),
     watchify = require('watchify');
 
 gulp.task('scripts', ['scripts:internal'], function() {
@@ -31,7 +31,7 @@ gulp.task('scripts:internal', ['scripts:jshint','scripts:derequire'], function()
     return gulp.src(conf.paths.dist + '/js/neo4jd3.js')
         .pipe(concat('neo4jd3.js'))
         .pipe(gulp.dest(conf.paths.dist + '/js'))
-        .pipe(uglify())
+        .pipe(terser())
         .pipe(gulp.dest(conf.paths.dist + '/js'));
 });
 
@@ -80,7 +80,7 @@ function buildScript(filename, mode) {
             .pipe(source(bundleFilename))
             .pipe(derequire())
             .pipe(buffer())
-            .pipe(gulpif(mode === 'prod', uglify({ mangle: true })))
+            .pipe(gulpif(mode === 'prod', terser({ mangle: true })))
             .pipe(concat('neo4jd3.js'))
             .pipe(gulp.dest(conf.paths.dist + '/js'));
     }
