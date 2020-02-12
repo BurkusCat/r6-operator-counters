@@ -1458,7 +1458,7 @@
                     "startNode": "24",
                     "endNode": "50",
                     "properties": {
-                        "Description": "Amaru cannot shoot Kapkan's Entry Denial Devices when she is grappling to a window. She is gauranteed to be hit by the trap."
+                        "Description": "Amaru cannot shoot Kapkan's Entry Denial Devices when she is grappling to a window. She is guaranteed to be hit by the trap."
                     }
                 }, {
                     "id": "138",
@@ -1466,7 +1466,7 @@
                     "startNode": "16",
                     "endNode": "50",
                     "properties": {
-                        "Description": "Amaru cannot shoot Frost's Welcome Mats when she is grappling to a window. She is gauranteed to be hit by the trap."
+                        "Description": "Amaru cannot shoot Frost's Welcome Mats when she is grappling to a window. She is guaranteed to be hit by the trap."
                     }
                 }, {
                     "id": "139",
