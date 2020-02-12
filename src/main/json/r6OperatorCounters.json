@@ -33,8 +33,7 @@
                     "properties": {
                         "side": "Attacker",
                         "organization": "SEALs",
-                        "operation": "Operation Dust Line"
-                    }
+                        "operation": "Operation Dust Line" }
                 }, {
                     "id": "5",
                     "labels": ["Blitz"],
@@ -1454,7 +1453,7 @@
                     }
                 }, {
                     "id": "137",
-                    "type": "Hard Counter",
+                    "type": "Minor Counter",
                     "startNode": "24",
                     "endNode": "50",
                     "properties": {
