@@ -1429,7 +1429,7 @@
                     }
                 }, {
                     "id": "134",
-                    "type": "Hard Counter",
+                    "type": "Soft Counter",
                     "startNode": "39",
                     "endNode": "49",
                     "properties": {
