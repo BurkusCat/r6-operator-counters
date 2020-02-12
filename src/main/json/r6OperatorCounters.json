@@ -33,8 +33,7 @@
                     "properties": {
                         "side": "Attacker",
                         "organization": "SEALs",
-                        "operation": "Operation Dust Line"
-                    }
+                        "operation": "Operation Dust Line" }
                 }, {
                     "id": "5",
                     "labels": ["Blitz"],
@@ -1430,7 +1429,7 @@
                     }
                 }, {
                     "id": "134",
-                    "type": "Hard Counter",
+                    "type": "Soft Counter",
                     "startNode": "39",
                     "endNode": "49",
                     "properties": {
@@ -1454,11 +1453,11 @@
                     }
                 }, {
                     "id": "137",
-                    "type": "Hard Counter",
+                    "type": "Minor Counter",
                     "startNode": "24",
                     "endNode": "50",
                     "properties": {
-                        "Description": "Amaru cannot shoot Kapkan's Entry Denial Devices when she is grappling to a window. She is gauranteed to be hit by the trap."
+                        "Description": "Amaru cannot shoot Kapkan's Entry Denial Devices when she is grappling to a window. She is guaranteed to be hit by the trap."
                     }
                 }, {
                     "id": "138",
@@ -1466,7 +1465,7 @@
                     "startNode": "16",
                     "endNode": "50",
                     "properties": {
-                        "Description": "Amaru cannot shoot Frost's Welcome Mats when she is grappling to a window. She is gauranteed to be hit by the trap."
+                        "Description": "Amaru cannot shoot Frost's Welcome Mats when she is grappling to a window. She is guaranteed to be hit by the trap."
                     }
                 }, {
                     "id": "139",
