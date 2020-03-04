@@ -1,22 +1,21 @@
 'use strict';
 
 var gulp = require('gulp'),
-    plumber = require('gulp-plumber'),
     Server = require('karma').Server;
 
 process.env.NODE_PATH = process.cwd();
 
-gulp.task('test:client', function(done) {
+function test_client(done) {
     var configFile = require('path').resolve('karma.conf.js');
 
-    new Server({
+    return new Server({
         configFile: configFile,
         singleRun: true
     }, done).start();
-});
+};
 
-gulp.task('watch:test', function() {
-    gulp.watch(['src/main/scripts/**/*.js', 'src/test/scripts/**/*.js'], ['test:client']);
-});
+function watch_test() {
+    gulp.watch(['src/main/scripts/**/*.js', 'src/test/scripts/**/*.js'], test_client);
+};
 
-gulp.task('test', gulp.series('test:client'));
+exports.default = gulp.series(test_client, watch_test);
