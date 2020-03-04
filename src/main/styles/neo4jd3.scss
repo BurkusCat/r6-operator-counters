@@ -1,0 +1,153 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --hard-counter-color: rgb(255, 213, 213);
+    --soft-counter-color: rgb(213, 213, 255);
+    --minor-counter-color: rgb(216, 255, 211);
+}
+
+body {
+    font: 13px 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 20px;
+	background-image: url("../img/site/black-mist.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    background-color: #333;
+}
+
+#startButton {
+    background:url(../img/site/simulation-play.jpg) no-repeat;
+    display: none;
+}
+
+#stopButton {
+    background:url(../img/site/simulation-pause.jpg) no-repeat;
+    display: block;
+}
+
+button {
+    transition: opacity 0.25s;
+    opacity: 0.5;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    width: 50px;
+    height: 50px;
+    border: none;
+}
+button:hover {
+    opacity: 1.0;
+}
+
+.checkboxes {
+    position: absolute; 
+    bottom: 0; 
+    left: 0;
+    margin-left: 10px;
+    margin-bottom: 5px;    
+    font: 15px Helvetica Neue,Helvetica,Arial,sans-serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.hardcounter {
+    color: var(--hard-counter-color);
+    stroke: var(--hard-counter-color);
+}
+
+.softcounter {
+    color: var(--soft-counter-color);
+    stroke: var(--soft-counter-color);
+}
+
+.minorcounter {
+    color:var(--minor-counter-color);
+    stroke: var(--minor-counter-color);
+}
+
+.hardcountertriangle {
+    fill: var(--hard-counter-color);
+}
+
+.softcountertriangle {
+    fill: var(--soft-counter-color);
+}
+
+.minorcountertriangle {
+    fill: var(--minor-counter-color);
+}
+
+.neo4jd3-info {
+    font-size: 16px;
+    padding: 10px;
+    position: absolute;
+
+    a {
+        border: 1px solid;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1.428571429;
+        margin-left: 5px;
+        margin-top: 5px;
+        padding: 6px 12px;
+
+        &.class {
+            color: white;
+        }
+
+        &.property {
+            background-color: #fff;
+            border-color: #ccc;
+            color: #333;
+        }
+    }
+
+    a.btn {
+        margin-left: 5px;
+        margin-top: 5px;
+        opacity: 1;
+    }
+
+    a.info {
+        background-color: rgb(165, 171, 182);
+        border: 1px solid rgb(154, 161, 172);
+        color: white;
+    }
+}
+
+.relationship {
+    cursor: default;
+
+    .outline {
+        cursor: default;
+    }
+
+    .overlay {
+        cursor: default;
+        fill: #6ac6ff;
+        -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+        filter: alpha(opacity=0);
+        opacity: 0;
+    }
+
+    text {
+        cursor: default;
+        color: #ffffff;
+    }
+}
+
+.relationship.selected .overlay,
+.relationship:hover .overlay {
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
+    filter: alpha(opacity=30);
+    opacity: .3;
+}
+
+svg {
+    cursor: move;
+}

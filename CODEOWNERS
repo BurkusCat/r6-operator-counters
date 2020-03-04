@@ -1,0 +1,2 @@
+# buildspec.yml needs to be a protected file as it is used to define how the app should be deployed.
+buildspec.yml @BurkusCat

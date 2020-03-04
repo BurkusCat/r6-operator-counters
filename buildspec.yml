@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+       - echo Installing source NPM dependencies...
+       - npm install
+       - npm install --global gulp-cli
+       - echo Finished installing NPM dependencies.
+  build:
+    commands:
+       - echo Building...
+       - gulp build
+       - echo Finished build.
+  post_build:
+    commands:
+       - echo Syncing site to S3 bucket...
+       - export LC_ALL=C.UTF-8
+       - cd dist && aws s3 sync --cache-control max-age=86400 --acl public-read --delete . "${S3_BUCKET_URL}"
+       - echo Finished sync.
+       - echo Invalidating CloudFront Edge Cache...
+       - aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths /*
+       - echo Finished invalidating CloudFront Edge Cache.
