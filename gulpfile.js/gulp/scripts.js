@@ -22,18 +22,22 @@ var _ = require('lodash'),
 
 function scripts_start() {
     return gulp.src([
-            conf.paths.src + '/scripts/d3.min.js'
+            conf.paths.src + '/scripts/d3.min.js',
+            conf.paths.src + '/scripts/neo4jd3.js'
         ])
         .pipe(gulp.dest(conf.paths.dist + '/js'));
 };
 
 function scripts_internal() {
-    return gulp.src(conf.paths.dist + '/js/neo4jd3.js')
-        .pipe(concat('neo4jd3.js'))
+    return gulp.src([
+        conf.paths.dist + '/js/neo4jd3.js'
+    ])
+        .pipe(concat('neo4jd3'))
         .pipe(gulp.dest(conf.paths.dist + '/js'))
         .pipe(terser())
         .pipe(gulp.dest(conf.paths.dist + '/js'));
 };
+
 
 function scripts_jshint() {
     return gulp.src('src/main/scripts/neo4jd3.js')
@@ -47,7 +51,7 @@ function scripts_derequire() {
     return buildScript(entryFile, 'dev');
 };
 
-function buildScript(filename, mode) {
+async function buildScript(filename, mode) {
     var bundleFilename = 'index.js';
 
     var browserifyConfig = {
@@ -57,16 +61,16 @@ function buildScript(filename, mode) {
     var bundler;
 
     if (mode === 'dev') {
-        bundler = browserify(filename, _.extend(browserifyConfig, { debug: true }));
+        return bundler = browserify(filename, _.extend(browserifyConfig, { debug: true }));
     } else if (mode === 'prod') {
-        bundler = browserify(filename, browserifyConfig);
+        return bundler = browserify(filename, browserifyConfig);
     } else if (mode === 'watch') {
         if (cached[filename]) {
             return cached[filename].bundle();
         }
 
         bundler = watchify(browserify(filename, _.extend(browserifyConfig, watchify.args, { debug: true })));
-        cached[filename] = bundler;
+        return cached[filename] = bundler;
     }
 
     function rebundle() {
@@ -100,5 +104,5 @@ function error(err) {
     gutil.log(gutil.colors.red('Error: ' + err));
     this.emit('end');
 }
-const script = gulp.series(scripts_start, scripts_internal, gulp.parallel(scripts_jshint, scripts_derequire));
+const script = gulp.series(scripts_start, scripts_internal, scripts_jshint, scripts_derequire);
 exports.default = script;
