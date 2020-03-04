@@ -7,8 +7,7 @@ var conf = require('./conf'),
 
 function images() {
     return gulp.src(conf.paths.src + '/images/**/*')
-    // !FIX THIS LATER
-        // .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
         .pipe(gulp.dest(conf.paths.dist + '/img'))
         .pipe(connect.reload());
 };
