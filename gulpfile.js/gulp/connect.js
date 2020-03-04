@@ -1,9 +1,8 @@
 'use strict';
 
 var conf = require('./conf'),
-    gulpConnect = require('gulp-connect'),
-    gulp = require('gulp');
-
+    gulpConnect = require('gulp-connect');
+    
 function connect() {
     return gulpConnect.server({
         livereload: true,

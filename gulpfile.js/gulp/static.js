@@ -1,11 +1,7 @@
 'use strict';
 
-var autoprefixer = require('gulp-autoprefixer'),
-    conf = require('./conf'),
-    connect = require('gulp-connect'),
-    gulp = require('gulp'),
-    sass = require('gulp-sass');
-
+    var conf = require('./conf'),
+    gulp = require('gulp');
 
 
 function index() {

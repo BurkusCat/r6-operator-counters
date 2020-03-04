@@ -1,8 +1,6 @@
 'use strict';
 
-var autoprefixer = require('gulp-autoprefixer'),
-    conf = require('./conf'),
-    connect = require('gulp-connect'),
+    var conf = require('./conf'),
     cssnano = require('gulp-cssnano'),
     gulp = require('gulp'),
     rename = require('gulp-rename'),

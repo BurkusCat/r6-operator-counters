@@ -11,12 +11,8 @@ let node_modules = require('./gulp/node_modules').default;
 let runStatic = require('./gulp/static').default;
 let connect = require('./gulp/connect').default;
 let watch = require('./gulp/watch').default;
+let test = require('./gulp/test').default;
 
-// function defaultTask(cb) {
-//     // place code for your default task here
-//     gulp.series(clean, images, scripts, styles, node_modules, runStatic, connect, watch);
-//     cb();
-//   }
+exports.default = gulp.series(clean, images, scripts, styles, node_modules, runStatic, connect, watch);
 
-  exports.default = gulp.series(clean, images, scripts, styles, node_modules, runStatic, connect, watch);
-
+exports.test = gulp.series(test);
