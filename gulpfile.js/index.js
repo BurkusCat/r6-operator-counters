@@ -14,5 +14,6 @@ let watch = require('./gulp/watch').default;
 let test = require('./gulp/test').default;
 
 exports.default = gulp.series(clean, images, scripts, styles, node_modules, runStatic, connect, watch);
+exports.build = gulp.series(clean, images, scripts, styles, node_modules, runStatic, connect, watch);
 
 exports.test = gulp.series(test);
