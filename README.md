@@ -28,6 +28,10 @@ Clone the repository, install all dependencies, build and serve the project.
 
 Open `http://localhost:8080` in your favorite browser.
 
+### Building the project for a release
+
+Use the `gulp build` command to build a static version of the website to the "dist" folder. This will prepare all the site assets and optimise them to be hosted in an AWS S3 storage bucket.
+
 ## How to contribute
 
 I am hoping that this project will be a fun place for open source newcomers (like myself). Feel free to take a look at the issues or come up with your own improvements for the project. I am happy to review pull requests and I can answer questions you might have.

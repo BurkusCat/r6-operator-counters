@@ -1,5 +1,5 @@
 <!doctype html> 
-<html> 
+<html lang="en"> 
     <head> 
         <!-- Global site tag (gtag.js) - Google Analytics --> 
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131330692-1"></script> 
@@ -21,12 +21,10 @@
         <meta name="viewport" content="width=device-width"> 
         <title>Rainbow Six Siege Operator Counters</title> 
  
-        <link rel="apple-touch-icon" href="img/site/favicon.ico" /> 
-        <link rel="shortcut icon" href="img/site/favicon.ico" /> 
-        <link rel="stylesheet" href="css/bootstrap.min.css"> 
-        <link rel="stylesheet" href="css/font-awesome.min.css"> 
-        <link rel="stylesheet" href="css/neo4jd3.min.css?v=0.0.1"> 
-        <link type="text/plain" rel="author" href="https://r6counters.com/humans.txt" /> 
+        <link rel="apple-touch-icon" href="img/site/favicon.ico" />
+        <link rel="shortcut icon" href="img/site/favicon.ico" />
+        <link rel="stylesheet" href="css/neo4jd3.min.css?v=0.0.1">
+        <link type="text/plain" rel="author" href="https://r6counters.com/humans.txt" />
         <style> 
             body, 
             html, 
@@ -37,8 +35,8 @@
         </style> 
     </head> 
     <body> 
-        <div id="neo4jd3"></div> 
-        <a target="_blank" href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg" alt="Contribute on GitHub"></a> 
+        <main id="neo4jd3"></main> 
+        <a target="_blank" rel="noopener" href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg" alt="Contribute on GitHub"></a> 
 		<div class="checkboxes">   
 			<input type="radio" id="hardCounters" name="counters" checked> 
 			<label for="hardCounters" class="hardcounter">Hard counters</label> 
@@ -47,8 +45,8 @@
 			<input type="radio" id="minorCounters" name="counters" > 
 			<label for="minorCounters" class="minorcounter">Minor counters</label>
         </div>
-        <button id="startButton" ></button>
-        <button id="stopButton" ></button>
+        <button id="startButton" aria-label="Start simulation button"></button>
+        <button id="stopButton" aria-label="Stop simulation button"></button>
 
         <script type="module"> 
             import Neo4jD3 from './js/neo4jd3.js';
