@@ -13,11 +13,7 @@ let connect = require('./gulp/connect').default;
 let watch = require('./gulp/watch').default;
 let test = require('./gulp/test').default;
 
-exports.default = runSeries();
-exports.build = runSeries();
-
-function runSeries() {
-  return gulp.series(clean, images, scripts, styles, node_modules, runStatic, connect, watch);
-}
+exports.default = gulp.series(clean, images, scripts, styles, node_modules, runStatic, connect, watch);
+exports.build = gulp.series(clean, images, scripts, styles, node_modules, runStatic);
 
 exports.test = gulp.series(test);
