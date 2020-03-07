@@ -35,14 +35,22 @@
         </style> 
     </head> 
     <body> 
-        <main id="neo4jd3"></main> 
+        <main id="neo4jd3"></main>
         <a target="_blank" rel="noopener" href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg" alt="Contribute on GitHub"></a> 
-		<div class="checkboxes">   
-			<input type="radio" id="hardCounters" name="counters" checked> 
-			<label for="hardCounters" class="hardcounter">Hard counters</label> 
-			<input type="radio" id="softCounters" name="counters" > 
-			<label for="softCounters" class="softcounter">Soft counters</label> 
-			<input type="radio" id="minorCounters" name="counters" > 
+		<div class="checkboxes">
+			<input type="checkbox" id="highQualityCheckbox"> 
+            <label for="highQualityCheckbox" id="highQualityLabel">High quality (slow)</label>
+            <br>
+
+			<input type="checkbox" id="hardCounters" class="counterCheckbox" checked> 
+            <label for="hardCounters" class="hardcounter">Hard counters</label>
+            <br>
+
+			<input type="checkbox" id="softCounters" class="counterCheckbox" > 
+			<label for="softCounters" class="softcounter">Soft counters</label>
+            <br>
+
+			<input type="checkbox" id="minorCounters" class="counterCheckbox" > 
 			<label for="minorCounters" class="minorcounter">Minor counters</label>
         </div>
         <button id="startButton" aria-label="Start simulation button"></button>
@@ -50,39 +58,29 @@
 
         <script type="module"> 
             import Neo4jD3 from './js/neo4jd3.js';
-            import imageLocation from './js/imageLocation.js'
-            let neo4jd3; 
-            let neo4jd3Options = { 
-                    highlight: [ 
-                    ], 
-                    icons: { 
-                    }, 
-                    images: imageLocation, 
-                    minCollision: 80, 
-                    neo4jDataUrl: 'json/r6OperatorCounters.json', 
-                    nodeRadius: 35, 
-                    counters: [document.querySelector('#hardCounters').checked, document.querySelector('#softCounters').checked, 
-                        document.querySelector('#minorCounters').checked], 
-                    onNodeDoubleClick: focusOnNode, 
-                    onRelationshipDoubleClick: focusOnRelationship, 
-                    zoomFit: false 
-                };
-
-            var startButton = document.getElementById("startButton"); 
-            var stopButton = document.getElementById("stopButton"); 
-
-            var focused = false; 
-            var unfocusedOpacity = 0.1;
+            
+            let neo4jd3;
+            let neo4jd3Options = {
+                    highlight: [
+                    ],
+                    icons: {
+                    },
+                    minCollision: 80,
+                    neo4jDataUrl: 'json/r6OperatorCounters.json',
+                    nodeRadius: 35,
+                    counters: [
+                        document.querySelector('#hardCounters').checked,
+                        document.querySelector('#softCounters').checked,
+                        document.querySelector('#minorCounters').checked
+                    ],
+                    onNodeDoubleClick: function(node) {
  
-            function init() {
-                startButton.style.display = "none"; 
-                stopButton.style.display = "block"; 
-                neo4jd3Options.counters = [document.querySelector('#hardCounters').checked, document.querySelector('#softCounters').checked, 
-                        document.querySelector('#minorCounters').checked];
-                neo4jd3 = new Neo4jD3('#neo4jd3', neo4jd3Options); 
-
-                document.querySelector('.neo4jd3-graph').addEventListener('click', unfocus);
-            } 
+                    }, 
+                    onRelationshipDoubleClick: function(relationship) {
+ 
+                    }, 
+                    zoomFit: false,
+                };
 
             //event listeners to handle clicks, module is not global scoped
             document.getElementById('hardCounters').addEventListener('click', init);
@@ -90,65 +88,104 @@
             document.getElementById('minorCounters').addEventListener('click', init);
             document.getElementById('startButton').addEventListener('click', unfreezeAllNodes);
             document.getElementById('stopButton').addEventListener('click', freezeAllNodes);
+            document.getElementById('highQualityCheckbox').addEventListener('click', setImages);
 
-            function unfreezeAllNodes() { 
-                startButton.style.display = "none"; 
-                stopButton.style.display = "block"; 
-                neo4jd3.unfreezeAllNodes(); 
-            } 
+            var startButton = document.getElementById("startButton");
+            var stopButton = document.getElementById("stopButton");
+ 
+            function init() {
+                // start the simulation again if the user changes something
+                startButton.style.display = "none";
+                stopButton.style.display = "block";
 
-            function freezeAllNodes() { 
-                stopButton.style.display = "none"; 
-                startButton.style.display = "block"; 
-                neo4jd3.freezeAllNodes(); 
-            } 
-
-            function focusOnNode(node) {
-                let connectedNodes = new Set();
-                connectedNodes.add(node.id);
-
-                // Decrease opacity on counters not connected to node and get set of nodes directly connected to node
-                Array.from(document.querySelectorAll('.relationship'))
-                    .filter(counter => {
-                        if (counter.__data__.startNode == node.id) connectedNodes.add(counter.__data__.endNode);
-                        else if (counter.__data__.endNode == node.id) connectedNodes.add(counter.__data__.startNode);
-                        return counter.__data__.startNode != node.id && counter.__data__.endNode != node.id;
-                    })
-                    .forEach(counter => counter.style.opacity = unfocusedOpacity);
-
-                // Decrease opacity on nodes not directly connected to node
-                Array.from(document.querySelectorAll('.node'))
-                    .filter(nodeElem => !connectedNodes.has(nodeElem.__data__.id) )
-                    .forEach(nodeElem => nodeElem.style.opacity = unfocusedOpacity);
-
-                focused = true;
+                neo4jd3Options.counters = [
+                    document.querySelector('#hardCounters').checked,
+                    document.querySelector('#softCounters').checked,
+                    document.querySelector('#minorCounters').checked,
+                ];
+                neo4jd3 = new Neo4jD3('#neo4jd3', neo4jd3Options);
             }
 
-            function focusOnRelationship(relationship) {
-                let nodes = [relationship.startNode, relationship.endNode];
+            function unfreezeAllNodes() {
+                // switch the buttons to show
+                startButton.style.display = "none";
+                stopButton.style.display = "block";
 
-                // Decrease opacity of nodes not connected to relationship
-                Array.from(document.querySelectorAll('.node'))
-                    .filter(node => !nodes.includes(node.__data__.id))
-                    .forEach(node => node.style.opacity = unfocusedOpacity);
-
-                // Decrease opacity of other relationships
-                Array.from(document.querySelectorAll('.relationship'))
-                    .filter(counter => counter.__data__.id != relationship.id)
-                    .forEach(counter => counter.style.opacity = unfocusedOpacity);
-
-                focused = true;
+                neo4jd3.unfreezeAllNodes();
             }
 
-            function unfocus() {
-                if (focused) {
-                    Array.from(document.querySelectorAll('.relationship, .node'))
-                        .forEach(counter => counter.style.opacity = 1);
-                    focused = false;
-                }
+            function freezeAllNodes() {
+                // switch the buttons to show
+                stopButton.style.display = "none";
+                startButton.style.display = "block";
+
+                neo4jd3.freezeAllNodes();
+            }
+
+            function setImages() {
+                var highQuality = document.querySelector('#highQualityCheckbox').checked;
+
+                var fileFormat = highQuality ? 'svg' : 'png';
+
+                neo4jd3Options.images = {
+                    'Alibi': 'img/' + fileFormat + '/alibi.' + fileFormat,
+                    'Amaru': 'img/' + fileFormat + '/amaru.' + fileFormat,
+                    'Ash': 'img/' + fileFormat + '/ash.' + fileFormat,
+                    'Bandit': 'img/' + fileFormat + '/bandit.' + fileFormat,
+                    'Blackbeard': 'img/' + fileFormat + '/blackbeard.' + fileFormat,
+                    'Blitz': 'img/' + fileFormat + '/blitz.' + fileFormat,
+                    'Buck': 'img/' + fileFormat + '/buck.' + fileFormat,
+                    'Capitão': 'img/' + fileFormat + '/capitao.' + fileFormat,
+                    'Castle': 'img/' + fileFormat + '/castle.' + fileFormat,
+                    'Caveira': 'img/' + fileFormat + '/caveira.' + fileFormat,
+                    'Clash': 'img/' + fileFormat + '/clash.' + fileFormat,
+                    'Doc': 'img/' + fileFormat + '/doc.' + fileFormat,
+                    'Dokkaebi': 'img/' + fileFormat + '/dokkaebi.' + fileFormat,
+                    'Echo': 'img/' + fileFormat + '/echo.' + fileFormat,
+                    'Ela': 'img/' + fileFormat + '/ela.' + fileFormat,
+                    'Finka': 'img/' + fileFormat + '/finka.' + fileFormat,
+                    'Frost': 'img/' + fileFormat + '/frost.' + fileFormat,
+                    'Fuze': 'img/' + fileFormat + '/fuze.' + fileFormat,
+                    'Glaz': 'img/' + fileFormat + '/glaz.' + fileFormat,
+                    'Goyo': 'img/' + fileFormat + '/goyo.' + fileFormat,
+                    'Gridlock': 'img/' + fileFormat + '/gridlock.' + fileFormat,
+                    'Hibana': 'img/' + fileFormat + '/hibana.' + fileFormat,
+                    'IQ': 'img/' + fileFormat + '/iq.' + fileFormat,
+                    'Jackal': 'img/' + fileFormat + '/jackal.' + fileFormat,
+                    'Jäger': 'img/' + fileFormat + '/jager.' + fileFormat,
+                    'Kaid': 'img/' + fileFormat + '/kaid.' + fileFormat,
+                    'Kapkan': 'img/' + fileFormat + '/kapkan.' + fileFormat,
+                    'Lesion': 'img/' + fileFormat + '/lesion.' + fileFormat,
+                    'Lion': 'img/' + fileFormat + '/lion.' + fileFormat,
+                    'Maestro': 'img/' + fileFormat + '/maestro.' + fileFormat,
+                    'Maverick': 'img/' + fileFormat + '/maverick.' + fileFormat,
+                    'Mira': 'img/' + fileFormat + '/mira.' + fileFormat,
+                    'Montagne': 'img/' + fileFormat + '/montagne.' + fileFormat,
+                    'Mozzie': 'img/' + fileFormat + '/mozzie.' + fileFormat,
+                    'Mute': 'img/' + fileFormat + '/mute.' + fileFormat,
+                    'Nøkk': 'img/' + fileFormat + '/nokk.' + fileFormat,
+                    'Nomad': 'img/' + fileFormat + '/nomad.' + fileFormat,
+                    'Pulse': 'img/' + fileFormat + '/pulse.' + fileFormat,
+                    'Recruit': 'img/' + fileFormat + '/recruit_blue.' + fileFormat,
+                    'Rook': 'img/' + fileFormat + '/rook.' + fileFormat,
+                    'Sledge': 'img/' + fileFormat + '/sledge.' + fileFormat,
+                    'Smoke': 'img/' + fileFormat + '/smoke.' + fileFormat,
+                    'Tachanka': 'img/' + fileFormat + '/tachanka.' + fileFormat,
+                    'Thatcher': 'img/' + fileFormat + '/thatcher.' + fileFormat,
+                    'Thermite': 'img/' + fileFormat + '/thermite.' + fileFormat,
+                    'Twitch': 'img/' + fileFormat + '/twitch.' + fileFormat,
+                    'Valkyrie': 'img/' + fileFormat + '/valkyrie.' + fileFormat,
+                    'Vigil': 'img/' + fileFormat + '/vigil.' + fileFormat,
+                    'Warden': 'img/' + fileFormat + '/warden.' + fileFormat,
+                    'Ying': 'img/' + fileFormat + '/ying.' + fileFormat,
+                    'Zofia': 'img/' + fileFormat + '/zofia.' + fileFormat,
+                };
+
+                // re-load the graph with new images
+                init();
             }
  
-            window.onload = init; 
-        </script> 
-    </body> 
-</html> 
+            window.onload = setImages;
+        </script>
+    </body>
+</html>
