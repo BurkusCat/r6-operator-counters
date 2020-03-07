@@ -32,6 +32,7 @@
   "dependencies": {
     "d3": "^5.7.0",
     "gulp-sass": "^4.0.2",
+    "r6operators": "^1.0.1",
     "sass": "^1.26.2"
   },
   "devDependencies": {
