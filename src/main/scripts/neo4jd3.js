@@ -552,7 +552,7 @@ function Neo4jD3(_selector, _options) {
                                    justLoaded = true;
                                    zoomFit(2);
                                }
-                           }).alphaDecay(0.2);
+                           });
 
         return simulation;
     }
