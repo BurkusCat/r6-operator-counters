@@ -1043,4 +1043,4 @@ function Neo4jD3(_selector, _options) {
     };
 }
 
-module.exports = Neo4jD3;
+export default Neo4jD3;

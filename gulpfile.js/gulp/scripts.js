@@ -5,49 +5,50 @@ var _ = require('lodash'),
     buffer = require('vinyl-buffer'),
     concat = require('gulp-concat'),
     conf = require('./conf'),
-    connect = require('gulp-connect'),
     derequire = require('gulp-derequire'),
     gulp = require('gulp'),
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
     jshint = require('gulp-jshint'),
     notifier = require('node-notifier'),
-    notify = require('gulp-notify'),
     path = require('path'),
     plumber = require('gulp-plumber'),
-    rename = require('gulp-rename'),
     source = require('vinyl-source-stream'),
     terser = require('gulp-terser'),
     watchify = require('watchify');
 
-gulp.task('scripts', ['scripts:internal'], function() {
+function scripts_start() {
     return gulp.src([
-            conf.paths.src + '/scripts/d3.min.js'
+            conf.paths.src + '/scripts/d3.min.js',
+            conf.paths.src + '/scripts/neo4jd3.js'
         ])
         .pipe(gulp.dest(conf.paths.dist + '/js'));
-});
+};
 
-gulp.task('scripts:internal', ['scripts:jshint','scripts:derequire'], function() {
-    return gulp.src(conf.paths.dist + '/js/neo4jd3.js')
-        .pipe(concat('neo4jd3.js'))
+function scripts_internal() {
+    return gulp.src([
+        conf.paths.dist + '/js/neo4jd3.js'
+    ])
+        .pipe(concat('neo4jd3'))
         .pipe(gulp.dest(conf.paths.dist + '/js'))
         .pipe(terser())
         .pipe(gulp.dest(conf.paths.dist + '/js'));
-});
+};
 
-gulp.task('scripts:jshint', function() {
+
+function scripts_jshint() {
     return gulp.src('src/main/scripts/neo4jd3.js')
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('default'));
-});
+};
 
 var entryFile = path.join(conf.paths.src, '/index.js');
 
-gulp.task('scripts:derequire', function() {
+function scripts_derequire() {
     return buildScript(entryFile, 'dev');
-});
+};
 
-function buildScript(filename, mode) {
+async function buildScript(filename, mode) {
     var bundleFilename = 'index.js';
 
     var browserifyConfig = {
@@ -57,16 +58,16 @@ function buildScript(filename, mode) {
     var bundler;
 
     if (mode === 'dev') {
-        bundler = browserify(filename, _.extend(browserifyConfig, { debug: true }));
+        return bundler = browserify(filename, _.extend(browserifyConfig, { debug: true }));
     } else if (mode === 'prod') {
-        bundler = browserify(filename, browserifyConfig);
+        return bundler = browserify(filename, browserifyConfig);
     } else if (mode === 'watch') {
         if (cached[filename]) {
             return cached[filename].bundle();
         }
 
         bundler = watchify(browserify(filename, _.extend(browserifyConfig, watchify.args, { debug: true })));
-        cached[filename] = bundler;
+        return cached[filename] = bundler;
     }
 
     function rebundle() {
@@ -100,3 +101,5 @@ function error(err) {
     gutil.log(gutil.colors.red('Error: ' + err));
     this.emit('end');
 }
+const script = gulp.series(scripts_start, scripts_internal, scripts_jshint, scripts_derequire);
+exports.default = script;

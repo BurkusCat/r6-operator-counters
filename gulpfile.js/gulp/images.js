@@ -5,9 +5,11 @@ var conf = require('./conf'),
     gulp = require('gulp'),
     imagemin = require('gulp-imagemin');
 
-gulp.task('images', function() {
+function images() {
     return gulp.src(conf.paths.src + '/images/**/*')
         .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
         .pipe(gulp.dest(conf.paths.dist + '/img'))
         .pipe(connect.reload());
-});
+};
+
+exports.default = images;

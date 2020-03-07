@@ -10,6 +10,9 @@
          
           gtag('config', 'UA-131330692-1'); 
         </script> 
+
+        <!-- Scripts --> 
+        <script src="js/d3.min.js"></script> 
          
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
@@ -37,20 +40,18 @@
         <div id="neo4jd3"></div> 
         <a target="_blank" href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg" alt="Contribute on GitHub"></a> 
 		<div class="checkboxes">   
-			<input type="radio" id="hardCounters" name="counters" checked onclick="init();"> 
+			<input type="radio" id="hardCounters" name="counters" checked> 
 			<label for="hardCounters" class="hardcounter">Hard counters</label> 
-			<input type="radio" id="softCounters" name="counters" onclick="init();"> 
+			<input type="radio" id="softCounters" name="counters" > 
 			<label for="softCounters" class="softcounter">Soft counters</label> 
-			<input type="radio" id="minorCounters" name="counters" onclick="init();"> 
+			<input type="radio" id="minorCounters" name="counters" > 
 			<label for="minorCounters" class="minorcounter">Minor counters</label>
         </div>
-        <button id="startButton" onclick="unfreezeAllNodes();"></button>
-        <button id="stopButton" onclick="freezeAllNodes();"></button>
+        <button id="startButton" ></button>
+        <button id="stopButton" ></button>
 
-        <!-- Scripts --> 
-        <script src="js/d3.min.js"></script> 
-        <script src="js/neo4jd3.js?v=0.0.1"></script> 
-        <script type="text/javascript"> 
+        <script type="module"> 
+        import Neo4jD3 from './js/neo4jD3.js';
             let neo4jd3; 
             let neo4jd3Options = { 
                     highlight: [ 
@@ -130,12 +131,18 @@
             function init() {
                 startButton.style.display = "none"; 
                 stopButton.style.display = "block"; 
-
                 neo4jd3Options.counters = [document.querySelector('#hardCounters').checked, document.querySelector('#softCounters').checked, 
-                        document.querySelector('#minorCounters').checked]; 
-                neo4jd3 = new Neo4jd3('#neo4jd3', neo4jd3Options); 
+                        document.querySelector('#minorCounters').checked];
+                neo4jd3 = new Neo4jD3('#neo4jd3', neo4jd3Options); 
             } 
- 
+
+            //event listeners to handle clicks, module is not global scoped
+            document.getElementById('hardCounters').addEventListener('click', init);
+            document.getElementById('softCounters').addEventListener('click', init);
+            document.getElementById('minorCounters').addEventListener('click', init);
+            document.getElementById('startButton').addEventListener('click', unfreezeAllNodes);
+            document.getElementById('stopButton').addEventListener('click', freezeAllNodes);
+
             function unfreezeAllNodes() { 
                 startButton.style.display = "none"; 
                 stopButton.style.display = "block"; 
