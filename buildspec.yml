@@ -19,5 +19,5 @@ phases:
        - cd dist && aws s3 sync --cache-control max-age=86400 --acl public-read --delete . "${S3_BUCKET_URL}"
        - echo Finished sync.
        - echo Invalidating CloudFront Edge Cache...
-       - aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths /*
+       - aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths '/*'
        - echo Finished invalidating CloudFront Edge Cache.
