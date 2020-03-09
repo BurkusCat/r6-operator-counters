@@ -1,15 +1,29 @@
-class Operator{
+export default class Operator{
 
     // must pass r6operator as first argumet
-    constructor(person, id) {
+    constructor(person, id, operation) {
         this.id = id;
-        this.name = person.name;
+        this.label = person.name;
+        this.side = person.role;
+        this.organization = person.unit;
+        this.operation = operation;
+        this.counters =[];
     }
 
-    getCountersTo() {}
+    addCounterNode(personCountered, counterType, counterDescription){
+        this.counters.push({
+            id: globalId,
+            type: counterType,
+            startNode: this.id,
+            endNode: personCountered,
+            properties: {
+                Description: counterDescription
+            }
+        });
+    }
 
-    getCountersFrom() {}
+    getCounters() {
+        return this.counters;
+    }
 
 }
-
-export default Operator;

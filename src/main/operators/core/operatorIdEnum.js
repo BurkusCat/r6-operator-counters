@@ -1,4 +1,4 @@
-const opearatorId = {
+export default {
     alibi: 1,
     amaru: 2,
     ash: 3,
@@ -51,5 +51,3 @@ const opearatorId = {
     ying: 50,
     zofia: 51,
 };
-
-export default opearatorId;
