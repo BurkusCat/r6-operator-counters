@@ -123,12 +123,11 @@ let relationshipId = 0;
 for(let person in operatorsList) {
 
     let operatorRelationships = operatorsList[person].getCounters();
-    console.log('hi');
     // push operator info into node info
     jsonObject.results[0].data[0].graph.nodes.push(operatorsList[person].getInformation())
      
     // loop through all relationships for each operator
-    for(relation in operatorRelationships) {
+    for(let relation in operatorRelationships) {
         // add an id field onto the relationships
         operatorRelationships[relation].id = relationshipId;
         jsonObject.results[0].data[0].graph.relationships.push(operatorRelationships[relation]);
@@ -136,5 +135,5 @@ for(let person in operatorsList) {
     }
 
 }
-console.log(jsonObject);
+console.log(jsonObject.results[0].data[0].graph.relationships);
 export default jsonObject;
