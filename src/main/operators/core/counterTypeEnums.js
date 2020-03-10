@@ -1,6 +1,6 @@
 export default {
-    Hard: 'Hard Counter',
-    Soft: 'Soft Counter',
-    Minor: 'Minor Counter'
+    hard: 'Hard Counter',
+    soft: 'Soft Counter',
+    minor: 'Minor Counter'
 };
 
