@@ -12,7 +12,6 @@ export default class Operator{
 
     addCounterNode(personCountered, counterType, counterDescription){
         this.counters.push({
-            id: globalId,
             type: counterType,
             startNode: this.id,
             endNode: personCountered,
@@ -24,6 +23,18 @@ export default class Operator{
 
     getCounters() {
         return this.counters;
+    }
+
+    getInformation() {
+        return {
+            id: this.id,
+            labels: [this.label],
+            properties: {
+                side: this.side,
+                organization: this.organization,
+                operation: this.operation
+            }
+        }
     }
 
 }
