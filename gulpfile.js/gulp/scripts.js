@@ -17,6 +17,20 @@ var _ = require('lodash'),
     terser = require('gulp-terser'),
     watchify = require('watchify');
 
+function operators() {
+    return gulp.src([
+            conf.paths.src + '/operators/*.js',
+        ])
+        .pipe(gulp.dest(conf.paths.dist + '/operators'));
+};
+
+function operators_core() {
+    return gulp.src([
+            conf.paths.src + '/operators/core/*.js',
+        ])
+        .pipe(gulp.dest(conf.paths.dist + '/operators/core'));
+};
+
 function scripts_start() {
     return gulp.src([
             conf.paths.src + '/scripts/d3.min.js',
@@ -101,5 +115,5 @@ function error(err) {
     gutil.log(gutil.colors.red('Error: ' + err));
     this.emit('end');
 }
-const script = gulp.series(scripts_start, scripts_internal, scripts_jshint, scripts_derequire);
+const script = gulp.series(scripts_start, scripts_internal, scripts_jshint, scripts_derequire, operators, operators_core);
 exports.default = script;
