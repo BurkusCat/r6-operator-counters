@@ -101,5 +101,5 @@ function error(err) {
     gutil.log(gutil.colors.red('Error: ' + err));
     this.emit('end');
 }
-const script = gulp.series(scripts_start, scripts_internal, scripts_jshint, scripts_derequire, operators, operators_core);
+const script = gulp.series(scripts_start, scripts_internal, scripts_jshint, scripts_derequire);
 exports.default = script;
