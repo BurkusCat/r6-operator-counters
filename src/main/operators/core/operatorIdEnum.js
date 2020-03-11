@@ -13,7 +13,7 @@ export default {
     caviera: 10,
     clash: 11,
     doc: 12,
-    dokkabi: 13,
+    dokkaebi: 13,
     ela: 14,
     echo: 15,
     finka: 16,
