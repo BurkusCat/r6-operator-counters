@@ -17,20 +17,6 @@ var _ = require('lodash'),
     terser = require('gulp-terser'),
     watchify = require('watchify');
 
-function operators() {
-    return gulp.src([
-            conf.paths.src + '/operators/*.js',
-        ])
-        .pipe(gulp.dest(conf.paths.dist + '/operators'));
-};
-
-function operators_core() {
-    return gulp.src([
-            conf.paths.src + '/operators/core/*.js',
-        ])
-        .pipe(gulp.dest(conf.paths.dist + '/operators/core'));
-};
-
 function scripts_start() {
     return gulp.src([
             conf.paths.src + '/scripts/d3.min.js',
