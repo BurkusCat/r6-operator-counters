@@ -1,3 +1,5 @@
+'use strict';
+
 export default class Operator{
 
     // must pass r6operator as first argumet

@@ -1,3 +1,5 @@
+'use strict';
+
 import alibi from '../alibi';
 import amaru from '../amaru';
 import ash from '../ash';

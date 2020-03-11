@@ -1,3 +1,5 @@
+'use strict';
+
 export default {
     alibi: 1,
     amaru: 2,
