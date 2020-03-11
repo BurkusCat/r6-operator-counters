@@ -1,5 +1,6 @@
 'use strict';
 
+import fs from 'file-system'; // used to write out json file
 import alibi from '../operators/alibi';
 import amaru from '../operators/amaru';
 import ash from '../operators/ash';
@@ -137,5 +138,10 @@ for(let person in operatorsList) {
     }
 
 }
-console.log(jsonObject.results[0].data[0].graph.relationships);
-export default jsonObject;
+
+fs.writeFile('../../json/r6OperatorCounters.json', JSON.stringify(jsonObject), function (err, data) {
+   if (err) {
+      return console.error(err);
+   }
+});
+
