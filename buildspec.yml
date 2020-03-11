@@ -10,6 +10,7 @@ phases:
   build:
     commands:
        - echo Building...
+       - npm run createjson
        - gulp build
        - echo Finished build.
   post_build:
