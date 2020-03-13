@@ -34,7 +34,7 @@ export default {
     'Montagne': 'img/svg/montagne.svg', 
     'Mozzie': 'img/svg/mozzie.svg', 
     'Mute': 'img/svg/mute.svg', 
-    'Nøkk': 'img/svg/nokk.svg', 
+    'Nokk': 'img/svg/nokk.svg', 
     'Nomad': 'img/svg/nomad.svg', 
     'Pulse': 'img/svg/pulse.svg', 
     'Recruit': 'img/svg/recruit_blue.svg', 
