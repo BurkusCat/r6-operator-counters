@@ -5,6 +5,13 @@
 */
 export default class Operator{
 
+    #id;
+    #label;
+    #side;
+    #organization;
+    #operation;
+    #counters;
+
     /**
      * Create a new operator object
      * 
@@ -13,12 +20,12 @@ export default class Operator{
      * @param {string} operation 
      */
     constructor(person, id, operation) {
-        this.id = id;
-        this.label = person.name;
-        this.side = person.role;
-        this.organization = person.unit;
-        this.operation = operation;
-        this.counters =[]; // array to hold relationship objects for D3.js
+        this.#id = id;
+        this.#label = person.name;
+        this.#side = person.role;
+        this.#organization = person.unit;
+        this.#operation = operation;
+        this.#counters =[]; // array to hold relationship objects for D3.js
     }
 
     /**
@@ -29,9 +36,9 @@ export default class Operator{
      * @param {string} counterDescription 
      */
     addCounterNode(personCountered, counterType, counterDescription){
-        this.counters.push({
+        this.#counters.push({
             type: counterType,
-            startNode: this.id,
+            startNode: this.#id,
             endNode: personCountered,
             properties: {
                 Description: counterDescription
@@ -52,7 +59,7 @@ export default class Operator{
      * }}]
      */
     getCounters() {
-        return this.counters;
+        return this.#counters;
     }
 
     /**
@@ -61,12 +68,12 @@ export default class Operator{
      */
     getInformation() {
         return {
-            id: this.id,
-            labels: [this.label],
+            id: this.#id,
+            labels: [this.#label],
             properties: {
-                side: this.side,
-                organization: this.organization,
-                operation: this.operation
+                side: this.#side,
+                organization: this.#organization,
+                operation: this.#operation
             }
         }
     }
