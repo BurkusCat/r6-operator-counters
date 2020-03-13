@@ -20,7 +20,8 @@ var _ = require('lodash'),
 function scripts_start() {
     return gulp.src([
             conf.paths.src + '/scripts/d3.min.js',
-            conf.paths.src + '/scripts/neo4jd3.js'
+            conf.paths.src + '/scripts/neo4jd3.js',
+            conf.paths.src + '/scripts/imageLocation.js',
         ])
         .pipe(gulp.dest(conf.paths.dist + '/js'));
 };
