@@ -11,7 +11,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "(npm run createjson) & gulp",
+    "start": "gulp",
     "createjson": "cd ./src/main/create-operator-json/core && node --experimental-modules --es-module-specifier-resolution=node operatorModule.js",
     "tasks": "gulp --tasks",
     "test": "gulp test"
