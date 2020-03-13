@@ -1,17 +1,33 @@
 'use strict';
 
+/** 
+ *  Base class used when adding new operators
+*/
 export default class Operator{
 
-    // must pass r6operator as first argumet
+    /**
+     * Create a new operator object
+     * 
+     * @param {r6operators object} person 
+     * @param {integer} id 
+     * @param {string} operation 
+     */
     constructor(person, id, operation) {
         this.id = id;
         this.label = person.name;
         this.side = person.role;
         this.organization = person.unit;
         this.operation = operation;
-        this.counters =[];
+        this.counters =[]; // array to hold relationship objects for D3.js
     }
 
+    /**
+     * Add a new counter for the operator object
+     * 
+     * @param {integer} personCountered 
+     * @param {string} counterType 
+     * @param {string} counterDescription 
+     */
     addCounterNode(personCountered, counterType, counterDescription){
         this.counters.push({
             type: counterType,
@@ -23,10 +39,26 @@ export default class Operator{
         });
     }
 
+    /**
+     * Returns an array of relationship objects 
+     * used for by D3.js visualization graph
+     * 
+     * [{
+     * type: int,
+     * startNode: int,
+     * endNode: int,
+     * properties: {
+     *  Description: string
+     * }}]
+     */
     getCounters() {
         return this.counters;
     }
 
+    /**
+     * Return a relationship object in a
+     * format for use by D3.js visualization graph
+     */
     getInformation() {
         return {
             id: this.id,
