@@ -5,6 +5,13 @@ import operatorId from '../core/operatorIdEnum';
 import Operator from '../core/operatorFactory';
 import r6operators from "r6operators";
 
-let recruit = new Operator(r6operators.recruit_blue, operatorId.recruit, "N/A");
+// Need to control name
+const RecruitInfo = {
+    name: 'Recruit',
+    role: 'Recruit',
+    unit: 'Recruit',
+}
+
+let recruit = new Operator(RecruitInfo, operatorId.recruit, "N/A");
 
 export default recruit
