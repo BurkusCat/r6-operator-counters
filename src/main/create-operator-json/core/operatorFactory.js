@@ -40,7 +40,7 @@ export default class Operator{
      * make sure current operator is beating personCountered
      * No value returned
      * 
-     * @param {number} personCountered the id of the operator being countered, Use operatorIdEnum.js to fill tis out
+     * @param {number} personCountered the id of the operator being countered, Use operatorIdEnum.js to fill this out
      * @param {string} counterType the type of counter eg Hard Counter, Use counterTypeEnum.js to fill this out
      * @param {string} counterDescription describe how current operator beats the person countered
      */
