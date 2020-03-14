@@ -42,5 +42,5 @@ fs.writeFile('../../json/r6OperatorCounters.json', JSON.stringify(jsonObject), f
    if (err) {
       return console.error(err);
    }
+   return console.log('\n Json Created Succesfully! \n');
 });
-
