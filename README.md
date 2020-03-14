@@ -18,7 +18,17 @@ A graph visualisation of counterplay in Rainbow Six Siege.
 
 ## Running
 
-Clone the repository, install all dependencies, build and serve the project.
+Make sure you are using node version 12.16.1 and npm version 6.13.4 on your system at minimum.
+To check your versions you can run the following commands:
+
+```
+node --version
+npm --version
+```
+
+To update to the latest node and npm version, visit https://nodejs.org/en/.
+
+After, clone the repository, install all dependencies, build and serve the project.
 
 ```bash
 > git clone https://github.com/BurkusCat/r6-operator-counters.git
@@ -31,6 +41,8 @@ Open `http://localhost:8080` in your favorite browser.
 ### Building the project for a release
 
 Use the `gulp build` command to build a static version of the website to the "dist" folder. This will prepare all the site assets and optimise them to be hosted in an AWS S3 storage bucket.
+
+During the gulp build, if their is an error during the 'npm run createjson' portion, gulp will not tell you a specific error. To see the specific error you must run 'npm run createjson' from the console.
 
 ## How to contribute
 

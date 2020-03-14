@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "gulp",
+    "createjson": "cd ./src/main/create-operator-json/core && node --experimental-modules --es-module-specifier-resolution=node operatorModule.js",
     "tasks": "gulp --tasks",
     "test": "gulp test"
   },
@@ -31,6 +32,8 @@
   "license": "MIT",
   "dependencies": {
     "d3": "^5.7.0",
+    "file-system": "^2.2.2",
+    "gulp-run": "^1.7.1",
     "gulp-sass": "^4.0.2",
     "r6operators": "^1.0.1",
     "sass": "^1.26.2"
