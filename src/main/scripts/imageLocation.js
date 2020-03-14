@@ -6,7 +6,7 @@ export default {
     'Blackbeard': 'img/svg/blackbeard.svg', 
     'Blitz': 'img/svg/blitz.svg', 
     'Buck': 'img/svg/buck.svg', 
-    'Capitão': 'img/svg/capitao.svg', 
+    'Capitao': 'img/svg/capitao.svg', 
     'Castle': 'img/svg/castle.svg', 
     'Caveira': 'img/svg/caveira.svg', 
     'Clash': 'img/svg/clash.svg', 
