@@ -29,6 +29,7 @@ import iq from '../operators/iq';
 import jackal from '../operators/jackal';
 import jager from '../operators/jager';
 import kaid from '../operators/kaid';
+import kali from '../operators/kali';
 import kapkan from '../operators/kapkan';
 import lesion from '../operators/lesion';
 import lion from '../operators/lion';
@@ -51,6 +52,7 @@ import thermite from '../operators/thermite';
 import twitch from '../operators/twitch';
 import valkyrie from '../operators/valkyrie';
 import vigil from '../operators/vigil';
+import wamai from '../operators/wamai';
 import warden from '../operators/warden';
 import ying from '../operators/ying';
 import zofia from '../operators/zofia';
@@ -82,6 +84,7 @@ export default {
   jackal: jackal,
   jager: jager,
   kaid: kaid,
+  kali: kali,
   kapkan: kapkan,
   lesion: lesion,
   lion: lion,
@@ -104,6 +107,7 @@ export default {
   twitch: twitch,
   valkyrie: valkyrie,
   vigil: vigil,
+  wamai: wamai,
   warden: warden,
   ying: ying,
   zofia: zofia

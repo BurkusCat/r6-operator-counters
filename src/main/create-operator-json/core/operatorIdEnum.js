@@ -56,5 +56,7 @@ export default {
     warden: 49,
     amaru: 50,
     goyo: 51,
+    kali: 52,
+    wamai: 53,
 
 };

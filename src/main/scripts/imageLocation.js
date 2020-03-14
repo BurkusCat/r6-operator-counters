@@ -25,6 +25,7 @@ export default {
     'Jackal': 'img/svg/jackal.svg', 
     'Jäger': 'img/svg/jager.svg', 
     'Kaid': 'img/svg/kaid.svg', 
+    'Kali': 'img/svg/kali.svg', 
     'Kapkan': 'img/svg/kapkan.svg', 
     'Lesion': 'img/svg/lesion.svg', 
     'Lion': 'img/svg/lion.svg', 
@@ -47,6 +48,7 @@ export default {
     'Twitch': 'img/svg/twitch.svg', 
     'Valkyrie': 'img/svg/valkyrie.svg', 
     'Vigil': 'img/svg/vigil.svg', 
+    'Wamai': 'img/svg/wamai.svg',
     'Warden': 'img/svg/warden.svg', 
     'Ying': 'img/svg/ying.svg', 
     'Zofia': 'img/svg/zofia.svg' 
