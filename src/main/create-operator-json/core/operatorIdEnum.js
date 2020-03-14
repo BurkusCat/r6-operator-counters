@@ -59,5 +59,7 @@ export default {
     kali: 52,
     wamai: 53,
     oryx: 54,
+    iana: 55,
+
 
 };

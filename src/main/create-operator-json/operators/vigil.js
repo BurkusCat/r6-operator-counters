@@ -11,5 +11,6 @@ vigil.addCounterNode(operatorId.dokkaebi, counterType.soft,  "Vigil's ERC-7 allo
 vigil.addCounterNode(operatorId.blackbeard, counterType.minor, "Vigil's BOSG.12.2 shotgun can destroy Blackbeard's Rifle-Shield in a single shot.");
 vigil.addCounterNode(operatorId.twitch, counterType.minor,  "Vigil's ERC-7 allows him to remove himself from Twitch's Drone camera.");
 vigil.addCounterNode(operatorId.lion, counterType.hard, "Vigil cannot be detected by Lion's EE-ONE-D drone scan when his ER7-C gadget is active.");
+vigil.addCounterNode(operatorId.iana, counterType.minor, "Vigils Video Disruptor will make him unseen by Ianas Hologram");
 
 export default vigil

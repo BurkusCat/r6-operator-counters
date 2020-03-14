@@ -25,6 +25,7 @@ import glaz from '../operators/glaz';
 import goyo from '../operators/goyo';
 import gridlock from '../operators/gridlock';
 import hibana from '../operators/hibana';
+import iana from '../operators/iana';
 import iq from '../operators/iq';
 import jackal from '../operators/jackal';
 import jager from '../operators/jager';
@@ -81,6 +82,7 @@ export default {
   goyo: goyo,
   gridlock: gridlock,
   hibana: hibana,
+  iana: iana,
   iq: iq,
   jackal: jackal,
   jager: jager,

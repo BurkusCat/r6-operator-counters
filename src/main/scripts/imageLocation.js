@@ -21,6 +21,7 @@ export default {
     'Goyo': 'img/svg/goyo.svg', 
     'Gridlock': 'img/svg/gridlock.svg', 
     'Hibana': 'img/svg/hibana.svg', 
+    'Iana': 'img/svg/iana.svg',
     'IQ': 'img/svg/iq.svg', 
     'Jackal': 'img/svg/jackal.svg', 
     'Jäger': 'img/svg/jager.svg', 
