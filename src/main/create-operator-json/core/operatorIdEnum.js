@@ -58,5 +58,6 @@ export default {
     goyo: 51,
     kali: 52,
     wamai: 53,
+    oryx: 54,
 
 };

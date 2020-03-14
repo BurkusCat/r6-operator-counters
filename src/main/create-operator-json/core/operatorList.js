@@ -41,6 +41,7 @@ import mozzie from '../operators/mozzie';
 import mute from '../operators/mute';
 import nokk from '../operators/nokk';
 import nomad from '../operators/nomad';
+import oryx from '../operators/oryx';
 import pulse from '../operators/pulse';
 import recruit from '../operators/recruit';
 import rook from '../operators/rook';
@@ -95,6 +96,7 @@ export default {
   mozzie: mozzie,
   mute: mute,
   nokk: nokk,
+  oryx: oryx,
   nomad: nomad,
   pulse: pulse,
   recruit: recruit,

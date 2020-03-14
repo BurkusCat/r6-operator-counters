@@ -37,6 +37,7 @@ export default {
     'Mute': 'img/svg/mute.svg', 
     'Nokk': 'img/svg/nokk.svg', 
     'Nomad': 'img/svg/nomad.svg', 
+    'Oryx': 'img/svg/oryx.svg', 
     'Pulse': 'img/svg/pulse.svg', 
     'Recruit': 'img/svg/recruit_blue.svg', 
     'Rook': 'img/svg/rook.svg', 
