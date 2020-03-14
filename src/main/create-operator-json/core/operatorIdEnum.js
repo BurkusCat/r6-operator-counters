@@ -1,7 +1,10 @@
 'use strict';
-
-export default {
-    
+/**
+ * key/value pairs,
+ * order of operators does not matter.
+ * Make sure that every operator is assigned a unique integer
+ */
+export default {  
     ash: 1,
     bandit: 2,
     blitz: 3,

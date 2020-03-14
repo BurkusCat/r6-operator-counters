@@ -1,7 +1,7 @@
 'use strict';
 
 import fs from 'file-system'; // used to write out json file
-import operators from './operatorList.js';
+import operators from './operatorList.js'; // we loop through this to create nodes/relationships for D3.js
 
 const operatorsList = Object.values(operators);
 let relationshipId = 0;
@@ -22,7 +22,7 @@ for(let person in operatorsList) {
 
     let operatorRelationships = operatorsList[person].getCounters();
 
-    // push operator info into node info
+    // push operator info into 'nodes'
     jsonObject.results[0].data[0].graph.nodes.push(operatorsList[person].getInformation())
 
     // loop through all relationships for each operator
@@ -31,7 +31,7 @@ for(let person in operatorsList) {
         // add an id field onto the relationship object
         operatorRelationships[relation].id = relationshipId;
 
-        // push relationship object into relationship info
+        // push object into 'relationships'
         jsonObject.results[0].data[0].graph.relationships.push(operatorRelationships[relation]);
         relationshipId++;
     }

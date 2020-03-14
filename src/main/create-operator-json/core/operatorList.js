@@ -1,3 +1,8 @@
+/**
+ * Handles all imports of each individual operator class,
+ * This module to be used only by operatorModule.js
+ */
+
 import alibi from '../operators/alibi';
 import amaru from '../operators/amaru';
 import ash from '../operators/ash';
