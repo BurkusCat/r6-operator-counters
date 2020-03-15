@@ -7,6 +7,9 @@
     --hard-counter-color: rgb(255, 213, 213);
     --soft-counter-color: rgb(213, 213, 255);
     --minor-counter-color: rgb(216, 255, 211);
+    --settings-background-color: #31343E;
+    --settings-button-background-color: #131416;
+    --settings-button-border-color: #245D7A;
 }
 
 body {
@@ -23,40 +26,68 @@ body {
     background-color: #333;
 }
 
-#startButton {
-    background:url(../img/site/simulation-play.jpg) no-repeat;
-    display: none;
+#settingsPopup {
+    background-color: var(--settings-background-color);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 65px;
+    width: 300px;
+    height: 150px;
 }
 
-#stopButton {
-    background:url(../img/site/simulation-pause.jpg) no-repeat;
+#toolsButton {
+    background:url(../img/site/settings.jpg) no-repeat;
     display: block;
-}
-
-button {
-    transition: opacity 0.25s;
-    opacity: 0.5;
+    transition: border 0.25s;
     position: absolute;
     bottom: 0;
     right: 0;
     margin-right: 10px;
     margin-bottom: 5px;
-    width: 50px;
-    height: 50px;
-    border: none;
+    width: 49px;
+    height: 49px;
+    border: 2px solid transparent;
 }
 
-button:hover {
-    opacity: 1.0;
+#toolsButton:hover {
+    border: 2px solid white;
+}
+
+.settingsButton {
+    background-color: var(--settings-button-background-color);
+    width: 270px;
+    margin: 15px 15px 0px 15px;
+    font: 15px Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: white;
+    transition: padding 0.25s;
+    padding: 10px;
+    text-align: left;
+    border: 2px solid var(--settings-button-border-color);
+}
+
+.settingsButton:hover {
+    padding: 10px 10px 10px 25px;
+    border: 2px solid white;
+    box-shadow: 0px 0px 10px 2px #336988;
+}
+
+#startButton {
+    display: none;
+}
+
+#stopButton {
+    display: block;
 }
 
 .checkboxes {
-    position: absolute; 
-    bottom: 0; 
+    position: absolute;
+    bottom: 0;
     left: 0;
     margin-left: 10px;
-    margin-bottom: 5px;    
-    font: 15px Helvetica Neue,Helvetica,Arial,sans-serif;
+    margin-bottom: 5px;
+    font: 15px Helvetica Neue, Helvetica, Arial, sans-serif;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 

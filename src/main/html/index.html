@@ -37,7 +37,14 @@
     <body> 
         <main id="neo4jd3"></main>
         <a target="_blank" rel="noopener" href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg" alt="Contribute on GitHub"></a> 
-		<div class="checkboxes">
+        <div id="settingsPopup">
+            <button id="startButton" aria-label="Start simulation button" class="settingsButton">Start Simulation</button>
+            <button id="stopButton" aria-label="Stop simulation button" class="settingsButton">Pause Simulation</button>
+            <button aria-label="High quality graphics button" class="settingsButton">High Quality Graphics (slow)</button>
+        </div>
+        <button id="toolsButton" aria-label="Tools and settings button"></button>
+
+        <div class="checkboxes">
 			<input type="checkbox" id="highQualityCheckbox"> 
             <label for="highQualityCheckbox" id="highQualityLabel">High quality (slow)</label>
             <br>
@@ -53,8 +60,6 @@
 			<input type="checkbox" id="minorCounters" class="counterCheckbox" > 
 			<label for="minorCounters" class="minorcounter">Minor counters</label>
         </div>
-        <button id="startButton" aria-label="Start simulation button"></button>
-        <button id="stopButton" aria-label="Stop simulation button"></button>
 
         <script type="module"> 
             import Neo4jD3 from './js/neo4jd3.js';
