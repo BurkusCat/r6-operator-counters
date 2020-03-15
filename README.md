@@ -42,7 +42,7 @@ Open `http://localhost:8080` in your favorite browser.
 
 Use the `gulp build` command to build a static version of the website to the "dist" folder. This will prepare all the site assets and optimise them to be hosted in an AWS S3 storage bucket.
 
-During the gulp build, if their is an error during the 'npm run createjson' portion, gulp will not tell you a specific error. To see the specific error you must run 'npm run createjson' from the console.
+During the gulp build, if their is an error during the `npm run createjson` portion, gulp will not tell you a specific error. To see the specific error you must run `npm run createjson` from the console.
 
 ## How to contribute
 
