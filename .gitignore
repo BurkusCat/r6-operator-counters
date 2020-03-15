@@ -4,3 +4,4 @@ coverage
 node_modules
 target
 dist
+src/main/json/r6OperatorCounters.json
