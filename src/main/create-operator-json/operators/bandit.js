@@ -10,6 +10,6 @@ bandit.addCounterNode(operatorId.hibana, counterType.hard, "Bandit's Shock Wire 
 bandit.addCounterNode(operatorId.thermite, counterType.hard, "Bandit's Shock Wire can electrify reinforced walls. Thermite's Exothermic Charge will be instantly destroyed if it is on an electrified wall. Bandit can easily 'trick' Thermite's charge." )
 bandit.addCounterNode(operatorId.twitch, counterType.soft, "Bandit's Shock Wire can be used to electrify barbed wire which can kill a Twitch Drone that enters the wire. However, Shock Wire is still easily shot by a Twitch Drone.");
 bandit.addCounterNode(operatorId.dokkaebi, counterType.minor, "If a defender's phone is dropped into barbed wire electrified by Bandit's Shock Wire, it is destroyed.");
-bandit.addCounterNode(operatorId.iana, counterType.hard, "Bandits Shock Wires will destroy Ianas hologram");
+bandit.addCounterNode(operatorId.iana, counterType.hard, "Bandit's Shock Wire can destroy Iana's Hologram.");
 
 export default bandit

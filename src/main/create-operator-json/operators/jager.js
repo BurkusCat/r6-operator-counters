@@ -14,6 +14,6 @@ jager.addCounterNode(operatorId.nomad, counterType.soft, "Jäger's ADS can destr
 jager.addCounterNode(operatorId.glaz, counterType.minor,  "Jäger's ADS can intercept smoke grenades. Smoke grenades are a key part of Glaz's kit.");
 jager.addCounterNode(operatorId.ash, counterType.minor, "Jäger's ADS can intercept Ash's Breaching Rounds.");
 jager.addCounterNode(operatorId.fuze, counterType.soft, "Jäger's ADS can intercept Fuze's Cluster Charges. Fuze gets three charges each with five sub-grenades (15 total) and Jäger's ADS can block two projectiles each (6 total). This means ADS is only partially effective against a Fuze attack.");
-jager.addCounterNode(operatorId.kali, counterType.hard, "Jäger's ADS can Kali grenades.");
+jager.addCounterNode(operatorId.kali, counterType.hard, "Jäger's ADS can intercept Kali's Explosive Lances.");
 
 export default jager
