@@ -14,7 +14,7 @@ A graph visualisation of counterplay in Rainbow Six Siege.
 
 ## Dependencies
 * Uses [neo4dj3](https://github.com/eisman/neo4jd3) for graph visualisation.
-* Uses [marcopixel r6-operatoricons](https://marcopixel.eu/r6-operatoricons/) for all the vector operator icons.
+* Uses [marcopixel's r6operators](https://r6operators.marcopixel.eu) for all the vector operator icons.
 
 ## Running
 
