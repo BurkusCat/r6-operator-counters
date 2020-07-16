@@ -12,7 +12,7 @@ twitch.addCounterNode(operatorId.bandit, counterType.hard, "Twitch's Drone can e
 twitch.addCounterNode(operatorId.mute, counterType.hard, "If careful, Twitch's Drone can shoot Mute's Signal Disruptor.");
 twitch.addCounterNode(operatorId.kaid, counterType.soft, "Twitch's Drone can shoot Kaid's Electroclaws.");
 twitch.addCounterNode(operatorId.alibi, counterType.soft, "Twitch's Drone can shoot Alibi's Prismas.");
-twitch.addCounterNode(operatorId.echo, counterType.minor, "Twitch's Drone can shoot Echo's Drone but it is unable to see it when it is cloaked.");
+twitch.addCounterNode(operatorId.echo, counterType.soft, "Twitch's Drone can shoot Echo's Drone.");
 twitch.addCounterNode(operatorId.ela, counterType.soft, "Twitch's Drone can shoot Ela's Grzmot mines.");
 twitch.addCounterNode(operatorId.jager, counterType.hard, "Twitch's Drone can shoot Jäger's ADS.");
 twitch.addCounterNode(operatorId.kapkan, counterType.soft, "Twitch's Drone can shoot Kapkan's Entry Denial Devices.");
