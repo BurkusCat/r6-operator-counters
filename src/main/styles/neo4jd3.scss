@@ -139,7 +139,12 @@ button:hover {
     }
 }
 
+.node {
+    transition: opacity 0.5s;
+}
+
 .relationship {
+    transition: opacity 0.5s;
     cursor: default;
 
     .outline {
@@ -158,6 +163,10 @@ button:hover {
         cursor: default;
         color: #ffffff;
     }
+}
+
+.unfocused {
+    opacity: 0.15;
 }
 
 .relationship.selected .overlay,

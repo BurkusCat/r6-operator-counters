@@ -90,8 +90,7 @@
             var startButton = document.getElementById("startButton");
             var stopButton = document.getElementById("stopButton");
 
-            var focused = false; 
-            var unfocusedOpacity = 0.1;
+            var focused = false;
  
             function init() {
                 // start the simulation again if the user changes something
@@ -119,12 +118,12 @@
                         else if (counter.__data__.endNode == node.id) connectedNodes.add(counter.__data__.startNode);
                         return counter.__data__.startNode != node.id && counter.__data__.endNode != node.id;
                     })
-                    .forEach(counter => counter.style.opacity = unfocusedOpacity);
+                    .forEach(counter => counter.classList.add("unfocused"));
 
                 // Decrease opacity on nodes not directly connected to node
                 Array.from(document.querySelectorAll('.node'))
                     .filter(nodeElem => !connectedNodes.has(nodeElem.__data__.id) )
-                    .forEach(nodeElem => nodeElem.style.opacity = unfocusedOpacity);
+                    .forEach(nodeElem => nodeElem.classList.add("unfocused"));
 
                 focused = true;
             }
@@ -135,12 +134,12 @@
                 // Decrease opacity of nodes not connected to relationship
                 Array.from(document.querySelectorAll('.node'))
                     .filter(node => !nodes.includes(node.__data__.id))
-                    .forEach(node => node.style.opacity = unfocusedOpacity);
+                    .forEach(node => node.classList.add("unfocused"));
 
                 // Decrease opacity of other relationships
                 Array.from(document.querySelectorAll('.relationship'))
                     .filter(counter => counter.__data__.id != relationship.id)
-                    .forEach(counter => counter.style.opacity = unfocusedOpacity);
+                    .forEach(counter => counter.classList.add("unfocused"));
 
                 focused = true;
             }
@@ -148,7 +147,7 @@
             function unfocus() {
                 if (focused) {
                     Array.from(document.querySelectorAll('.relationship, .node'))
-                        .forEach(counter => counter.style.opacity = 1);
+                        .forEach(counter => counter.classList.remove("unfocused"));
                     focused = false;
                 }
             }
