@@ -91,9 +91,11 @@
             document.getElementById('startButton').addEventListener('click', unfreezeAllNodes);
             document.getElementById('stopButton').addEventListener('click', freezeAllNodes);
             document.getElementById('highQualityCheckbox').addEventListener('click', setImages);
+            document.getElementById('toolsButton').addEventListener('click', toggleSettingsPopup);
 
             var startButton = document.getElementById("startButton");
             var stopButton = document.getElementById("stopButton");
+            var settingsPopup = document.getElementById("settingsPopup");
 
             var focused = false;
  
@@ -154,6 +156,14 @@
                     Array.from(document.querySelectorAll('.relationship, .node'))
                         .forEach(counter => counter.classList.remove("unfocused"));
                     focused = false;
+                }
+            }
+
+            function toggleSettingsPopup() {
+                if (settingsPopup.style.display === "block") {
+                    settingsPopup.style.display = "none";
+                } else {
+                    settingsPopup.style.display = "block";
                 }
             }
 
