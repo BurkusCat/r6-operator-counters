@@ -60,6 +60,4 @@ export default {
     wamai: 53,
     oryx: 54,
     iana: 55,
-
-
 };

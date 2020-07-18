@@ -17,18 +17,7 @@ A graph visualisation of counterplay in Rainbow Six Siege.
 * Uses [marcopixel's r6operators](https://r6operators.marcopixel.eu) for all the vector operator icons.
 
 ## Running
-
-Make sure you are using node version 12.16.1 and npm version 6.13.4 on your system at minimum.
-To check your versions you can run the following commands:
-
-```
-node --version
-npm --version
-```
-
-To update to the latest node and npm version, visit https://nodejs.org/en/.
-
-After, clone the repository, install all dependencies, build and serve the project.
+Clone the repository, install all dependencies, build and serve the project.
 
 ```bash
 > git clone https://github.com/BurkusCat/r6-operator-counters.git
@@ -38,11 +27,21 @@ After, clone the repository, install all dependencies, build and serve the proje
 
 Open `http://localhost:8080` in your favorite browser.
 
+### Tools needed
+* Node.js - https://nodejs.org/en/
+    - Minimum version required: 12.16.1
+    - Check your version using `node --version`
+* npm - installed alongside Node.js
+    - Minimum version required: 6.13.4
+    - Check your version using `npm --version`
+* git - https://git-scm.com/downloads
+* A text editor e.g. Visual Studio Code - https://code.visualstudio.com/
+
 ### Building the project for a release
 
 Use the `gulp build` command to build a static version of the website to the "dist" folder. This will prepare all the site assets and optimise them to be hosted in an AWS S3 storage bucket.
 
-During the gulp build, if their is an error during the `npm run createjson` portion, gulp will not tell you a specific error. To see the specific error you must run `npm run createjson` from the console.
+During the gulp build, if there is an error during the `npm run createjson` step, gulp will not tell you a specific error. To see the specific error you must run `npm run createjson` from the console.
 
 ## How to contribute
 
@@ -50,21 +49,20 @@ I am hoping that this project will be a fun place for open source newcomers (lik
 
 Key places to look if you want to update something in this project:
 
-```
-Operator SVGs/Images - r6-operator-counters\src\images\svg\
-The main webpage - r6-operator-counters\src\html\index.html
-Neo4j JSON file with operator data - r6-operator-counters\src\json\r6OperatorCounters.json
-Neo4jd3 script - r6-operator-counter\src\main\scripts\neo4jd3.js
-Stylesheets - r6-operator-counter\src\main\styles
-```
+* The main webpage - `.\src\html\index.html`
+* Operator images paths - `.src\main\imageLocation.js`
+  - Run `npm install r6operators@latest` to install the latest operator images from [marcopixel r6-operatoricons](https://marcopixel.eu/r6-operatoricons/)
+* Operator data - `.\src\main\create-operator-json\operators`
+* Operator class logic - `.\src\main\create-operator-json\core`
+  - This is used to construct the Neo4j database/JSON file that D3.js renders as a nice graph.
+* Stylesheets - `.\src\main\styles\neo4jd3.scss`
+* Misc images - `.\src\images\site\`
 
 ## r6counters.com
-Any pull requests that get merged into master will trigger a build of the website. This build will get published to AWS and will be hosted at [https://r6counters.com/](https://r6counters.com/) after a day.
+Any pull requests that get merged into master will trigger a build of the website. This build will get published to AWS and will be hosted at [https://r6counters.com/](https://r6counters.com/) after one day.
 
 ## Contributors
 Thank you to [all the contributors](https://github.com/BurkusCat/r6-operator-counters/graphs/contributors) to R6 Operator Counters.
-
-
 
 [View our humans.txt file with more info about this project's contributors.](
 https://raw.githubusercontent.com/BurkusCat/r6-operator-counters/master/src/main/humans.txt)
@@ -73,7 +71,9 @@ https://raw.githubusercontent.com/BurkusCat/r6-operator-counters/master/src/main
 
 * More filtering
 * More views
+* Seasonal counter updates
+* Performance improvements
 
 ## Copyright and license
 
-Code and documentation copyright 2019 the author. Code released under the [MIT license](LICENSE). Docs released under [Creative Commons](docs/LICENSE).
+Code and documentation copyright 2020 the author. Code released under the [MIT license](LICENSE). Docs released under [Creative Commons](docs/LICENSE).

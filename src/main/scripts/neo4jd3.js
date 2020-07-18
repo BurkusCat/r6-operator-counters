@@ -23,7 +23,7 @@ function Neo4jD3(_selector, _options) {
             nodeRadius: 25,
             relationshipColor: '#a5abb6',
             zoomFit: false,
-            counters: [true, true, false]
+            counters: [true, false, false]
         },
         builtRelations = {},
         VERSION = '0.0.1';
@@ -552,7 +552,7 @@ function Neo4jD3(_selector, _options) {
                                    justLoaded = true;
                                    zoomFit(2);
                                }
-                           }).alphaDecay(0.2);
+                           });
 
         return simulation;
     }
