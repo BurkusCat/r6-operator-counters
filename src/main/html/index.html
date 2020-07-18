@@ -63,17 +63,16 @@
                     nodeRadius: 35, 
                     counters: [document.querySelector('#hardCounters').checked, document.querySelector('#softCounters').checked, 
                         document.querySelector('#minorCounters').checked], 
-                    onNodeDoubleClick: function(node) { 
- 
-                    }, 
-                    onRelationshipDoubleClick: function(relationship) { 
- 
-                    }, 
+                    onNodeDoubleClick: focusOnNode, 
+                    onRelationshipDoubleClick: focusOnRelationship, 
                     zoomFit: false 
                 };
 
             var startButton = document.getElementById("startButton"); 
             var stopButton = document.getElementById("stopButton"); 
+
+            var focused = false; 
+            var unfocusedOpacity = 0.1;
  
             function init() {
                 startButton.style.display = "none"; 
@@ -81,6 +80,8 @@
                 neo4jd3Options.counters = [document.querySelector('#hardCounters').checked, document.querySelector('#softCounters').checked, 
                         document.querySelector('#minorCounters').checked];
                 neo4jd3 = new Neo4jD3('#neo4jd3', neo4jd3Options); 
+
+                document.querySelector('.neo4jd3-graph').addEventListener('click', unfocus);
             } 
 
             //event listeners to handle clicks, module is not global scoped
@@ -101,6 +102,51 @@
                 startButton.style.display = "block"; 
                 neo4jd3.freezeAllNodes(); 
             } 
+
+            function focusOnNode(node) {
+                let connectedNodes = new Set();
+                connectedNodes.add(node.id);
+
+                // Decrease opacity on counters not connected to node and get set of nodes directly connected to node
+                Array.from(document.querySelectorAll('.relationship'))
+                    .filter(counter => {
+                        if (counter.__data__.startNode == node.id) connectedNodes.add(counter.__data__.endNode);
+                        else if (counter.__data__.endNode == node.id) connectedNodes.add(counter.__data__.startNode);
+                        return counter.__data__.startNode != node.id && counter.__data__.endNode != node.id;
+                    })
+                    .forEach(counter => counter.style.opacity = unfocusedOpacity);
+
+                // Decrease opacity on nodes not directly connected to node
+                Array.from(document.querySelectorAll('.node'))
+                    .filter(nodeElem => !connectedNodes.has(nodeElem.__data__.id) )
+                    .forEach(nodeElem => nodeElem.style.opacity = unfocusedOpacity);
+
+                focused = true;
+            }
+
+            function focusOnRelationship(relationship) {
+                let nodes = [relationship.startNode, relationship.endNode];
+
+                // Decrease opacity of nodes not connected to relationship
+                Array.from(document.querySelectorAll('.node'))
+                    .filter(node => !nodes.includes(node.__data__.id))
+                    .forEach(node => node.style.opacity = unfocusedOpacity);
+
+                // Decrease opacity of other relationships
+                Array.from(document.querySelectorAll('.relationship'))
+                    .filter(counter => counter.__data__.id != relationship.id)
+                    .forEach(counter => counter.style.opacity = unfocusedOpacity);
+
+                focused = true;
+            }
+
+            function unfocus() {
+                if (focused) {
+                    Array.from(document.querySelectorAll('.relationship, .node'))
+                        .forEach(counter => counter.style.opacity = 1);
+                    focused = false;
+                }
+            }
  
             window.onload = init; 
         </script> 
