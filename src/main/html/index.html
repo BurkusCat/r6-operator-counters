@@ -41,8 +41,8 @@
             <button id="startButton" aria-label="Start simulation button" class="settingsButton">Start Simulation</button>
             <button id="stopButton" aria-label="Stop simulation button" class="settingsButton">Pause Simulation</button>
             <button id="highQualityButton" aria-label="High quality graphics button" class="settingsButton">
-                <input type="checkbox"id="highQualityCheckbox" disabled> 
-                <label for="highQualityCheckbox" id="highQualityLabel">High Quality Graphics (slow)</label>
+                <label id="highQualityEnabledLabel" class="highQualityLabel">☑ High Quality Graphics (slow)</label>
+                <label id="highQualityDisabledLabel" class="highQualityLabel">☐ High Quality Graphics (slow)</label>
             </button>
         </div>
         <button id="toolsButton" aria-label="Tools and settings button"></button>
@@ -95,7 +95,8 @@
             var startButton = document.getElementById("startButton");
             var stopButton = document.getElementById("stopButton");
             var settingsPopup = document.getElementById("settingsPopup");
-            var highQualityCheckbox = document.getElementById("highQualityCheckbox");
+            var highQualityEnabledLabel = document.getElementById("highQualityEnabledLabel");
+            var highQualityDisabledLabel = document.getElementById("highQualityDisabledLabel");
 
             var focused = false;
  
@@ -191,7 +192,14 @@
 
             function toggleImageQuality() {
                 highQuality = !highQuality;
-                highQualityCheckbox.checked = highQuality;
+
+                if (highQuality) {
+                    highQualityEnabledLabel.style.display = "block";
+                    highQualityDisabledLabel.style.display = "none";
+                } else {
+                    highQualityEnabledLabel.style.display = "none";
+                    highQualityDisabledLabel.style.display = "block";
+                }
 
                 setImages();
             }

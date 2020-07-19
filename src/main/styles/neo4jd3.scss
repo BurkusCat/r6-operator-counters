@@ -96,9 +96,13 @@ body {
 #highQualityCheckbox {
 }
 
-#highQualityLabel {
+.highQualityLabel {
     color: white;
     stroke: white;
+}
+
+#highQualityEnabledLabel {
+    display: none;
 }
 
 .counterCheckbox {
