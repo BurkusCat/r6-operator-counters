@@ -12,6 +12,6 @@ zofia.addCounterNode(operatorId.echo, counterType.soft, "Zofia is affected for a
 zofia.addCounterNode(operatorId.clash, counterType.hard, "Zofia's Concussion Grenades can make Clash very vulnerable.");
 zofia.addCounterNode(operatorId.castle, counterType.hard, "Zofia's Impact Grenades can destroy Castle's Armor Panels.");
 zofia.addCounterNode(operatorId.maestro, counterType.hard,  "Zofia's Impact Grenades can destroy Maestro's Evil Eye cameras while they are closed.");
-
+zofia.addCounterNode(operatorId.melusi, counterType.hard, "Zofia's Impact Grenades can destroy Melusi's Banshee.");
 
 export default zofia
