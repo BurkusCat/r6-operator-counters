@@ -51,7 +51,7 @@ Key places to look if you want to update something in this project:
 
 * The main webpage - `.\src\html\index.html`
 * Operator images paths - `.src\main\imageLocation.js`
-  - Run `npm install r6operators@latest` to install the latest operator images from [marcopixel r6-operatoricons](https://marcopixel.eu/r6-operatoricons/)
+  - Run `npm install r6operators@latest` to install the latest operator images from [marcopixel r6-operatoricons](https://r6operators.marcopixel.eu)
 * Operator data - `.\src\main\create-operator-json\operators`
 * Operator class logic - `.\src\main\create-operator-json\core`
   - This is used to construct the Neo4j database/JSON file that D3.js renders as a nice graph.
