@@ -3,6 +3,7 @@
  * This module to be used only by operatorModule.js
  */
 
+import ace from '../operators/ace';
 import alibi from '../operators/alibi';
 import amaru from '../operators/amaru';
 import ash from '../operators/ash';
@@ -36,6 +37,7 @@ import lesion from '../operators/lesion';
 import lion from '../operators/lion';
 import maestro from '../operators/maestro';
 import maverick from '../operators/maverick';
+import melusi from '../operators/melusi';
 import mira from '../operators/mira';
 import montagne from '../operators/montagne';
 import mozzie from '../operators/mozzie';
@@ -60,6 +62,7 @@ import ying from '../operators/ying';
 import zofia from '../operators/zofia';
 
 export default {
+  ace,
   alibi,
   amaru,
   ash,
@@ -93,6 +96,7 @@ export default {
   lion,
   maestro,
   maverick,
+  melusi,
   mira,
   montagne,
   mozzie,
