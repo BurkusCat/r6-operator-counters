@@ -9,5 +9,4 @@ let pulse = new Operator(r6operators.pulse, operatorId.pulse, "N/A");
 
 pulse.addCounterNode(operatorId.finka, counterType.soft, "Pulse's Heartbeat Sensor will detect Attackers boosted by Finka's Adrenal Surge for twice the amount of time.");
 
-
 export default pulse
