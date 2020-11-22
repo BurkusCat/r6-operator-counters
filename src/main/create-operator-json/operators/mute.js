@@ -16,5 +16,6 @@ mute.addCounterNode(operatorId.jackal, counterType.soft, "Mute's Signal Disrupto
 mute.addCounterNode(operatorId.lion, counterType.soft, "When standing within range of Mute's Signal Disruptor, a defender can freely move without being detected by Lion's EE-ONE-D drone.");
 mute.addCounterNode(operatorId.blitz, counterType.soft, "When standing within range of Mute's Signal Disruptor, Blitz's Flash Shield will be disrupted.");
 mute.addCounterNode(operatorId.iana, counterType.hard, "Mute's Signal Disruptor will neutralize Iana's hologram.");
+mute.addCounterNode(operatorId.mute, counterType.hard, "Mute's Signal Disruptor will disable Zero's cameras until they are destroyed.");
 
 export default mute
