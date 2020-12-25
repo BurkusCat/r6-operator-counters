@@ -84,7 +84,7 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-sinon": "^1.0.4",
     "lodash": "^4.17.19",
-    "node-notifier": "^4.6.0",
+    "node-notifier": "^8.0.1",
     "node-sass": "^4.14.1",
     "phantomjs": "^2.1.1",
     "proxyquire": "^1.7.9 ",
