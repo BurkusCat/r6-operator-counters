@@ -85,7 +85,7 @@
     "karma-sinon": "^1.0.4",
     "lodash": "^4.17.19",
     "node-notifier": "^8.0.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "phantomjs": "^2.1.1",
     "proxyquire": "^1.7.9 ",
     "proxyquireify": "^3.2.0",
