@@ -12,5 +12,4 @@ ela.addCounterNode(operatorId.blitz, counterType.soft, "Ela's Grzmot Mines will 
 ela.addCounterNode(operatorId.jackal, counterType.soft, "Ela's Grzmot Mines will disorient Jackal, causing him to kick off his goggles.");
 ela.addCounterNode(operatorId.zofia, counterType.soft,  "Ela can recover quickly if hit by one of Zofia's Concussion Grenades.");
 
-
 export default ela

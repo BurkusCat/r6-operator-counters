@@ -13,5 +13,4 @@ smoke.addCounterNode(operatorId.fuze, counterType.soft, "Smoke's 3 Gas Grenades 
 smoke.addCounterNode(operatorId.finka, counterType.soft, "Smoke's Gas Grenades deal 50% more damage to Attackers boosted by Finka's Adrenal Surge.");
 smoke.addCounterNode(operatorId.recruit, counterType.soft, "Smoke's 3 Gas Grenades are very effective against a Recruit with a shield.");
 
-
 export default smoke

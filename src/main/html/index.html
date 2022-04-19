@@ -37,11 +37,17 @@
     <body> 
         <main id="neo4jd3"></main>
         <a target="_blank" rel="noopener" href="https://github.com/BurkusCat/r6-operator-counters"><img style="cursor: pointer; position: absolute; top: 0; right: 0; border: 0;" src="img/site/github.svg" alt="Contribute on GitHub"></a> 
-		<div class="checkboxes">
-			<input type="checkbox" id="highQualityCheckbox"> 
-            <label for="highQualityCheckbox" id="highQualityLabel">High quality (slow)</label>
-            <br>
+        <div id="settingsPopup">
+            <button id="startButton" aria-label="Start simulation button" class="settingsButton">Start Simulation</button>
+            <button id="stopButton" aria-label="Stop simulation button" class="settingsButton">Pause Simulation</button>
+            <button id="highQualityButton" aria-label="High quality graphics button" class="settingsButton">
+                <label id="highQualityEnabledLabel" class="highQualityLabel">☑ High Quality Graphics (slow)</label>
+                <label id="highQualityDisabledLabel" class="highQualityLabel">☐ High Quality Graphics (slow)</label>
+            </button>
+        </div>
+        <button id="toolsButton" aria-label="Tools and settings button"></button>
 
+        <div class="checkboxes">
 			<input type="checkbox" id="hardCounters" class="counterCheckbox" checked> 
             <label for="hardCounters" class="hardcounter">Hard counters</label>
             <br>
@@ -53,8 +59,6 @@
 			<input type="checkbox" id="minorCounters" class="counterCheckbox" > 
 			<label for="minorCounters" class="minorcounter">Minor counters</label>
         </div>
-        <button id="startButton" aria-label="Start simulation button"></button>
-        <button id="stopButton" aria-label="Stop simulation button"></button>
 
         <script type="module"> 
             import Neo4jD3 from './js/neo4jd3.js';
@@ -85,10 +89,14 @@
             document.getElementById('minorCounters').addEventListener('click', init);
             document.getElementById('startButton').addEventListener('click', unfreezeAllNodes);
             document.getElementById('stopButton').addEventListener('click', freezeAllNodes);
-            document.getElementById('highQualityCheckbox').addEventListener('click', setImages);
+            document.getElementById('highQualityButton').addEventListener('click', toggleImageQuality);
+            document.getElementById('toolsButton').addEventListener('click', toggleSettingsPopup);
 
             var startButton = document.getElementById("startButton");
             var stopButton = document.getElementById("stopButton");
+            var settingsPopup = document.getElementById("settingsPopup");
+            var highQualityEnabledLabel = document.getElementById("highQualityEnabledLabel");
+            var highQualityDisabledLabel = document.getElementById("highQualityDisabledLabel");
 
             var focused = false;
  
@@ -145,10 +153,22 @@
             }
 
             function unfocus() {
+                // close the settings popup
+                settingsPopup.style.display = "none";
+
+                // if we are focused on a node or relationship, unfocus the graph
                 if (focused) {
                     Array.from(document.querySelectorAll('.relationship, .node'))
                         .forEach(counter => counter.classList.remove("unfocused"));
                     focused = false;
+                }
+            }
+
+            function toggleSettingsPopup() {
+                if (settingsPopup.style.display === "block") {
+                    settingsPopup.style.display = "none";
+                } else {
+                    settingsPopup.style.display = "block";
                 }
             }
 
@@ -168,9 +188,23 @@
                 neo4jd3.freezeAllNodes();
             }
 
-            function setImages() {
-                var highQuality = document.querySelector('#highQualityCheckbox').checked;
+            var highQuality = false;
 
+            function toggleImageQuality() {
+                highQuality = !highQuality;
+
+                if (highQuality) {
+                    highQualityEnabledLabel.style.display = "block";
+                    highQualityDisabledLabel.style.display = "none";
+                } else {
+                    highQualityEnabledLabel.style.display = "none";
+                    highQualityDisabledLabel.style.display = "block";
+                }
+
+                setImages();
+            }
+
+            function setImages() {
                 var fileFormat = highQuality ? 'svg' : 'png';
 
                 neo4jd3Options.images = ImageLocation.getLocations(fileFormat);

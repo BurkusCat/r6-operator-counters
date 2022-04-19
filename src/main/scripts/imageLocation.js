@@ -1,6 +1,7 @@
 class ImageLocation {
     static getLocations(fileFormat) {
         return {
+            'Ace': 'img/' + fileFormat + '/ace.' + fileFormat,
             'Alibi': 'img/' + fileFormat + '/alibi.' + fileFormat,
             'Amaru': 'img/' + fileFormat + '/amaru.' + fileFormat,
             'Ash': 'img/' + fileFormat + '/ash.' + fileFormat,
@@ -34,6 +35,7 @@ class ImageLocation {
             'Lion': 'img/' + fileFormat + '/lion.' + fileFormat,
             'Maestro': 'img/' + fileFormat + '/maestro.' + fileFormat,
             'Maverick': 'img/' + fileFormat + '/maverick.' + fileFormat,
+            'Melusi': 'img/' + fileFormat + '/melusi.' + fileFormat,
             'Mira': 'img/' + fileFormat + '/mira.' + fileFormat,
             'Montagne': 'img/' + fileFormat + '/montagne.' + fileFormat,
             'Mozzie': 'img/' + fileFormat + '/mozzie.' + fileFormat,

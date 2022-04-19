@@ -34,7 +34,7 @@ export default {
     caviera: 27,
     hibana: 28,
     echo: 29,
-    jackal:30,
+    jackal: 30,
     mira: 31, 
     ying: 32,
     lesion: 33,
@@ -60,4 +60,6 @@ export default {
     wamai: 53,
     oryx: 54,
     iana: 55,
+    ace: 56,
+    melusi: 57,
 };
