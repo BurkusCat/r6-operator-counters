@@ -59,6 +59,7 @@ import vigil from '../operators/vigil';
 import wamai from '../operators/wamai';
 import warden from '../operators/warden';
 import ying from '../operators/ying';
+import zero from '../operators/zero';
 import zofia from '../operators/zofia';
 
 export default {
@@ -118,5 +119,6 @@ export default {
   wamai,
   warden,
   ying,
+  zero,
   zofia
 }

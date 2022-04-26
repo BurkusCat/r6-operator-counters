@@ -12,5 +12,6 @@ bandit.addCounterNode(operatorId.ace, counterType.hard, "Bandit's Shock Wire can
 bandit.addCounterNode(operatorId.twitch, counterType.soft, "Bandit's Shock Wire can be used to electrify barbed wire which can kill a Twitch Drone that enters the wire. However, Shock Wire is still easily shot by a Twitch Drone.");
 bandit.addCounterNode(operatorId.dokkaebi, counterType.minor, "If a defender's phone is dropped into barbed wire electrified by Bandit's Shock Wire, it is destroyed.");
 bandit.addCounterNode(operatorId.iana, counterType.hard, "Bandit's Shock Wire can destroy Iana's Hologram.");
+bandit.addCounterNode(operatorId.zero, counterType.hard, "Bandit's Shock Wire can destroy Zero's cameras.");
 
 export default bandit

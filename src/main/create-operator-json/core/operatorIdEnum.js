@@ -62,4 +62,5 @@ export default {
     iana: 55,
     ace: 56,
     melusi: 57,
+    zero: 58,
 };

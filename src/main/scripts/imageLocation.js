@@ -58,6 +58,7 @@ class ImageLocation {
             'Wamai': 'img/' + fileFormat + '/wamai.' + fileFormat,
             'Warden': 'img/' + fileFormat + '/warden.' + fileFormat,
             'Ying': 'img/' + fileFormat + '/ying.' + fileFormat,
+            'Zero': 'img/' + fileFormat + '/zero.' + fileFormat,
             'Zofia': 'img/' + fileFormat + '/zofia.' + fileFormat,
         };
     }
