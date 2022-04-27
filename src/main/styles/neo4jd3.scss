@@ -174,10 +174,14 @@ body {
 }
 
 .node {
+    will-change: transform;
+
     transition: opacity 0.5s;
 }
 
 .relationship {
+    will-change: transform;
+
     transition: opacity 0.5s;
     cursor: default;
 
