@@ -737,9 +737,27 @@ function Neo4jD3(_selector, _options) {
             });
 
             const startTime = performance.now();
-            tickRelationshipsTexts();
-            tickRelationshipsOutlines();
-            tickRelationshipsOverlays();
+            var textTransforms = tickRelationshipsTexts();
+            var outlineTransforms = tickRelationshipsOutlines();
+            var overlayTransforms = tickRelationshipsOverlays();
+
+            // render all text transforms
+            for (var i = 0; i < relationshipText._groups[0].length; i++) {
+                var text = d3.select(relationshipText._groups[0][i]);
+                text.attr('transform', textTransforms[i]);
+            }
+
+            // render all relationship transforms
+            for (var i = 0; i < relationship._groups[0].length; i++) {
+                var outline = d3.select(relationship._groups[0][i]).select('.outline');
+                outline.attr('d', outlineTransforms[i]);
+            }
+
+            // render all overlay transforms
+            for (var i = 0; i < relationshipOverlay._groups[0].length; i++) {
+                var overlay = d3.select(relationshipOverlay._groups[0][i]);
+                overlay.attr('d', overlayTransforms[i]);
+            }
 
             const duration = performance.now() - startTime;
             console.log(`tick took ${duration}ms`);
@@ -759,11 +777,7 @@ function Neo4jD3(_selector, _options) {
             }
         });
 
-        // render all relationship transforms
-        for (var i = 0; i < relationship._groups[0].length; i++) {
-            var outline = d3.select(relationship._groups[0][i]).select('.outline');
-            outline.attr('d', outlineTransforms[i]);
-        }
+        return outlineTransforms;
     }
 
     function tickStraightRelationshipsOutline(d, text) {
@@ -807,11 +821,7 @@ function Neo4jD3(_selector, _options) {
             }
         });
 
-        // render all overlay transforms
-        for (var i = 0; i < relationshipOverlay._groups[0].length; i++) {
-            var overlay = d3.select(relationshipOverlay._groups[0][i]);
-            overlay.attr('d', overlayTransforms[i]);
-        }
+        return overlayTransforms;
     }
 
     function tickStraightRelationshipsOverlay(d) {
@@ -857,11 +867,7 @@ function Neo4jD3(_selector, _options) {
             }
         });
 
-        // render all text transforms
-        for (var i = 0; i < relationshipText._groups[0].length; i++) {
-            var text = d3.select(relationshipText._groups[0][i]);
-            text.attr('transform', textTransforms[i]);
-        }
+        return textTransforms;
     }
 
     function tickStraightRelationshipsText(d) {
