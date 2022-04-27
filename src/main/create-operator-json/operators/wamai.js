@@ -16,5 +16,6 @@ wamai.addCounterNode(operatorId.nomad, counterType.hard,  "Wamai's MAG-NET Syste
 wamai.addCounterNode(operatorId.zofia, counterType.hard,  "Wamai's MAG-NET System pulls Zofia's Concussion and Impact Grenades.");
 wamai.addCounterNode(operatorId.gridlock, counterType.minor,  "Wamai's MAG-NET System pulls Gridlock's Trax Stinger but will not destroy it.");
 wamai.addCounterNode(operatorId.kali, counterType.hard,  "Wamai's MAG-NET System pulls Kali's Explosion Lances.");
+wamai.addCounterNode(operatorId.zero, counterType.hard, "Wamai's MAG-NET System will grab Zero's cameras out of the air and destroy them.");
 
 export default wamai

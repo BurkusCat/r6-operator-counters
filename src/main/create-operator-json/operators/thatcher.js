@@ -24,5 +24,6 @@ thatcher.addCounterNode(operatorId.warden, counterType.soft, "Thatcher's EMP gre
 thatcher.addCounterNode(operatorId.mozzie, counterType.hard, "Thatcher's EMP Grenades can destroy Mozzie's Pests and disable hacked drones.");
 thatcher.addCounterNode(operatorId.vigil, counterType.soft, "Thatcher's EMP Grenades can temporarily disable Vigil's ERC-7.");
 thatcher.addCounterNode(operatorId.melusi, counterType.soft, "Thatcher's EMP Grenades can temporarily disable Melusi's Banshee.");
+thatcher.addCounterNode(operatorId.thunderbird, counterType.soft, "Thatcher's EMP Grenades can temporarily disable Thunderbird's Kona Station.");
 
 export default thatcher

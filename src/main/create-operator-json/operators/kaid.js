@@ -13,5 +13,6 @@ kaid.addCounterNode(operatorId.ace, counterType.hard, "Kaid's Electroclaws can e
 kaid.addCounterNode(operatorId.twitch, counterType.soft, "Kaid's Electroclaws can be used to electrify barbed wire which can kill a Twitch Drone that enters the wire. However, an Electroclaw can be easily shot by a Twitch Drone is improperly positioned.");
 kaid.addCounterNode(operatorId.dokkaebi, counterType.minor, "If a defender's phone is dropped into barbed wire electrified by Kaid's Electroclaws, it is destroyed.")
 kaid.addCounterNode(operatorId.iana, counterType.hard, "Kaid's Electroclaw destroys Iana's Hologram.");
+kaid.addCounterNode(operatorId.zero, counterType.hard, "Kaid's Electroclaws can electrify reinforced walls. Zero's cameras that are deployed on the same wall will be instantly destroyed.");
 
 export default kaid

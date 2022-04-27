@@ -14,5 +14,6 @@ kali.addCounterNode(operatorId.maestro, counterType.hard, "Kali's Explosive Lanc
 kali.addCounterNode(operatorId.castle, counterType.hard, "Kali's Explosive Lance destroys Castle's Armor Panels.");
 kali.addCounterNode(operatorId.clash, counterType.hard, "Kali's CSRX 300 Rifle staggers and knocks Clash's CCE Shield aside.");
 kali.addCounterNode(operatorId.castle, counterType.hard, "Kali's Explosive Lance destroys Melusi's Banshee.");
+kali.addCounterNode(operatorId.thunderbird, counterType.hard, "Kali's Explosive Lance destroys Thunderbird's Kona Station.");
 
 export default kali 
