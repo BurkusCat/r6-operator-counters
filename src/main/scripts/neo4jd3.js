@@ -747,17 +747,23 @@ function Neo4jD3(_selector, _options) {
     }
 
     function tickRelationshipsOutlines() {
-        relationship.each(function () {
-            var outline = d3.select(this).select('.outline');
+        var outlineTransforms = [];
+
+        // process all relationship transforms
+        relationship.each(function (d) {
             var text = d3.select(this).select('.text');
-            outline.attr('d', function (d) {
-                if (d.linknum === 1) {
-                    return tickStraightRelationshipsOutline(d, text);
-                } else {
-                    return tickCurvedRelationshipsOutline(d);
-                }
-            });
+            if (d.linknum === 1) {
+                outlineTransforms.push(tickStraightRelationshipsOutline(d, text));
+            } else {
+                outlineTransforms.push(tickCurvedRelationshipsOutline(d));
+            }
         });
+
+        // render all relationship transforms
+        for (var i = 0; i < relationship._groups[0].length; i++) {
+            var outline = d3.select(relationship._groups[0][i]).select('.outline');
+            outline.attr('d', outlineTransforms[i]);
+        }
     }
 
     function tickStraightRelationshipsOutline(d, text) {
@@ -790,13 +796,22 @@ function Neo4jD3(_selector, _options) {
     }
 
     function tickRelationshipsOverlays() {
-        relationshipOverlay.attr('d', function (d) {
+        var overlayTransforms = [];
+
+        // process all overlay transforms
+        relationshipOverlay.each(function (d) {
             if (d.linknum === 1) {
-                return tickStraightRelationshipsOverlay(d);
+                overlayTransforms.push(tickStraightRelationshipsOverlay(d));
             } else {
-                return tickCurvedRelationshipsOverlay(d);
+                overlayTransforms.push(tickCurvedRelationshipsOverlay(d));
             }
         });
+
+        // render all overlay transforms
+        for (var i = 0; i < relationshipOverlay._groups[0].length; i++) {
+            var overlay = d3.select(relationshipOverlay._groups[0][i]);
+            overlay.attr('d', overlayTransforms[i]);
+        }
     }
 
     function tickStraightRelationshipsOverlay(d) {
@@ -831,13 +846,22 @@ function Neo4jD3(_selector, _options) {
     }
 
     function tickRelationshipsTexts() {
-        relationshipText.attr('transform', function (d) {
+        var textTransforms = [];
+
+        // process all text transforms
+        relationshipText.each(function (d) {
             if (d.linknum === 1) {
-                return tickStraightRelationshipsText(d);
+                textTransforms.push(tickStraightRelationshipsText(d));
             } else {
-                return tickCurvedRelationshipsText(d);
+                textTransforms.push(tickCurvedRelationshipsText(d));
             }
         });
+
+        // render all text transforms
+        for (var i = 0; i < relationshipText._groups[0].length; i++) {
+            var text = d3.select(relationshipText._groups[0][i]);
+            text.attr('transform', textTransforms[i]);
+        }
     }
 
     function tickStraightRelationshipsText(d) {
