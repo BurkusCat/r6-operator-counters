@@ -63,4 +63,8 @@ export default {
     ace: 56,
     melusi: 57,
     zero: 58,
+    aruni: 59,
+    flores: 60,
+    thunderbird: 61,
+    osa: 62,
 };

@@ -6,6 +6,7 @@
 import ace from '../operators/ace';
 import alibi from '../operators/alibi';
 import amaru from '../operators/amaru';
+import aruni from '../operators/aruni';
 import ash from '../operators/ash';
 import bandit from '../operators/bandit';
 import blackbeard from '../operators/blackbeard';
@@ -20,6 +21,7 @@ import dokkaebi from '../operators/dokkaebi';
 import echo from '../operators/echo';
 import ela from '../operators/ela';
 import finka from '../operators/finka';
+import flores from '../operators/flores'
 import frost from '../operators/frost';
 import fuze from '../operators/fuze';
 import glaz from '../operators/glaz';
@@ -45,6 +47,7 @@ import mute from '../operators/mute';
 import nokk from '../operators/nokk';
 import nomad from '../operators/nomad';
 import oryx from '../operators/oryx';
+import osa from '../operators/osa';
 import pulse from '../operators/pulse';
 import recruit from '../operators/recruit';
 import rook from '../operators/rook';
@@ -53,6 +56,7 @@ import smoke from '../operators/smoke';
 import tachanka from '../operators/tachanka';
 import thatcher from '../operators/thatcher';
 import thermite from '../operators/thermite';
+import thunderbird from '../operators/thunderbird';
 import twitch from '../operators/twitch';
 import valkyrie from '../operators/valkyrie';
 import vigil from '../operators/vigil';
@@ -66,6 +70,7 @@ export default {
   ace,
   alibi,
   amaru,
+  aruni,
   ash,
   bandit,
   blackbeard,
@@ -80,6 +85,7 @@ export default {
   ela,
   echo,
   finka,
+  flores,
   frost,
   fuze,
   glaz,
@@ -104,6 +110,7 @@ export default {
   mute,
   nokk,
   oryx,
+  osa,
   nomad,
   pulse,
   recruit,
@@ -113,6 +120,7 @@ export default {
   tachanka,
   thatcher,
   thermite,
+  thunderbird,
   twitch,
   valkyrie,
   vigil,
