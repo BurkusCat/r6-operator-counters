@@ -58,6 +58,10 @@
 
 			<input type="checkbox" id="minorCounters" class="counterCheckbox" > 
 			<label for="minorCounters" class="minorcounter">Minor counters</label>
+            <br>
+
+			<input type="checkbox" id="synergies" class="counterCheckbox" > 
+			<label for="synergies" class="synergy">Synergy</label>
         </div>
 
         <script type="module"> 
@@ -76,7 +80,8 @@
                     counters: [
                         document.querySelector('#hardCounters').checked,
                         document.querySelector('#softCounters').checked,
-                        document.querySelector('#minorCounters').checked
+                        document.querySelector('#minorCounters').checked,
+                        document.querySelector('#synergies').checked
                     ],
                     onNodeDoubleClick: focusOnNode,
                     onRelationshipDoubleClick: focusOnRelationship,
@@ -87,6 +92,7 @@
             document.getElementById('hardCounters').addEventListener('click', init);
             document.getElementById('softCounters').addEventListener('click', init);
             document.getElementById('minorCounters').addEventListener('click', init);
+            document.getElementById('synergies').addEventListener('click', init);
             document.getElementById('startButton').addEventListener('click', unfreezeAllNodes);
             document.getElementById('stopButton').addEventListener('click', freezeAllNodes);
             document.getElementById('highQualityButton').addEventListener('click', toggleImageQuality);
@@ -109,6 +115,7 @@
                     document.querySelector('#hardCounters').checked,
                     document.querySelector('#softCounters').checked,
                     document.querySelector('#minorCounters').checked,
+                    document.querySelector('#synergies').checked,
                 ];
                 neo4jd3 = new Neo4jD3('#neo4jd3', neo4jd3Options);
 

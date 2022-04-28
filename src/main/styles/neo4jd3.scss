@@ -7,6 +7,7 @@
     --hard-counter-color: rgb(255, 213, 213);
     --soft-counter-color: rgb(213, 213, 255);
     --minor-counter-color: rgb(216, 255, 211);
+    --synergy-color: rgb(255, 248, 176);
     --settings-background-color: #31343E;
     --settings-button-background-color: #131416;
     --settings-button-border-color: #245D7A;
@@ -122,6 +123,11 @@ body {
     stroke: var(--minor-counter-color);
 }
 
+.synergy {
+    color: var(--synergy-color);
+    stroke: var(--synergy-color);
+}
+
 .hardcountertriangle {
     fill: var(--hard-counter-color);
 }
@@ -132,6 +138,10 @@ body {
 
 .minorcountertriangle {
     fill: var(--minor-counter-color);
+}
+
+.synergytriangle {
+    fill: var(--synergy-color);
 }
 
 .neo4jd3-info {

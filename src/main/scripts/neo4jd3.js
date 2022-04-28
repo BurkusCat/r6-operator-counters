@@ -62,6 +62,7 @@ function Neo4jD3(_selector, _options) {
         addTriangleMarkerEnds(svg, 'hard');
         addTriangleMarkerEnds(svg, 'soft');
         addTriangleMarkerEnds(svg, 'minor');
+        addTriangleMarkerEnds(svg, 'synergy');
     }
 
     function addTriangleMarkerEnds(svg, type) {
@@ -128,8 +129,9 @@ function Neo4jD3(_selector, _options) {
      * @param hard Boolean for whether hard counters should be shown
      * @param soft Boolean for whether soft counters should be shown
      * @param minor Boolean for whether minor counters should be shown
+     * @param synergy Boolean for whether synergies should be shown
      */
-    function filterDataByCounterLevel(data, hard, soft, minor) {
+    function filterDataByCounterLevel(data, hard, soft, minor, synergy) {
         data.results.forEach(function(result) {
             result.data.forEach(function(data) {
                 data.graph.relationships = data.graph.relationships.filter(function(relationship) {
@@ -138,6 +140,8 @@ function Neo4jD3(_selector, _options) {
                     } else if (soft && relationship.type === 'Soft Counter') {
                         return true;
                     } else if (minor && relationship.type === 'Minor Counter') {
+                        return true;
+                    } else if (synergy && relationship.type === 'Synergy') {
                         return true;
                     }
                     return false;
@@ -271,6 +275,8 @@ function Neo4jD3(_selector, _options) {
                     return 'outline softcounter';
                 } else if (d.type === 'Minor Counter') {
                     return 'outline minorcounter';
+                } else if (d.type === 'Synergy') {
+                    return 'outline synergy';
                 }
                 return 'outline';
             })
@@ -279,8 +285,10 @@ function Neo4jD3(_selector, _options) {
                     return 'url(#hardTriangle)';
                 } else if (d.type === 'Soft Counter') {
                     return 'url(#softTriangle)';
-                } else {
+                } else if(d.type === 'Minor Counter'){
                     return 'url(#minorTriangle)';
+                } else {
+                    return 'url(#synergyTriangle)';
                 }
             });
     }
@@ -590,7 +598,7 @@ function Neo4jD3(_selector, _options) {
                 throw error;
             }
 
-            data = filterDataByCounterLevel(data, options.counters[0], options.counters[1], options.counters[2]);
+            data = filterDataByCounterLevel(data, options.counters[0], options.counters[1], options.counters[2], options.counters[3]);
             updateWithNeo4jData(data);
         });
     }
