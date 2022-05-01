@@ -35,8 +35,8 @@
             <button id="startButton" aria-label="Start simulation button" class="settingsButton">Start Simulation</button>
             <button id="stopButton" aria-label="Stop simulation button" class="settingsButton">Pause Simulation</button>
             <button id="highAccuracySimulationButton" aria-label="High accuracy simulation button" class="settingsButton">
-                <label id="highAccuracySimulationLabel" class="settingsButtonLabel">☑ High Accuracy Simulation (slow)</label>
-                <label id="highAccuracySimulationLabel" class="settingsButtonLabel">☐ High Accuracy Simulation (slow)</label>
+                <label id="highAccuracySimEnabledLabel" class="settingsButtonLabel">☑ High Accuracy Simulation (slow)</label>
+                <label id="highAccuracySimDisabledLabel" class="settingsButtonLabel">☐ High Accuracy Simulation (slow)</label>
             </button>
             <button id="highGraphicsButton" aria-label="High quality graphics button" class="settingsButton">
                 <label id="highGraphicsEnabledLabel" class="settingsButtonLabel">☑ High Quality Graphics (slow)</label>
@@ -94,10 +94,10 @@
             var startButton = document.getElementById("startButton");
             var stopButton = document.getElementById("stopButton");
             var settingsPopup = document.getElementById("settingsPopup");
-            var highAccuracyEnabledLabel = document.getElementById("highAccuracyEnabledLabel");
-            var highAccuracyDisabledLabel = document.getElementById("highAccuracyDisabledLabel");
-            var highQualityEnabledLabel = document.getElementById("highQualityEnabledLabel");
-            var highQualityDisabledLabel = document.getElementById("highQualityDisabledLabel");
+            var highAccuracySimEnabledLabel = document.getElementById("highAccuracySimEnabledLabel");
+            var highAccuracySimDisabledLabel = document.getElementById("highAccuracySimDisabledLabel");
+            var highGraphicsEnabledLabel = document.getElementById("highGraphicsEnabledLabel");
+            var highGraphicsDisabledLabel = document.getElementById("highGraphicsDisabledLabel");
 
             var focused = false;
  
@@ -217,11 +217,11 @@
                 highAccuracySimulation = !highAccuracySimulation;
 
                 if (highAccuracySimulation) {
-                    highAccuracyEnabledLabel.style.display = "block";
-                    highAccuracyDisabledLabel.style.display = "none";
+                    highAccuracySimEnabledLabel.style.display = "block";
+                    highAccuracySimDisabledLabel.style.display = "none";
                 } else {
-                    highAccuracyEnabledLabel.style.display = "none";
-                    highAccuracyDisabledLabel.style.display = "block";
+                    highAccuracySimEnabledLabel.style.display = "none";
+                    highAccuracySimDisabledLabel.style.display = "block";
                 }
 
                 // re-load the graph with the new simulation quality
