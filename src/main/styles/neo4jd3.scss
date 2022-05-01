@@ -25,6 +25,21 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
     background-color: #333;
+    height: 100%; 
+    overflow: hidden; 
+}
+
+html, .neo4jd3 { 
+    height: 100%; 
+    overflow: hidden; 
+} 
+
+#githubOctocat {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
 }
 
 #settingsPopup {
