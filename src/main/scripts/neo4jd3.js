@@ -23,7 +23,8 @@ function Neo4jD3(_selector, _options) {
             nodeRadius: 25,
             relationshipColor: '#a5abb6',
             zoomFit: false,
-            counters: [true, false, false]
+            counters: [true, false, false],
+            simulationQuality: 2,
         },
         builtRelations = {},
         VERSION = '0.0.1';
@@ -538,7 +539,7 @@ function Neo4jD3(_selector, _options) {
 //                           .force('y', d3.force().strength(0.002))
                            .force('collide', d3.forceCollide().radius(function(d) {
                                return options.minCollision;
-                           }).iterations(2))
+                           }).iterations(options.simulationQuality))
                            .force('charge', d3.forceManyBody())
                            .force('link', d3.forceLink().id(function(d) {
                                return d.id;

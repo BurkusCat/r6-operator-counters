@@ -40,9 +40,13 @@
         <div id="settingsPopup">
             <button id="startButton" aria-label="Start simulation button" class="settingsButton">Start Simulation</button>
             <button id="stopButton" aria-label="Stop simulation button" class="settingsButton">Pause Simulation</button>
-            <button id="highQualityButton" aria-label="High quality graphics button" class="settingsButton">
-                <label id="highQualityEnabledLabel" class="highQualityLabel">☑ High Quality Graphics (slow)</label>
-                <label id="highQualityDisabledLabel" class="highQualityLabel">☐ High Quality Graphics (slow)</label>
+            <button id="highAccuracySimulationButton" aria-label="High accuracy simulation button" class="settingsButton">
+                <label id="highAccuracySimulationLabel" class="settingsButtonLabel">☑ High Accuracy Simulation (slow)</label>
+                <label id="highAccuracySimulationLabel" class="settingsButtonLabel">☐ High Accuracy Simulation (slow)</label>
+            </button>
+            <button id="highGraphicsButton" aria-label="High quality graphics button" class="settingsButton">
+                <label id="highGraphicsEnabledLabel" class="settingsButtonLabel">☑ High Quality Graphics (slow)</label>
+                <label id="highGraphicsDisabledLabel" class="settingsButtonLabel">☐ High Quality Graphics (slow)</label>
             </button>
         </div>
         <button id="toolsButton" aria-label="Tools and settings button"></button>
@@ -89,12 +93,15 @@
             document.getElementById('minorCounters').addEventListener('click', init);
             document.getElementById('startButton').addEventListener('click', unfreezeAllNodes);
             document.getElementById('stopButton').addEventListener('click', freezeAllNodes);
-            document.getElementById('highQualityButton').addEventListener('click', toggleImageQuality);
+            document.getElementById('highAccuracySimulationButton').addEventListener('click', toggleSimulationAccuracy);
+            document.getElementById('highGraphicsButton').addEventListener('click', toggleImageQuality);
             document.getElementById('toolsButton').addEventListener('click', toggleSettingsPopup);
 
             var startButton = document.getElementById("startButton");
             var stopButton = document.getElementById("stopButton");
             var settingsPopup = document.getElementById("settingsPopup");
+            var highAccuracyEnabledLabel = document.getElementById("highAccuracyEnabledLabel");
+            var highAccuracyDisabledLabel = document.getElementById("highAccuracyDisabledLabel");
             var highQualityEnabledLabel = document.getElementById("highQualityEnabledLabel");
             var highQualityDisabledLabel = document.getElementById("highQualityDisabledLabel");
 
@@ -110,6 +117,7 @@
                     document.querySelector('#softCounters').checked,
                     document.querySelector('#minorCounters').checked,
                 ];
+                neo4jd3Options.simulationQuality = highAccuracySimulation ? 2 : 1;
                 neo4jd3 = new Neo4jD3('#neo4jd3', neo4jd3Options);
 
                 document.querySelector('.neo4jd3-graph').addEventListener('click', unfocus);
@@ -188,24 +196,46 @@
                 neo4jd3.freezeAllNodes();
             }
 
-            var highQuality = false;
+            var highGraphics = false;
 
+            /**
+             * Toggles the image quality between high and low.
+             * Default is low graphics.
+             * High = .svgs, Low = .pngs
+             */
             function toggleImageQuality() {
-                highQuality = !highQuality;
+                highGraphics = !highGraphics;
 
-                if (highQuality) {
-                    highQualityEnabledLabel.style.display = "block";
-                    highQualityDisabledLabel.style.display = "none";
+                if (highGraphics) {
+                    highGraphicsEnabledLabel.style.display = "block";
+                    highGraphicsDisabledLabel.style.display = "none";
                 } else {
-                    highQualityEnabledLabel.style.display = "none";
-                    highQualityDisabledLabel.style.display = "block";
+                    highGraphicsEnabledLabel.style.display = "none";
+                    highGraphicsDisabledLabel.style.display = "block";
                 }
 
                 setImages();
             }
 
+            var highAccuracySimulation = true;
+
+            function toggleSimulationAccuracy() {
+                highAccuracySimulation = !highAccuracySimulation;
+
+                if (highAccuracySimulation) {
+                    highAccuracyEnabledLabel.style.display = "block";
+                    highAccuracyDisabledLabel.style.display = "none";
+                } else {
+                    highAccuracyEnabledLabel.style.display = "none";
+                    highAccuracyDisabledLabel.style.display = "block";
+                }
+
+                // re-load the graph with the new simulation quality
+                init();
+            }
+
             function setImages() {
-                var fileFormat = highQuality ? 'svg' : 'png';
+                var fileFormat = highGraphics ? 'svg' : 'png';
 
                 neo4jd3Options.images = ImageLocation.getLocations(fileFormat);
 
