@@ -697,6 +697,9 @@ function Neo4jD3(_selector, _options) {
         d.fx = d.fy = null;
     }
 
+    /**
+     * Tick function for the simulation
+     */
     function tick() {
         var nodeTransforms = tickNodes();
 
@@ -706,31 +709,14 @@ function Neo4jD3(_selector, _options) {
 
         var relationshipTransforms = tickRelationships();
 
-        // render all node transforms
-        for (var i = 0; i < node._groups[0].length; i++) {
-            var nodeElement = d3.select(node._groups[0][i]);
-            nodeElement.attr('transform', nodeTransforms[i]);
-        }
-
-        // render all text transforms
-        for (var i = 0; i < relationshipText._groups[0].length; i++) {
-            var text = d3.select(relationshipText._groups[0][i]);
-            text.attr('transform', relationshipTransforms[0][i]);
-        }
-
-        // render all relationship transforms
-        for (var i = 0; i < relationship._groups[0].length; i++) {
-            var outline = d3.select(relationship._groups[0][i]).select('.outline');
-            outline.attr('d', relationshipTransforms[1][i]);
-        }
-
-        // render all overlay transforms
-        for (var i = 0; i < relationshipOverlay._groups[0].length; i++) {
-            var overlay = d3.select(relationshipOverlay._groups[0][i]);
-            overlay.attr('d', relationshipTransforms[2][i]);
-        }
+        // do all rendering AFTER processing for performance reasons
+        renderGraph(nodeTransforms, relationshipTransforms);
     }
 
+    /**
+     * Processes the transformations for each node in the graph.
+     * @returns {Array} an array of transforms for each node
+     */
     function tickNodes() {
         if (!node) {
             return null;
@@ -746,6 +732,13 @@ function Neo4jD3(_selector, _options) {
         return nodeTransforms;
     }
 
+    /**
+     * Processes the transformations for each relationship in the graph.
+     * @returns {Array} an array of transforms for each relationship
+     * The first element in the array is an array of relationship text transforms
+     * The second element in the array is an array of relationship outline transforms
+     * The third element in the array is an array of relationship overlay transforms
+     */
     function tickRelationships() {
         var relationshipTransforms = [];
 
@@ -782,13 +775,18 @@ function Neo4jD3(_selector, _options) {
         return relationshipTransforms;
     }
 
+    /**
+     * Processes the transformations for each relationship outline in the graph.
+     * @returns {Array} an array of transforms for each relationship outline
+     */
     function tickRelationshipsOutlines() {
         var outlineTransforms = [];
 
-        // process all relationship transforms
+        // process all outline transforms
         relationship.each(function (d) {
             var text = d3.select(this).select('.text');
             if (d.linknum === 1) {
+                // takes into account the label on the line
                 outlineTransforms.push(tickStraightRelationshipsOutline(d, text));
             } else {
                 outlineTransforms.push(tickCurvedRelationshipsOutline(d));
@@ -827,6 +825,10 @@ function Neo4jD3(_selector, _options) {
             'Q ' + middle.x + ' ' + middle.y + ' ' + target.x + ', ' + target.y;
     }
 
+    /**
+     * Processes the transformations for each relationship overlay in the graph.
+     * @returns {Array} an array of transforms for each relationship overlay
+     */
     function tickRelationshipsOverlays() {
         var overlayTransforms = [];
 
@@ -873,6 +875,10 @@ function Neo4jD3(_selector, _options) {
             'Z';
     }
 
+    /**
+     * Processes the transformations for each relationship text in the graph.
+     * @returns {Array} an array of transforms for each relationship text
+     */
     function tickRelationshipsTexts() {
         var textTransforms = [];
 
@@ -913,6 +919,36 @@ function Neo4jD3(_selector, _options) {
         return 'translate(' + middle.x + ', ' + middle.y + ') rotate(' + (mirror ? 180 : 0) + ')';
     }
 
+    /**
+     * Render all node + relationship transforms.
+     * @param {The node transforms to apply} nodeTransforms 
+     * @param {The relationship transforms to apply} relationshipTransforms 
+     */
+    function renderGraph(nodeTransforms, relationshipTransforms) {
+        // render all node transforms
+        for (var i = 0; i < node._groups[0].length; i++) {
+            var nodeElement = d3.select(node._groups[0][i]);
+            nodeElement.attr('transform', nodeTransforms[i]);
+        }
+
+        // render all text transforms
+        for (var i = 0; i < relationshipText._groups[0].length; i++) {
+            var text = d3.select(relationshipText._groups[0][i]);
+            text.attr('transform', relationshipTransforms[0][i]);
+        }
+
+        // render all relationship transforms
+        for (var i = 0; i < relationship._groups[0].length; i++) {
+            var outline = d3.select(relationship._groups[0][i]).select('.outline');
+            outline.attr('d', relationshipTransforms[1][i]);
+        }
+
+        // render all overlay transforms
+        for (var i = 0; i < relationshipOverlay._groups[0].length; i++) {
+            var overlay = d3.select(relationshipOverlay._groups[0][i]);
+            overlay.attr('d', relationshipTransforms[2][i]);
+        }
+    }
 
     function toString(d) {
         var s = d.labels ? d.labels[0] : d.type;
