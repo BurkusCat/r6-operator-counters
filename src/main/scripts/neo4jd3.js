@@ -774,13 +774,9 @@ function Neo4jD3(_selector, _options) {
                 return 'translate(' + d.source.x + ', ' + d.source.y + ') rotate(' + angle + ')';
             });
 
-            const startTime = performance.now();
             relationshipTransforms.push(tickRelationshipsTexts());
             relationshipTransforms.push(tickRelationshipsOutlines());
             relationshipTransforms.push(tickRelationshipsOverlays());
-
-            const duration = performance.now() - startTime;
-            console.log(`tick took ${duration}ms`);
         }
 
         return relationshipTransforms;
