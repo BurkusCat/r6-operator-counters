@@ -946,7 +946,7 @@ function Neo4jD3(_selector, _options) {
         }
 
         // render all relationship + outline transforms
-        for (var i = 0; i < relationship._groups[0].length; i++) {
+        for (i = 0; i < relationship._groups[0].length; i++) {
             var relationshipElement = d3.select(relationship._groups[0][i]);
             relationshipElement.attr('transform', relationshipTransforms[0][i]);
 
@@ -955,13 +955,13 @@ function Neo4jD3(_selector, _options) {
         }
 
         // render all text transforms
-        for (var i = 0; i < relationshipText._groups[0].length; i++) {
+        for (i = 0; i < relationshipText._groups[0].length; i++) {
             var text = d3.select(relationshipText._groups[0][i]);
             text.attr('transform', relationshipTransforms[2][i]);
         }
 
         // render all overlay transforms
-        for (var i = 0; i < relationshipOverlay._groups[0].length; i++) {
+        for (i = 0; i < relationshipOverlay._groups[0].length; i++) {
             var overlay = d3.select(relationshipOverlay._groups[0][i]);
             overlay.attr('d', relationshipTransforms[3][i]);
         }
