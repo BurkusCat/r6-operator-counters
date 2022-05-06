@@ -736,42 +736,55 @@ function Neo4jD3(_selector, _options) {
     /**
      * Processes the transformations for each relationship in the graph.
      * @returns {Array} an array of transforms for each relationship
-     * The first element in the array is an array of relationship text transforms
+     * The first element in the array is an array of main relationship transforms
      * The second element in the array is an array of relationship outline transforms
-     * The third element in the array is an array of relationship overlay transforms
+     * The third element in the array is an array of relationship text transforms
+     * The fourth element in the array is an array of relationship overlay transforms
      */
     function tickRelationships() {
         var relationshipTransforms = [];
 
         if (relationship) {
-            relationship.attr('transform', function(d) {  
-                var center = {x: 0, y: 0},
-                  angle = rotation(d.source, d.target),
-                  u = unitaryVector(d.source, d.target),
-                  n = unitaryNormalVector(d.source, d.target),
-                  g = rotatePoint(center, u, -10),
-                  source = rotatePoint(center, {
-                    x: 0 + (options.nodeRadius + 1) * u.x - n.x,
-                    y: 0 + (options.nodeRadius + 1) * u.y - n.y
-                  }, angle + 10),
-                  target = rotatePoint(center, {
-                    x: d.target.x - d.source.x - (options.nodeRadius + 2) * g.x,
-                    y: d.target.y - d.source.y - (options.nodeRadius + 2) * g.y
-                  }, angle),
-                  uu = unitaryNormalVector(source, target),
-                  middle = {
-                    x: (source.x + target.x) / 2 + uu.x * 20,
-                    y: (source.y + target.y) / 2 + uu.y * 20
-                  };
-                d.outline = { middle: middle, source: source, target: target, u: uu };
-
-                return 'translate(' + d.source.x + ', ' + d.source.y + ') rotate(' + angle + ')';
-            });
-
-            relationshipTransforms.push(tickRelationshipsTexts());
+            relationshipTransforms.push(tickRelationshipsMain());
             relationshipTransforms.push(tickRelationshipsOutlines());
+            relationshipTransforms.push(tickRelationshipsTexts());
             relationshipTransforms.push(tickRelationshipsOverlays());
         }
+
+        return relationshipTransforms;
+    }
+
+    /**
+     * Processes the transformations for the relationship as a whole.
+     * @returns {Array} an array of transforms for each relationship
+     */
+    function tickRelationshipsMain() {
+        var relationshipTransforms = [];
+
+        // process all relationship transforms
+        relationship.each(function (d) {
+            var center = {x: 0, y: 0},
+              angle = rotation(d.source, d.target),
+              u = unitaryVector(d.source, d.target),
+              n = unitaryNormalVector(d.source, d.target),
+              g = rotatePoint(center, u, -10),
+              source = rotatePoint(center, {
+                x: 0 + (options.nodeRadius + 1) * u.x - n.x,
+                y: 0 + (options.nodeRadius + 1) * u.y - n.y
+              }, angle + 10),
+              target = rotatePoint(center, {
+                x: d.target.x - d.source.x - (options.nodeRadius + 2) * g.x,
+                y: d.target.y - d.source.y - (options.nodeRadius + 2) * g.y
+              }, angle),
+              uu = unitaryNormalVector(source, target),
+              middle = {
+                x: (source.x + target.x) / 2 + uu.x * 20,
+                y: (source.y + target.y) / 2 + uu.y * 20
+              };
+            d.outline = { middle: middle, source: source, target: target, u: uu };
+
+            relationshipTransforms.push('translate(' + d.source.x + ', ' + d.source.y + ') rotate(' + angle + ')');
+        });
 
         return relationshipTransforms;
     }
@@ -932,37 +945,26 @@ function Neo4jD3(_selector, _options) {
             nodeElement.attr('transform', nodeTransforms[i]);
         }
 
+        // render all relationship + outline transforms
+        for (var i = 0; i < relationship._groups[0].length; i++) {
+            var relationshipElement = d3.select(relationship._groups[0][i]);
+            relationshipElement.attr('transform', relationshipTransforms[0][i]);
+
+            var outline = d3.select(relationship._groups[0][i]).select('.outline');
+            outline.attr('d', relationshipTransforms[1][i]);
+        }
+
         // render all text transforms
         for (var i = 0; i < relationshipText._groups[0].length; i++) {
             var text = d3.select(relationshipText._groups[0][i]);
-            text.attr('transform', relationshipTransforms[0][i]);
-        }
-
-        // render all relationship transforms
-        for (var i = 0; i < relationship._groups[0].length; i++) {
-            var outline = d3.select(relationship._groups[0][i]).select('.outline');
-            outline.attr('d', relationshipTransforms[1][i]);
+            text.attr('transform', relationshipTransforms[2][i]);
         }
 
         // render all overlay transforms
         for (var i = 0; i < relationshipOverlay._groups[0].length; i++) {
             var overlay = d3.select(relationshipOverlay._groups[0][i]);
-            overlay.attr('d', relationshipTransforms[2][i]);
+            overlay.attr('d', relationshipTransforms[3][i]);
         }
-    }
-
-    function toString(d) {
-        var s = d.labels ? d.labels[0] : d.type;
-
-        s += ' (<id>: ' + d.id;
-
-        Object.keys(d.properties).forEach(function(property) {
-            s += ', ' + property + ': ' + JSON.stringify(d.properties[property]);
-        });
-
-        s += ')';
-
-        return s;
     }
 
     function unitaryNormalVector(source, target, newLength) {
