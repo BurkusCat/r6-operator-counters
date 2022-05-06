@@ -3,7 +3,7 @@
 'use strict';
 
 function Neo4jD3(_selector, _options) {
-    var container, graph, info, node, nodes, relationship, relationshipOutline, relationshipOverlay, relationshipText, relationships, selector, simulation, svg, svgNodes, svgRelationships, svgScale, svgTranslate,
+    var container, info, node, nodes, relationship, relationshipOverlay, relationshipText, relationships, selector, simulation, svg, svgNodes, svgRelationships, svgScale, svgTranslate,
         classes2colors = {},
         justLoaded = false,
         numClasses = 0,
@@ -168,16 +168,7 @@ function Neo4jD3(_selector, _options) {
                    .append('g')
                    .attr('class', function(d) {
                        var highlight, i,
-                           classes = 'node',
-                           label = d.labels[0];
-
-                       if (icon(d)) {
-                           classes += ' node-icon';
-                       }
-
-                       if (image(d)) {
-                           classes += ' node-image';
-                       }
+                           classes = 'node';
 
                        if (options.highlight) {
                            for (i = 0; i < options.highlight.length; i++) {
@@ -232,13 +223,6 @@ function Neo4jD3(_selector, _options) {
 
     function appendNodeToGraph() {
         var n = appendNode();
-
-        //appendRingToNode(n);
-        //appendOutlineToNode(n);
-
-        if (options.icons) {
-            //appendTextToNode(n);
-        }
 
         if (options.images) {
             appendImageToNode(n);
@@ -415,15 +399,6 @@ function Neo4jD3(_selector, _options) {
         if (typeof options.onNodeDragStart === 'function') {
             options.onNodeDragStart(d);
         }
-    }
-
-    function extend(obj1, obj2) {
-        var obj = {};
-
-        merge(obj, obj1);
-        merge(obj, obj2);
-
-        return obj;
     }
 
     function icon(d) {
@@ -970,7 +945,7 @@ function Neo4jD3(_selector, _options) {
         }
 
         // render all overlay transforms
-        for (var i = 0; i < relationshipOverlay._groups[0].length; i++) {
+        for (i = 0; i < relationshipOverlay._groups[0].length; i++) {
             var overlay = d3.select(relationshipOverlay._groups[0][i]);
             overlay.attr('d', relationshipTransforms[3][i]);
         }
@@ -1043,9 +1018,6 @@ function Neo4jD3(_selector, _options) {
         var relationshipEnter = appendRelationshipToGraph();
 
         relationship = relationshipEnter.relationship.merge(relationship);
-
-        relationshipOutline = svg.selectAll('.relationship .outline');
-        relationshipOutline = relationshipEnter.outline.merge(relationshipOutline);
 
         relationshipOverlay = svg.selectAll('.relationship .overlay');
         relationshipOverlay = relationshipEnter.overlay.merge(relationshipOverlay);
