@@ -559,6 +559,15 @@ function Neo4jD3(_selector, _options) {
     }
 
     /**
+     * If a simulation is running, stop it. This method is used before reinitalizing the graph.
+     */
+    function stopSimulation() {
+        if (simulation) {
+            simulation.stop();
+        }
+    }
+
+    /**
      * Unreezes all nodes. This means they can be effected by simlulation forces
      */
     function unfreezeAllNodes() {
@@ -961,7 +970,7 @@ function Neo4jD3(_selector, _options) {
         }
 
         // render all overlay transforms
-        for (i = 0; i < relationshipOverlay._groups[0].length; i++) {
+        for (var i = 0; i < relationshipOverlay._groups[0].length; i++) {
             var overlay = d3.select(relationshipOverlay._groups[0][i]);
             overlay.attr('d', relationshipTransforms[3][i]);
         }
@@ -1078,7 +1087,8 @@ function Neo4jD3(_selector, _options) {
         updateWithNeo4jData: updateWithNeo4jData,
         version: version,
         unfreezeAllNodes: unfreezeAllNodes,
-        freezeAllNodes: freezeAllNodes
+        freezeAllNodes: freezeAllNodes,
+        stopSimulation: stopSimulation
     };
 }
 

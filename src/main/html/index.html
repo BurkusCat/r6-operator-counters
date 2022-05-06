@@ -112,6 +112,12 @@
                     document.querySelector('#minorCounters').checked,
                 ];
                 neo4jd3Options.simulationQuality = highAccuracySimulation ? 2 : 1;
+
+                if (neo4jd3) {
+                    // stop any old simulation running
+                    neo4jd3.stopSimulation();
+                }
+
                 neo4jd3 = new Neo4jD3('#neo4jd3', neo4jd3Options);
 
                 document.querySelector('.neo4jd3-graph').addEventListener('click', unfocus);
