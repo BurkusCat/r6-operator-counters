@@ -570,10 +570,7 @@ function Neo4jD3(_selector, _options) {
         nodes = [];
         relationships = [];
 
-        d3.json(neo4jDataUrl, function(error, data) {
-            if (error) {
-                throw error;
-            }
+        d3.json(neo4jDataUrl).then(function(data) {
 
             data = filterDataByCounterLevel(data, options.counters[0], options.counters[1], options.counters[2]);
             updateWithNeo4jData(data);
