@@ -1,12 +1,12 @@
 {
-  "name": "neo4jd3",
+  "name": "r6counters",
   "version": "0.0.5",
-  "description": "Neo4jD3",
+  "description": "A graphical visualisation of how operators counter each other in Rainbow Six Siege. View hard and soft counters to help inform your operator choice against the current meta. R6 Operator Counters is an open source project.",
   "main": "dist/neo4jd3.min.js",
   "bugs": {
-    "url": "https://github.com/eisman/neo4jd3/issues"
+    "url": "https://github.com/BurkusCat/r6-operator-counters/issues"
   },
-  "homepage": "https://github.com/eisman/neo4jd3",
+  "homepage": "https://r6counters.com/",
   "directories": {
     "test": "test"
   },
@@ -22,12 +22,12 @@
     "graph visualization"
   ],
   "author": {
-    "name": "Eduardo Eisman <eeisman@gmail.com>",
-    "url": "https://github.com/eisman"
+    "name": "Ronan Burke",
+    "url": "https://r6counters.com/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eisman/neo4jd3.git"
+    "url": "https://github.com/BurkusCat/r6-operator-counters.git"
   },
   "license": "MIT",
   "dependencies": {
