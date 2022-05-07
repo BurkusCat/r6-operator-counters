@@ -129,16 +129,19 @@ html, .neo4jd3 {
 .hardcounter {
     color: var(--hard-counter-color);
     stroke: var(--hard-counter-color);
+    cursor: default;
 }
 
 .softcounter {
     color: var(--soft-counter-color);
     stroke: var(--soft-counter-color);
+    cursor: default;
 }
 
 .minorcounter {
     color: var(--minor-counter-color);
     stroke: var(--minor-counter-color);
+    cursor: default;
 }
 
 .hardcountertriangle {
@@ -203,10 +206,6 @@ html, .neo4jd3 {
 
     transition: opacity 0.5s;
     cursor: default;
-
-    .outline {
-        cursor: default;
-    }
 
     .overlay {
         cursor: default;

@@ -251,13 +251,13 @@ function Neo4jD3(_selector, _options) {
         return r.append('path')
             .attr('class', function(d) {
                 if (d.type === 'Hard Counter') {
-                    return 'outline hardcounter';
+                    return 'hardcounter';
                 } else if (d.type === 'Soft Counter') {
-                    return 'outline softcounter';
+                    return 'softcounter';
                 } else if (d.type === 'Minor Counter') {
-                    return 'outline minorcounter';
+                    return 'minorcounter';
                 }
-                return 'outline';
+                return '';
             })
             .attr('marker-end', function(d) {
                 if (d.type === 'Hard Counter') {
@@ -934,7 +934,7 @@ function Neo4jD3(_selector, _options) {
             var relationshipElement = d3.select(relationship._groups[0][i]);
             relationshipElement.attr('transform', relationshipTransforms[0][i]);
 
-            var outline = d3.select(relationship._groups[0][i]).select('.outline');
+            var outline = d3.select(relationship._groups[0][i]).select('.hardcounter,.softcounter,.minorcounter');
             outline.attr('d', relationshipTransforms[1][i]);
         }
 
