@@ -34,9 +34,9 @@ function Neo4jD3(_selector, _options) {
                        .attr('width', '100%')
                        .attr('height', '100%')
                        .attr('class', 'neo4jd3-graph')
-                       .call(d3.zoom().on('zoom', function() {
-                           var scale = d3.event.transform.k,
-                               translate = [d3.event.transform.x, d3.event.transform.y];
+                       .call(d3.zoom().on('zoom', function(event, d) {
+                           var scale = event.transform.k,
+                               translate = [event.transform.x, event.transform.y];
 
                            if (svgTranslate) {
                                translate[0] += svgTranslate[0];
@@ -183,21 +183,21 @@ function Neo4jD3(_selector, _options) {
 
                        return classes;
                    })
-                   .on('click', function(d) {
+                   .on('click', function(event, d) {
                        d.fx = d.fy = null;
 
                        if (typeof options.onNodeClick === 'function') {
                            options.onNodeClick(d);
                        }
                    })
-                   .on('dblclick', function(d) {
-                       stickNode(d);
+                   .on('dblclick', function(event, d) {
+                       stickNode(event, d);
 
                        if (typeof options.onNodeDoubleClick === 'function') {
                            options.onNodeDoubleClick(d);
                        }
                    })
-                   .on('mouseenter', function(d) {
+                   .on('mouseenter', function(event, d) {
                        if (info) {
                            updateInfo(d);
                        }
@@ -206,7 +206,7 @@ function Neo4jD3(_selector, _options) {
                            options.onNodeMouseEnter(d);
                        }
                    })
-                   .on('mouseleave', function(d) {
+                   .on('mouseleave', function(event, d) {
                        if (info) {
                            clearInfo(d);
                        }
@@ -235,12 +235,12 @@ function Neo4jD3(_selector, _options) {
         return relationship.enter()
                            .append('g')
                            .attr('class', 'relationship')
-                           .on('dblclick', function(d) {
+                           .on('dblclick', function(event, d) {
                                if (typeof options.onRelationshipDoubleClick === 'function') {
                                    options.onRelationshipDoubleClick(d);
                                }
                            })
-                           .on('mouseenter', function(d) {
+                           .on('mouseenter', function(event, d) {
                                if (info) {
                                    updateInfo(d);
                                }
@@ -374,8 +374,8 @@ function Neo4jD3(_selector, _options) {
         return d3.rgb(options.colors[options.colors.length - 1]).darker(1);
     }
 
-    function dragEnded(d) {
-        if (!d3.event.active) {
+    function dragEnded(event, d) {
+        if (!event.active) {
             simulation.alphaTarget(0);
         }
 
@@ -384,12 +384,12 @@ function Neo4jD3(_selector, _options) {
         }
     }
 
-    function dragged(d) {
-        stickNode(d);
+    function dragged(event, d) {
+        stickNode(event, d);
     }
 
-    function dragStarted(d) {
-        if (!d3.event.active) {
+    function dragStarted(event, d) {
+        if (!event.active) {
             simulation.alphaTarget(0.3).restart();
         }
 
@@ -657,9 +657,9 @@ function Neo4jD3(_selector, _options) {
      * Used for dragging and sticking a node's position
      * @param d the node being dragged 
      */
-    function stickNode(d) {
-        d.fx = d3.event.x;
-        d.fy = d3.event.y;
+    function stickNode(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
     }
 
     /**
