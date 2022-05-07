@@ -31,7 +31,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "d3": "^5.7.0",
     "file-system": "^2.2.2",
     "gulp-run": "^1.7.1",
     "gulp-sass": "^4.0.2",
