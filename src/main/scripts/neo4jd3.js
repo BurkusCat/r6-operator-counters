@@ -700,7 +700,7 @@ function Neo4jD3(_selector, _options) {
 
     /**
      * Processes the transformations for each node in the graph.
-     * @returns {Array} an array of transforms for each node
+     * @returns {string[]} an array of transforms for each node
      */
     function tickNodes() {
         if (!node) {
@@ -717,22 +717,19 @@ function Neo4jD3(_selector, _options) {
         return nodeTransforms;
     }
 
+
     /**
      * Processes the transformations for each relationship in the graph.
-     * @returns {Array} an array of transforms for each relationship
-     * The first element in the array is an array of main relationship transforms
-     * The second element in the array is an array of relationship outline transforms
-     * The third element in the array is an array of relationship text transforms
-     * The fourth element in the array is an array of relationship overlay transforms
+     * @returns {Object} an object with properties holding arrays of each type of transform.
      */
     function tickRelationships() {
-        var relationshipTransforms = [];
+        var relationshipTransforms = {};
 
         if (relationship) {
-            relationshipTransforms.push(tickRelationshipsMain());
-            relationshipTransforms.push(tickRelationshipsOutlines());
-            relationshipTransforms.push(tickRelationshipsTexts());
-            relationshipTransforms.push(tickRelationshipsOverlays());
+            relationshipTransforms.mainRelationshipTransforms = tickRelationshipsMain();
+            relationshipTransforms.outlineTransforms = tickRelationshipsOutlines();
+            relationshipTransforms.textTransforms = tickRelationshipsTexts();
+            relationshipTransforms.overlayTransforms = tickRelationshipsOverlays();
         }
 
         return relationshipTransforms;
@@ -740,7 +737,7 @@ function Neo4jD3(_selector, _options) {
 
     /**
      * Processes the transformations for the relationship as a whole.
-     * @returns {Array} an array of transforms for each relationship
+     * @returns {string[]} an array of transforms for each relationship
      */
     function tickRelationshipsMain() {
         var relationshipTransforms = [];
@@ -775,7 +772,7 @@ function Neo4jD3(_selector, _options) {
 
     /**
      * Processes the transformations for each relationship outline in the graph.
-     * @returns {Array} an array of transforms for each relationship outline
+     * @returns {string[]} an array of transforms for each relationship outline
      */
     function tickRelationshipsOutlines() {
         var outlineTransforms = [];
@@ -825,7 +822,7 @@ function Neo4jD3(_selector, _options) {
 
     /**
      * Processes the transformations for each relationship overlay in the graph.
-     * @returns {Array} an array of transforms for each relationship overlay
+     * @returns {string[]} an array of transforms for each relationship overlay
      */
     function tickRelationshipsOverlays() {
         var overlayTransforms = [];
@@ -875,7 +872,7 @@ function Neo4jD3(_selector, _options) {
 
     /**
      * Processes the transformations for each relationship text in the graph.
-     * @returns {Array} an array of transforms for each relationship text
+     * @returns {string[]} an array of transforms for each relationship text
      */
     function tickRelationshipsTexts() {
         var textTransforms = [];
@@ -919,36 +916,36 @@ function Neo4jD3(_selector, _options) {
 
     /**
      * Render all node + relationship transforms.
-     * @param {The node transforms to apply} nodeTransforms 
-     * @param {The relationship transforms to apply} relationshipTransforms 
+     * @param {string[]} nodeTransforms - The node transforms to apply
+     * @param {object} relationshipTransforms - The relationship transforms to apply
      */
     function renderGraph(nodeTransforms, relationshipTransforms) {
         // render all node transforms
-        for (var i = 0; i < node._groups[0].length; i++) {
-            var nodeElement = d3.select(node._groups[0][i]);
-            nodeElement.attr('transform', nodeTransforms[i]);
-        }
+        node.each(function (d, index) {
+            var nodeElement = d3.select(this);
+            nodeElement.attr('transform', nodeTransforms[index]);
+        });
 
         // render all relationship + outline transforms
-        for (i = 0; i < relationship._groups[0].length; i++) {
-            var relationshipElement = d3.select(relationship._groups[0][i]);
-            relationshipElement.attr('transform', relationshipTransforms[0][i]);
+        relationship.each(function (d, index) {
+            var relationshipElement = d3.select(this);
+            relationshipElement.attr('transform', relationshipTransforms.mainRelationshipTransforms[index]);
 
-            var outline = d3.select(relationship._groups[0][i]).select('.hardcounter,.softcounter,.minorcounter');
-            outline.attr('d', relationshipTransforms[1][i]);
-        }
+            var outline = relationshipElement.select('.hardcounter,.softcounter,.minorcounter');
+            outline.attr('d', relationshipTransforms.outlineTransforms[index]);
+        });
 
         // render all text transforms
-        for (i = 0; i < relationshipText._groups[0].length; i++) {
-            var text = d3.select(relationshipText._groups[0][i]);
-            text.attr('transform', relationshipTransforms[2][i]);
-        }
+        relationshipText.each(function (d, index) {
+            var text = d3.select(this);
+            text.attr('transform', relationshipTransforms.textTransforms[index]);
+        });
 
         // render all overlay transforms
-        for (i = 0; i < relationshipOverlay._groups[0].length; i++) {
-            var overlay = d3.select(relationshipOverlay._groups[0][i]);
-            overlay.attr('d', relationshipTransforms[3][i]);
-        }
+        relationshipOverlay.each(function (d, index) {
+            var text = d3.select(this);
+            text.attr('d', relationshipTransforms.overlayTransforms[index]);
+        });
     }
 
     function unitaryNormalVector(source, target, newLength) {
