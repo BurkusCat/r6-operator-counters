@@ -10,7 +10,7 @@ phases:
   build:
     commands:
        - echo Building...
-       - gulp build
+       - gulp build --max-old-space-size=2048
        - echo Finished build.
   post_build:
     commands:
