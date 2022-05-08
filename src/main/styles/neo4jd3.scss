@@ -32,7 +32,7 @@ body {
 html, .neo4jd3 { 
     height: 100%; 
     overflow: hidden; 
-} 
+}
 
 #githubOctocat {
     cursor: pointer;
@@ -40,6 +40,13 @@ html, .neo4jd3 {
     top: 0;
     right: 0;
     border: 0;
+}
+
+@media not all and (display-mode: browser) {
+    /* hide the Octocat when installed as a PWA or in fullscreen */
+    #githubOctocat {
+        display: none;
+    }
 }
 
 #settingsPopup {
