@@ -6,6 +6,7 @@ gulp = require('gulp');
 function rootFiles() {
     return gulp.src([
 			conf.paths.src + '/html/index.html',
+            conf.paths.src + '/robots.txt',
             conf.paths.src + '/humans.txt',
             conf.paths.src + '/json/manifest.json',
         ])
