@@ -25,6 +25,21 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
     background-color: #333;
+    height: 100%; 
+    overflow: hidden; 
+}
+
+html, .neo4jd3 { 
+    height: 100%; 
+    overflow: hidden; 
+} 
+
+#githubOctocat {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
 }
 
 #settingsPopup {
@@ -34,8 +49,8 @@ body {
     right: 0;
     margin-right: 10px;
     margin-bottom: 75px;
-    width: 300px;
-    height: 150px;
+    width: 320px;
+    height: 195px;
     display: none;
 }
 
@@ -59,7 +74,7 @@ body {
 
 .settingsButton {
     background-color: var(--settings-button-background-color);
-    width: 270px;
+    width: 290px;
     margin: 15px 15px 0px 15px;
     font: 15px Helvetica Neue, Helvetica, Arial, sans-serif;
     color: white;
@@ -93,12 +108,16 @@ body {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.highQualityLabel {
+.settingsButtonLabel {
     color: white;
     stroke: white;
 }
 
-#highQualityEnabledLabel {
+#highGraphicsEnabledLabel {
+    display: none;
+}
+
+#highAccuracySimDisabledLabel {
     display: none;
 }
 
@@ -110,16 +129,19 @@ body {
 .hardcounter {
     color: var(--hard-counter-color);
     stroke: var(--hard-counter-color);
+    cursor: default;
 }
 
 .softcounter {
     color: var(--soft-counter-color);
     stroke: var(--soft-counter-color);
+    cursor: default;
 }
 
 .minorcounter {
     color: var(--minor-counter-color);
     stroke: var(--minor-counter-color);
+    cursor: default;
 }
 
 .hardcountertriangle {
@@ -184,10 +206,6 @@ body {
 
     transition: opacity 0.5s;
     cursor: default;
-
-    .outline {
-        cursor: default;
-    }
 
     .overlay {
         cursor: default;

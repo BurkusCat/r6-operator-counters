@@ -31,12 +31,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "d3": "^5.7.0",
     "file-system": "^2.2.2",
     "gulp-run": "^1.7.1",
     "gulp-sass": "^4.0.2",
     "gulp-svg2png": "^2.0.2",
-    "r6operators": "^1.7.0",
+    "gulp-webp": "^4.0.1",
+    "r6operators": "^2.1.0",
     "sass": "^1.50.1"
   },
   "devDependencies": {

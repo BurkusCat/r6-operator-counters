@@ -3,7 +3,7 @@
 'use strict';
 
 function Neo4jD3(_selector, _options) {
-    var container, graph, info, node, nodes, relationship, relationshipOutline, relationshipOverlay, relationshipText, relationships, selector, simulation, svg, svgNodes, svgRelationships, svgScale, svgTranslate,
+    var container, info, node, nodes, relationship, relationshipOverlay, relationshipText, relationships, selector, simulation, svg, svgNodes, svgRelationships, svgScale, svgTranslate,
         classes2colors = {},
         justLoaded = false,
         numClasses = 0,
@@ -23,7 +23,8 @@ function Neo4jD3(_selector, _options) {
             nodeRadius: 25,
             relationshipColor: '#a5abb6',
             zoomFit: false,
-            counters: [true, false, false]
+            counters: [true, false, false],
+            simulationQuality: 2,
         },
         builtRelations = {},
         VERSION = '0.0.1';
@@ -33,9 +34,9 @@ function Neo4jD3(_selector, _options) {
                        .attr('width', '100%')
                        .attr('height', '100%')
                        .attr('class', 'neo4jd3-graph')
-                       .call(d3.zoom().on('zoom', function() {
-                           var scale = d3.event.transform.k,
-                               translate = [d3.event.transform.x, d3.event.transform.y];
+                       .call(d3.zoom().on('zoom', function(event, d) {
+                           var scale = event.transform.k,
+                               translate = [event.transform.x, event.transform.y];
 
                            if (svgTranslate) {
                                translate[0] += svgTranslate[0];
@@ -167,16 +168,7 @@ function Neo4jD3(_selector, _options) {
                    .append('g')
                    .attr('class', function(d) {
                        var highlight, i,
-                           classes = 'node',
-                           label = d.labels[0];
-
-                       if (icon(d)) {
-                           classes += ' node-icon';
-                       }
-
-                       if (image(d)) {
-                           classes += ' node-image';
-                       }
+                           classes = 'node';
 
                        if (options.highlight) {
                            for (i = 0; i < options.highlight.length; i++) {
@@ -191,21 +183,21 @@ function Neo4jD3(_selector, _options) {
 
                        return classes;
                    })
-                   .on('click', function(d) {
+                   .on('click', function(event, d) {
                        d.fx = d.fy = null;
 
                        if (typeof options.onNodeClick === 'function') {
                            options.onNodeClick(d);
                        }
                    })
-                   .on('dblclick', function(d) {
-                       stickNode(d);
+                   .on('dblclick', function(event, d) {
+                       stickNode(event, d);
 
                        if (typeof options.onNodeDoubleClick === 'function') {
                            options.onNodeDoubleClick(d);
                        }
                    })
-                   .on('mouseenter', function(d) {
+                   .on('mouseenter', function(event, d) {
                        if (info) {
                            updateInfo(d);
                        }
@@ -214,7 +206,7 @@ function Neo4jD3(_selector, _options) {
                            options.onNodeMouseEnter(d);
                        }
                    })
-                   .on('mouseleave', function(d) {
+                   .on('mouseleave', function(event, d) {
                        if (info) {
                            clearInfo(d);
                        }
@@ -232,13 +224,6 @@ function Neo4jD3(_selector, _options) {
     function appendNodeToGraph() {
         var n = appendNode();
 
-        //appendRingToNode(n);
-        //appendOutlineToNode(n);
-
-        if (options.icons) {
-            //appendTextToNode(n);
-        }
-
         if (options.images) {
             appendImageToNode(n);
         }
@@ -250,12 +235,12 @@ function Neo4jD3(_selector, _options) {
         return relationship.enter()
                            .append('g')
                            .attr('class', 'relationship')
-                           .on('dblclick', function(d) {
+                           .on('dblclick', function(event, d) {
                                if (typeof options.onRelationshipDoubleClick === 'function') {
                                    options.onRelationshipDoubleClick(d);
                                }
                            })
-                           .on('mouseenter', function(d) {
+                           .on('mouseenter', function(event, d) {
                                if (info) {
                                    updateInfo(d);
                                }
@@ -266,13 +251,13 @@ function Neo4jD3(_selector, _options) {
         return r.append('path')
             .attr('class', function(d) {
                 if (d.type === 'Hard Counter') {
-                    return 'outline hardcounter';
+                    return 'hardcounter';
                 } else if (d.type === 'Soft Counter') {
-                    return 'outline softcounter';
+                    return 'softcounter';
                 } else if (d.type === 'Minor Counter') {
-                    return 'outline minorcounter';
+                    return 'minorcounter';
                 }
-                return 'outline';
+                return '';
             })
             .attr('marker-end', function(d) {
                 if (d.type === 'Hard Counter') {
@@ -389,8 +374,8 @@ function Neo4jD3(_selector, _options) {
         return d3.rgb(options.colors[options.colors.length - 1]).darker(1);
     }
 
-    function dragEnded(d) {
-        if (!d3.event.active) {
+    function dragEnded(event, d) {
+        if (!event.active) {
             simulation.alphaTarget(0);
         }
 
@@ -399,12 +384,12 @@ function Neo4jD3(_selector, _options) {
         }
     }
 
-    function dragged(d) {
-        stickNode(d);
+    function dragged(event, d) {
+        stickNode(event, d);
     }
 
-    function dragStarted(d) {
-        if (!d3.event.active) {
+    function dragStarted(event, d) {
+        if (!event.active) {
             simulation.alphaTarget(0.3).restart();
         }
 
@@ -414,15 +399,6 @@ function Neo4jD3(_selector, _options) {
         if (typeof options.onNodeDragStart === 'function') {
             options.onNodeDragStart(d);
         }
-    }
-
-    function extend(obj1, obj2) {
-        var obj = {};
-
-        merge(obj, obj1);
-        merge(obj, obj2);
-
-        return obj;
     }
 
     function icon(d) {
@@ -538,7 +514,7 @@ function Neo4jD3(_selector, _options) {
 //                           .force('y', d3.force().strength(0.002))
                            .force('collide', d3.forceCollide().radius(function(d) {
                                return options.minCollision;
-                           }).iterations(2))
+                           }).iterations(options.simulationQuality))
                            .force('charge', d3.forceManyBody())
                            .force('link', d3.forceLink().id(function(d) {
                                return d.id;
@@ -555,6 +531,15 @@ function Neo4jD3(_selector, _options) {
                            });
 
         return simulation;
+    }
+
+    /**
+     * If a simulation is running, stop it. This method is used before reinitalizing the graph.
+     */
+    function stopSimulation() {
+        if (simulation) {
+            simulation.stop();
+        }
     }
 
     /**
@@ -585,10 +570,7 @@ function Neo4jD3(_selector, _options) {
         nodes = [];
         relationships = [];
 
-        d3.json(neo4jDataUrl, function(error, data) {
-            if (error) {
-                throw error;
-            }
+        d3.json(neo4jDataUrl).then(function(data) {
 
             data = filterDataByCounterLevel(data, options.counters[0], options.counters[1], options.counters[2]);
             updateWithNeo4jData(data);
@@ -675,9 +657,9 @@ function Neo4jD3(_selector, _options) {
      * Used for dragging and sticking a node's position
      * @param d the node being dragged 
      */
-    function stickNode(d) {
-        d.fx = d3.event.x;
-        d.fy = d3.event.y;
+    function stickNode(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
     }
 
     /**
@@ -697,63 +679,113 @@ function Neo4jD3(_selector, _options) {
         d.fx = d.fy = null;
     }
 
+    /**
+     * Tick function for the simulation
+     */
     function tick() {
-        tickNodes();
-        tickRelationships();
+        var nodeTransforms = tickNodes();
+
+        if (!node) {
+            return;
+        }
+
+        var relationshipTransforms = tickRelationships();
+
+        // do all rendering AFTER processing for performance reasons
+        renderGraph(nodeTransforms, relationshipTransforms);
     }
 
+    /**
+     * Processes the transformations for each node in the graph.
+     * @returns {string[]} an array of transforms for each node
+     */
     function tickNodes() {
-        if (node) {
-            node.attr('transform', function(d) {
-                return 'translate(' + d.x + ', ' + d.y + ')';
-            });
+        if (!node) {
+            return null;
         }
-    }
 
-    function tickRelationships() {
-        if (relationship) {
-            relationship.attr('transform', function(d) {  
-                var center = {x: 0, y: 0},
-                  angle = rotation(d.source, d.target),
-                  u = unitaryVector(d.source, d.target),
-                  n = unitaryNormalVector(d.source, d.target),
-                  g = rotatePoint(center, u, -10),
-                  source = rotatePoint(center, {
-                    x: 0 + (options.nodeRadius + 1) * u.x - n.x,
-                    y: 0 + (options.nodeRadius + 1) * u.y - n.y
-                  }, angle + 10),
-                  target = rotatePoint(center, {
-                    x: d.target.x - d.source.x - (options.nodeRadius + 2) * g.x,
-                    y: d.target.y - d.source.y - (options.nodeRadius + 2) * g.y
-                  }, angle),
-                  uu = unitaryNormalVector(source, target),
-                  middle = {
-                    x: (source.x + target.x) / 2 + uu.x * 20,
-                    y: (source.y + target.y) / 2 + uu.y * 20
-                  };
-                d.outline = { middle: middle, source: source, target: target, u: uu };
-
-                return 'translate(' + d.source.x + ', ' + d.source.y + ') rotate(' + angle + ')';
-            });
-
-            tickRelationshipsTexts();
-            tickRelationshipsOutlines();
-            tickRelationshipsOverlays();
-        }
-    }
-
-    function tickRelationshipsOutlines() {
-        relationship.each(function () {
-            var outline = d3.select(this).select('.outline');
-            var text = d3.select(this).select('.text');
-            outline.attr('d', function (d) {
-                if (d.linknum === 1) {
-                    return tickStraightRelationshipsOutline(d, text);
-                } else {
-                    return tickCurvedRelationshipsOutline(d);
-                }
-            });
+        var nodeTransforms = [];
+        
+        // process all node transforms
+        node.each(function (d) {
+            nodeTransforms.push('translate(' + d.x + ', ' + d.y + ')');
         });
+
+        return nodeTransforms;
+    }
+
+
+    /**
+     * Processes the transformations for each relationship in the graph.
+     * @returns {Object} an object with properties holding arrays of each type of transform.
+     */
+    function tickRelationships() {
+        var relationshipTransforms = {};
+
+        if (relationship) {
+            relationshipTransforms.mainRelationshipTransforms = tickRelationshipsMain();
+            relationshipTransforms.outlineTransforms = tickRelationshipsOutlines();
+            relationshipTransforms.textTransforms = tickRelationshipsTexts();
+            relationshipTransforms.overlayTransforms = tickRelationshipsOverlays();
+        }
+
+        return relationshipTransforms;
+    }
+
+    /**
+     * Processes the transformations for the relationship as a whole.
+     * @returns {string[]} an array of transforms for each relationship
+     */
+    function tickRelationshipsMain() {
+        var relationshipTransforms = [];
+
+        // process all relationship transforms
+        relationship.each(function (d) {
+            var center = {x: 0, y: 0},
+              angle = rotation(d.source, d.target),
+              u = unitaryVector(d.source, d.target),
+              n = unitaryNormalVector(d.source, d.target),
+              g = rotatePoint(center, u, -10),
+              source = rotatePoint(center, {
+                x: 0 + (options.nodeRadius + 1) * u.x - n.x,
+                y: 0 + (options.nodeRadius + 1) * u.y - n.y
+              }, angle + 10),
+              target = rotatePoint(center, {
+                x: d.target.x - d.source.x - (options.nodeRadius + 2) * g.x,
+                y: d.target.y - d.source.y - (options.nodeRadius + 2) * g.y
+              }, angle),
+              uu = unitaryNormalVector(source, target),
+              middle = {
+                x: (source.x + target.x) / 2 + uu.x * 20,
+                y: (source.y + target.y) / 2 + uu.y * 20
+              };
+            d.outline = { middle: middle, source: source, target: target, u: uu };
+
+            relationshipTransforms.push('translate(' + d.source.x + ', ' + d.source.y + ') rotate(' + angle + ')');
+        });
+
+        return relationshipTransforms;
+    }
+
+    /**
+     * Processes the transformations for each relationship outline in the graph.
+     * @returns {string[]} an array of transforms for each relationship outline
+     */
+    function tickRelationshipsOutlines() {
+        var outlineTransforms = [];
+
+        // process all outline transforms
+        relationship.each(function (d) {
+            var text = d3.select(this).select('.text');
+            if (d.linknum === 1) {
+                // takes into account the label on the line
+                outlineTransforms.push(tickStraightRelationshipsOutline(d, text));
+            } else {
+                outlineTransforms.push(tickCurvedRelationshipsOutline(d));
+            }
+        });
+
+        return outlineTransforms;
     }
 
     function tickStraightRelationshipsOutline(d, text) {
@@ -785,14 +817,23 @@ function Neo4jD3(_selector, _options) {
             'Q ' + middle.x + ' ' + middle.y + ' ' + target.x + ', ' + target.y;
     }
 
+    /**
+     * Processes the transformations for each relationship overlay in the graph.
+     * @returns {string[]} an array of transforms for each relationship overlay
+     */
     function tickRelationshipsOverlays() {
-        relationshipOverlay.attr('d', function (d) {
+        var overlayTransforms = [];
+
+        // process all overlay transforms
+        relationshipOverlay.each(function (d) {
             if (d.linknum === 1) {
-                return tickStraightRelationshipsOverlay(d);
+                overlayTransforms.push(tickStraightRelationshipsOverlay(d));
             } else {
-                return tickCurvedRelationshipsOverlay(d);
+                overlayTransforms.push(tickCurvedRelationshipsOverlay(d));
             }
         });
+
+        return overlayTransforms;
     }
 
     function tickStraightRelationshipsOverlay(d) {
@@ -826,14 +867,23 @@ function Neo4jD3(_selector, _options) {
             'Z';
     }
 
+    /**
+     * Processes the transformations for each relationship text in the graph.
+     * @returns {string[]} an array of transforms for each relationship text
+     */
     function tickRelationshipsTexts() {
-        relationshipText.attr('transform', function (d) {
+        var textTransforms = [];
+
+        // process all text transforms
+        relationshipText.each(function (d) {
             if (d.linknum === 1) {
-                return tickStraightRelationshipsText(d);
+                textTransforms.push(tickStraightRelationshipsText(d));
             } else {
-                return tickCurvedRelationshipsText(d);
+                textTransforms.push(tickCurvedRelationshipsText(d));
             }
         });
+
+        return textTransforms;
     }
 
     function tickStraightRelationshipsText(d) {
@@ -861,19 +911,38 @@ function Neo4jD3(_selector, _options) {
         return 'translate(' + middle.x + ', ' + middle.y + ') rotate(' + (mirror ? 180 : 0) + ')';
     }
 
-
-    function toString(d) {
-        var s = d.labels ? d.labels[0] : d.type;
-
-        s += ' (<id>: ' + d.id;
-
-        Object.keys(d.properties).forEach(function(property) {
-            s += ', ' + property + ': ' + JSON.stringify(d.properties[property]);
+    /**
+     * Render all node + relationship transforms.
+     * @param {string[]} nodeTransforms - The node transforms to apply
+     * @param {object} relationshipTransforms - The relationship transforms to apply
+     */
+    function renderGraph(nodeTransforms, relationshipTransforms) {
+        // render all node transforms
+        node.each(function (d, index) {
+            var nodeElement = d3.select(this);
+            nodeElement.attr('transform', nodeTransforms[index]);
         });
 
-        s += ')';
+        // render all relationship + outline transforms
+        relationship.each(function (d, index) {
+            var relationshipElement = d3.select(this);
+            relationshipElement.attr('transform', relationshipTransforms.mainRelationshipTransforms[index]);
 
-        return s;
+            var outline = relationshipElement.select('.hardcounter,.softcounter,.minorcounter');
+            outline.attr('d', relationshipTransforms.outlineTransforms[index]);
+        });
+
+        // render all text transforms
+        relationshipText.each(function (d, index) {
+            var text = d3.select(this);
+            text.attr('transform', relationshipTransforms.textTransforms[index]);
+        });
+
+        // render all overlay transforms
+        relationshipOverlay.each(function (d, index) {
+            var text = d3.select(this);
+            text.attr('d', relationshipTransforms.overlayTransforms[index]);
+        });
     }
 
     function unitaryNormalVector(source, target, newLength) {
@@ -944,9 +1013,6 @@ function Neo4jD3(_selector, _options) {
 
         relationship = relationshipEnter.relationship.merge(relationship);
 
-        relationshipOutline = svg.selectAll('.relationship .outline');
-        relationshipOutline = relationshipEnter.outline.merge(relationshipOutline);
-
         relationshipOverlay = svg.selectAll('.relationship .overlay');
         relationshipOverlay = relationshipEnter.overlay.merge(relationshipOverlay);
 
@@ -987,7 +1053,8 @@ function Neo4jD3(_selector, _options) {
         updateWithNeo4jData: updateWithNeo4jData,
         version: version,
         unfreezeAllNodes: unfreezeAllNodes,
-        freezeAllNodes: freezeAllNodes
+        freezeAllNodes: freezeAllNodes,
+        stopSimulation: stopSimulation
     };
 }
 
