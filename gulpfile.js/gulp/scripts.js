@@ -28,13 +28,6 @@ function scripts_start() {
         .pipe(gulp.dest(conf.paths.dist + '/js'));
 };
 
-function scripts_root() {
-    return gulp.src([
-            conf.paths.src + '/scripts/service-worker.js',
-        ])
-        .pipe(gulp.dest(conf.paths.dist));
-};
-
 function scripts_internal() {
     return gulp.src([
         conf.paths.dist + '/js/neo4jd3.js'
@@ -111,5 +104,5 @@ function error(err) {
     gutil.log(gutil.colors.red('Error: ' + err));
     this.emit('end');
 }
-const script = gulp.series(scripts_start, scripts_root, scripts_internal, scripts_jshint, scripts_derequire);
+const script = gulp.series(scripts_start, scripts_internal, scripts_jshint, scripts_derequire);
 exports.default = script;
