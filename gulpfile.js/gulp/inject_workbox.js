@@ -2,10 +2,11 @@
 
 const conf = require('./conf');
 const workboxBuild = require('workbox-build');
-const gulp = require('gulp');
     
-function serviceWorker() {
-    return workboxBuild.generateSW({
+function injectWorkbox() {
+    // https://developer.chrome.com/docs/workbox/modules/workbox-build/#injectmanifest-mode
+    return workboxBuild.injectManifest({
+        swSrc: conf.paths.dist + '/service-worker.js',
         swDest: conf.paths.dist + '/service-worker.js',
         globDirectory: conf.paths.dist,
         globPatterns: [
@@ -15,10 +16,8 @@ function serviceWorker() {
             'img/webp/**/*.webp',
             'img/png/**/*.png',
         ],
-        skipWaiting: true,
-        clientsClaim: true,
         //mode: 'development',
     });
 };
 
-exports.default = serviceWorker;
+exports.default = injectWorkbox;
