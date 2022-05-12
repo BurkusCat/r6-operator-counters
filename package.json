@@ -1,12 +1,12 @@
 {
-  "name": "neo4jd3",
+  "name": "r6counters",
   "version": "0.0.5",
-  "description": "Neo4jD3",
+  "description": "A graphical visualisation of how operators counter each other in Rainbow Six Siege. View hard and soft counters to help inform your operator choice against the current meta. R6 Operator Counters is an open source project.",
   "main": "dist/neo4jd3.min.js",
   "bugs": {
-    "url": "https://github.com/eisman/neo4jd3/issues"
+    "url": "https://github.com/BurkusCat/r6-operator-counters/issues"
   },
-  "homepage": "https://github.com/eisman/neo4jd3",
+  "homepage": "https://r6counters.com/",
   "directories": {
     "test": "test"
   },
@@ -22,12 +22,12 @@
     "graph visualization"
   ],
   "author": {
-    "name": "Eduardo Eisman <eeisman@gmail.com>",
-    "url": "https://github.com/eisman"
+    "name": "Ronan Burke",
+    "url": "https://r6counters.com/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eisman/neo4jd3.git"
+    "url": "https://github.com/BurkusCat/r6-operator-counters.git"
   },
   "license": "MIT",
   "dependencies": {
@@ -37,7 +37,8 @@
     "gulp-svg2png": "^2.0.2",
     "gulp-webp": "^4.0.1",
     "r6operators": "^2.1.0",
-    "sass": "^1.50.1"
+    "sass": "^1.50.1",
+    "workbox-build": "^6.5.3"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.7",
@@ -61,7 +62,7 @@
     "gulp-embedlr": "^0.5.2",
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "^7.1.0",
-    "gulp-jshint": "^2.0.1",
+    "gulp-jshint": "^2.1.0",
     "gulp-livereload": "^3.8.1",
     "gulp-mocha": "^7.0.2",
     "gulp-notify": "^2.2.0",

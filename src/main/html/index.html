@@ -12,19 +12,25 @@
         </script> 
 
         <!-- Scripts --> 
-        <script src="js/d3.min.js"></script> 
+        <script src="./js/d3.min.js"></script>
+
+        <!-- PWA -->
+        <script type="module" src="./js/service-worker-register.js"></script>
          
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
         <meta name="description" content="A graphical visualisation of how operators counter each other in Rainbow Six Siege. View hard and soft counters to help inform your operator choice against the current meta. R6 Operator Counters is an open source project."> 
         <meta name="keywords" content="R6,Siege,Rainbow Six,Rainbow Six Siege,Operators,Counters,Synergies,Graph,Hard Counter,Soft Counter"> 
         <meta name="viewport" content="width=device-width"> 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' google-analytics.com *.google-analytics.com googletagmanager.com *.googletagmanager.com 'sha256-4DMOQXVnxCAr2PJpxnuWpyrwBOLbUlHsAM0Swn55tZE='; object-src 'none';">
+        <meta name="theme-color" content="#31343e"/>
         <title>Rainbow Six Siege Operator Counters</title> 
  
-        <link rel="apple-touch-icon" href="img/site/favicon.ico" />
-        <link rel="shortcut icon" href="img/site/favicon.ico" />
-        <link rel="stylesheet" href="css/neo4jd3.min.css?v=0.0.1">
+        <link rel="apple-touch-icon" sizes="180x180" href="img/site/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/site/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/site/favicon-16x16.png">
+
+        <link rel="stylesheet" href="css/neo4jd3.min.css">
+        <link rel="manifest" href="manifest.json">
         <link type="text/plain" rel="author" href="https://r6counters.com/humans.txt" />
     </head> 
     <body> 
@@ -38,10 +44,6 @@
             <button id="highAccuracySimulationButton" aria-label="High accuracy simulation button" class="settingsButton">
                 <label id="highAccuracySimEnabledLabel" class="settingsButtonLabel">☑ High Accuracy Simulation (slow)</label>
                 <label id="highAccuracySimDisabledLabel" class="settingsButtonLabel">☐ High Accuracy Simulation (slow)</label>
-            </button>
-            <button id="highGraphicsButton" aria-label="High quality graphics button" class="settingsButton">
-                <label id="highGraphicsEnabledLabel" class="settingsButtonLabel">☑ High Quality Graphics (slow)</label>
-                <label id="highGraphicsDisabledLabel" class="settingsButtonLabel">☐ High Quality Graphics (slow)</label>
             </button>
         </div>
         <button id="toolsButton" aria-label="Tools and settings button"></button>

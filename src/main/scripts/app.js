@@ -27,7 +27,6 @@ document.getElementById('minorCounters').addEventListener('click', init);
 document.getElementById('startButton').addEventListener('click', unfreezeAllNodes);
 document.getElementById('stopButton').addEventListener('click', freezeAllNodes);
 document.getElementById('highAccuracySimulationButton').addEventListener('click', toggleSimulationAccuracy);
-document.getElementById('highGraphicsButton').addEventListener('click', toggleImageQuality);
 document.getElementById('toolsButton').addEventListener('click', toggleSettingsPopup);
 
 var startButton = document.getElementById("startButton");
@@ -35,8 +34,6 @@ var stopButton = document.getElementById("stopButton");
 var settingsPopup = document.getElementById("settingsPopup");
 var highAccuracySimEnabledLabel = document.getElementById("highAccuracySimEnabledLabel");
 var highAccuracySimDisabledLabel = document.getElementById("highAccuracySimDisabledLabel");
-var highGraphicsEnabledLabel = document.getElementById("highGraphicsEnabledLabel");
-var highGraphicsDisabledLabel = document.getElementById("highGraphicsDisabledLabel");
 
 var focused = false;
 
@@ -135,27 +132,6 @@ function freezeAllNodes() {
     neo4jd3.freezeAllNodes();
 }
 
-var highGraphics = false;
-
-/**
- * Toggles the image quality between high and low.
- * Default is low graphics.
- * High = .svgs, Low = .pngs
- */
-function toggleImageQuality() {
-    highGraphics = !highGraphics;
-
-    if (highGraphics) {
-        highGraphicsEnabledLabel.style.display = "block";
-        highGraphicsDisabledLabel.style.display = "none";
-    } else {
-        highGraphicsEnabledLabel.style.display = "none";
-        highGraphicsDisabledLabel.style.display = "block";
-    }
-
-    setImages();
-}
-
 var highAccuracySimulation = true;
 
 function toggleSimulationAccuracy() {
@@ -174,7 +150,7 @@ function toggleSimulationAccuracy() {
 }
 
 function setImages() {
-    var fileFormat = highGraphics ? 'svg' : 'webp';
+    var fileFormat = 'svg';
 
     neo4jd3Options.images = ImageLocation.getLocations(fileFormat);
 

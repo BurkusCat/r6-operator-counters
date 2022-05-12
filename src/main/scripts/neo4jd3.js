@@ -918,30 +918,30 @@ function Neo4jD3(_selector, _options) {
      */
     function renderGraph(nodeTransforms, relationshipTransforms) {
         // render all node transforms
-        node.each(function (d, index) {
-            var nodeElement = d3.select(this);
-            nodeElement.attr('transform', nodeTransforms[index]);
+        node.attr('transform', function (d, index) {
+            return nodeTransforms[index];
         });
 
-        // render all relationship + outline transforms
-        relationship.each(function (d, index) {
-            var relationshipElement = d3.select(this);
-            relationshipElement.attr('transform', relationshipTransforms.mainRelationshipTransforms[index]);
-
-            var outline = relationshipElement.select('.hardcounter,.softcounter,.minorcounter');
-            outline.attr('d', relationshipTransforms.outlineTransforms[index]);
+        // render all main relationship transforms
+        relationship.attr('transform', function (d, index) {
+            return relationshipTransforms.mainRelationshipTransforms[index];
         });
+
+        // render all outline transforms
+        relationship
+            .select('.hardcounter,.softcounter,.minorcounter')
+            .attr('d', function (d, index) {
+                return relationshipTransforms.outlineTransforms[index];
+            });
 
         // render all text transforms
-        relationshipText.each(function (d, index) {
-            var text = d3.select(this);
-            text.attr('transform', relationshipTransforms.textTransforms[index]);
+        relationshipText.attr('transform', function (d, index) {
+            return relationshipTransforms.textTransforms[index];
         });
 
         // render all overlay transforms
-        relationshipOverlay.each(function (d, index) {
-            var text = d3.select(this);
-            text.attr('d', relationshipTransforms.overlayTransforms[index]);
+        relationshipOverlay.attr('d', function (d, index) {
+            return relationshipTransforms.overlayTransforms[index];
         });
     }
 

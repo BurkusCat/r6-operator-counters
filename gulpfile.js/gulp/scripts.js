@@ -23,18 +23,28 @@ function scripts_start() {
             conf.paths.src + '/scripts/d3.min.js',
             conf.paths.src + '/scripts/neo4jd3.js',
             conf.paths.src + '/scripts/imageLocation.js',
+            conf.paths.src + '/scripts/service-worker-register.js',
         ])
         .pipe(gulp.dest(conf.paths.dist + '/js'));
+};
+
+function scripts_root() {
+    // move the service worker to root where it can the be
+    // injected into by inject_workbox.js
+    return gulp.src([
+            conf.paths.src + '/scripts/service-worker.js',
+        ])
+        .pipe(gulp.dest(conf.paths.dist));
 };
 
 function scripts_internal() {
     return gulp.src([
         conf.paths.dist + '/js/neo4jd3.js'
     ])
-        .pipe(concat('neo4jd3'))
-        .pipe(gulp.dest(conf.paths.dist + '/js'))
-        .pipe(terser())
-        .pipe(gulp.dest(conf.paths.dist + '/js'));
+    .pipe(concat('neo4jd3'))
+    .pipe(gulp.dest(conf.paths.dist + '/js'))
+    .pipe(terser())
+    .pipe(gulp.dest(conf.paths.dist + '/js'));
 };
 
 
@@ -103,5 +113,5 @@ function error(err) {
     gutil.log(gutil.colors.red('Error: ' + err));
     this.emit('end');
 }
-const script = gulp.series(scripts_start, scripts_internal, scripts_jshint, scripts_derequire);
+const script = gulp.series(scripts_start, scripts_root, scripts_internal, scripts_jshint, scripts_derequire);
 exports.default = script;

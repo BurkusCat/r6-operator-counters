@@ -1,17 +1,16 @@
 'use strict';
 
-    var conf = require('./conf'),
-    gulp = require('gulp');
+var conf = require('./conf'),
+gulp = require('gulp');
 
-
-function index() {
-	return gulp.src(conf.paths.src + '/html/index.html')
-	.pipe(gulp.dest(conf.paths.dist))
-};
-
-function humans() {
-	return gulp.src(conf.paths.src + '/humans.txt')
-	.pipe(gulp.dest(conf.paths.dist))
+function rootFiles() {
+    return gulp.src([
+			conf.paths.src + '/html/index.html',
+            conf.paths.src + '/robots.txt',
+            conf.paths.src + '/humans.txt',
+            conf.paths.src + '/json/manifest.json',
+        ])
+        .pipe(gulp.dest(conf.paths.dist));
 };
 
 function r6Json() {
@@ -19,6 +18,6 @@ function r6Json() {
     	.pipe(gulp.dest(conf.paths.dist + '/json'));
 };
 
-const runStatic = gulp.series(index, humans, r6Json);
+const runStatic = gulp.series(rootFiles, r6Json);
 
 exports.default = runStatic;
