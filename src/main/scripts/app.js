@@ -3,8 +3,6 @@ import ImageLocation from './imageLocation.js'
 
 let neo4jd3;
 let neo4jd3Options = {
-        highlight: [
-        ],
         icons: {
         },
         minCollision: 80,
