@@ -49,7 +49,10 @@ function Neo4jD3(_selector, _options) {
 
                            svg.attr('transform', 'translate(' + translate[0] + ', ' + translate[1] + ') scale(' + scale + ')');
                        }))
-                       .on('dblclick.zoom', null);
+                       .on('dblclick.zoom', null)
+                       .append('g')
+                       .attr('width', '100%')
+                       .attr('height', '100%');
         
         addTriangleMarkerEnds(svg, 'hard');
         addTriangleMarkerEnds(svg, 'soft');
