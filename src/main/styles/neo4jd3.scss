@@ -61,6 +61,22 @@ html, .neo4jd3 {
     display: none;
 }
 
+#settingsScrollArea {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 15px;
+    scrollbar-gutter: stable;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #212c48;
+}
+
 #toolsButton {
     background:url(../img/site/settings.jpg) no-repeat;
     display: block;
@@ -82,10 +98,10 @@ html, .neo4jd3 {
 .settingsButton {
     background-color: var(--settings-button-background-color);
     width: 290px;
-    margin: 15px 15px 0px 15px;
     font: 15px Helvetica Neue, Helvetica, Arial, sans-serif;
     color: white;
     transition: padding 0.25s;
+    margin-bottom: 15px;
     padding: 10px;
     text-align: left;
     border: 2px solid var(--settings-button-border-color);
