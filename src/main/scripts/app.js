@@ -1,6 +1,13 @@
 import Neo4jD3 from './neo4jd3.js';
 import ImageLocation from './imageLocation.js'
 
+// local storage and default settings initialisation
+var highAccuracySimulation = true;
+if(localStorage.getItem('highAccuracySimulation') !== null) {
+    highAccuracySimulation = localStorage.getItem('highAccuracySimulation') === 'true';
+} else {
+    localStorage.setItem('highAccuracySimulation', highAccuracySimulation);
+}
 let neo4jd3;
 let neo4jd3Options = {
         highlight: [
@@ -18,6 +25,7 @@ let neo4jd3Options = {
         onNodeDoubleClick: focusOnNode,
         onRelationshipDoubleClick: focusOnRelationship,
         zoomFit: false,
+        simulationQuality: highAccuracySimulation ? 2 : 1
     };
 
 //event listeners to handle clicks, module is not global scoped
@@ -132,11 +140,7 @@ function freezeAllNodes() {
     neo4jd3.freezeAllNodes();
 }
 
-var highAccuracySimulation = true;
-
-function toggleSimulationAccuracy() {
-    highAccuracySimulation = !highAccuracySimulation;
-
+function setAccuracySimLabels() {
     if (highAccuracySimulation) {
         highAccuracySimEnabledLabel.style.display = "block";
         highAccuracySimDisabledLabel.style.display = "none";
@@ -144,6 +148,14 @@ function toggleSimulationAccuracy() {
         highAccuracySimEnabledLabel.style.display = "none";
         highAccuracySimDisabledLabel.style.display = "block";
     }
+}
+
+function toggleSimulationAccuracy() {
+    highAccuracySimulation = !highAccuracySimulation;
+
+    setAccuracySimLabels();
+
+    localStorage.setItem('highAccuracySimulation', highAccuracySimulation);
 
     // re-load the graph with the new simulation quality
     init();
@@ -158,4 +170,6 @@ function setImages() {
     init();
 }
 
+// set the simulation accuracy label
+setAccuracySimLabels();
 window.onload = setImages;
