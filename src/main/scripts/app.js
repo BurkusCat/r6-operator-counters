@@ -188,8 +188,8 @@ function setImages() {
 setAccuracySimLabels();
 
 // set counters checkbox values
-let checkboxes = document.querySelectorAll('div.checkboxes input[type="checkbox"]');
-checkboxes.forEach((checkbox, index) => {
+let countersCheckboxes = document.querySelectorAll('div.checkboxes input[type="checkbox"]');
+countersCheckboxes.forEach((checkbox, index) => {
     checkbox.checked = counters[index];
 });
 
