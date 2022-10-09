@@ -1,6 +1,26 @@
 import Neo4jD3 from './neo4jd3.js';
 import ImageLocation from './imageLocation.js'
 
+// local storage and default settings initialisation
+var highAccuracySimulation = true;
+var counters = [
+    true,   // hard counters
+    false,  // soft counters
+    false   // minor counters
+];
+
+if(localStorage.getItem('highAccuracySimulation') !== null) {
+    highAccuracySimulation = localStorage.getItem('highAccuracySimulation') === 'true';
+} else {
+    localStorage.setItem('highAccuracySimulation', highAccuracySimulation);
+}
+
+if(localStorage.getItem('countersSettings') !== null) {
+    counters = JSON.parse(localStorage.getItem('countersSettings'));
+} else {
+    localStorage.setItem('countersSettings', JSON.stringify(counters));
+}
+
 let neo4jd3;
 let neo4jd3Options = {
         highlight: [
@@ -10,14 +30,11 @@ let neo4jd3Options = {
         minCollision: 80,
         neo4jDataUrl: 'json/r6OperatorCounters.json',
         nodeRadius: 35,
-        counters: [
-            document.querySelector('#hardCounters').checked,
-            document.querySelector('#softCounters').checked,
-            document.querySelector('#minorCounters').checked
-        ],
+        counters: counters,
         onNodeDoubleClick: focusOnNode,
         onRelationshipDoubleClick: focusOnRelationship,
         zoomFit: false,
+        simulationQuality: highAccuracySimulation ? 2 : 1
     };
 
 //event listeners to handle clicks, module is not global scoped
@@ -42,11 +59,13 @@ function init() {
     startButton.style.display = "none";
     stopButton.style.display = "block";
 
-    neo4jd3Options.counters = [
+    let countersSettings = [
         document.querySelector('#hardCounters').checked,
         document.querySelector('#softCounters').checked,
         document.querySelector('#minorCounters').checked,
-    ];
+    ]
+
+    neo4jd3Options.counters = countersSettings;
     neo4jd3Options.simulationQuality = highAccuracySimulation ? 2 : 1;
 
     if (neo4jd3) {
@@ -57,6 +76,9 @@ function init() {
     neo4jd3 = new Neo4jD3('#neo4jd3', neo4jd3Options);
 
     document.querySelector('.neo4jd3-graph').addEventListener('click', unfocus);
+
+    // save counters settings to local storage
+    localStorage.setItem('countersSettings', JSON.stringify(countersSettings));
 }
 
 function focusOnNode(node) {
@@ -132,11 +154,7 @@ function freezeAllNodes() {
     neo4jd3.freezeAllNodes();
 }
 
-var highAccuracySimulation = true;
-
-function toggleSimulationAccuracy() {
-    highAccuracySimulation = !highAccuracySimulation;
-
+function setAccuracySimLabels() {
     if (highAccuracySimulation) {
         highAccuracySimEnabledLabel.style.display = "block";
         highAccuracySimDisabledLabel.style.display = "none";
@@ -144,6 +162,14 @@ function toggleSimulationAccuracy() {
         highAccuracySimEnabledLabel.style.display = "none";
         highAccuracySimDisabledLabel.style.display = "block";
     }
+}
+
+function toggleSimulationAccuracy() {
+    highAccuracySimulation = !highAccuracySimulation;
+
+    setAccuracySimLabels();
+
+    localStorage.setItem('highAccuracySimulation', highAccuracySimulation);
 
     // re-load the graph with the new simulation quality
     init();
@@ -157,5 +183,14 @@ function setImages() {
     // re-load the graph with new images
     init();
 }
+
+// set the simulation accuracy label
+setAccuracySimLabels();
+
+// set counters checkbox values
+let countersCheckboxes = document.querySelectorAll('div.checkboxes input[type="checkbox"]');
+countersCheckboxes.forEach((checkbox, index) => {
+    checkbox.checked = counters[index];
+});
 
 window.onload = setImages;
