@@ -15,6 +15,6 @@ maestro.addCounterNode(operatorId.glaz, counterType.minor, "Maestro's Evil Eye c
 maestro.addCounterNode(operatorId.maverick, counterType.soft, "Maestro's Evil Eye can shoot Maverick with its laser, making it difficult for him to blow torch holes.")
 maestro.addCounterNode(operatorId.montagne, counterType.minor, "Maestro's Evil Eye can shoot Montagne from behind when he is pushing, causing him to turn around and potentially exposing him.")
 maestro.addCounterNode(operatorId.blitz, counterType.minor, "Maestro's Evil Eye can shoot Blitz from behind when he is hard pushing, causing him to turn around and potentially exposing him.")
-
+maestro.addCounterNode(operatorId.thermite, counterType.hard, "Maestro's Evil Eye can destroy Thermite's Exothermic Charges with its laser.")
 
 export default maestro
