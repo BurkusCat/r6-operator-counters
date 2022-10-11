@@ -12,5 +12,7 @@ maestro.addCounterNode(operatorId.zero, counterType.soft, "Maestro's Evil Eye ca
 maestro.addCounterNode(operatorId.hibana, counterType.hard, "Maestro's Evil Eye can destroy Hibana's shock pellets with its laser.")
 maestro.addCounterNode(operatorId.twitch, counterType.hard, "Maestro's Evil Eye can destroy Twitch's shock drones with its laser.")
 maestro.addCounterNode(operatorId.glaz, counterType.minor, "Maestro's Evil Eye can detect Glaz through smoke, which Glaz relies on.")
+maestro.addCounterNode(operatorId.maverick, counterType.soft, "Maestro's Evil Eye can shoot Maverick with its laser, making it difficult for him to blow torch holes.")
+
 
 export default maestro
