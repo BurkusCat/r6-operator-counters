@@ -9,5 +9,6 @@ let maestro = new Operator(r6operators.maestro, operatorId.maestro, "Operation P
 
 maestro.addCounterNode(operatorId.iana, counterType.soft, "Maestro's Evil Eyes can destroy Iana's Hologram with its laser, and can detect its lack of heat signature.");
 maestro.addCounterNode(operatorId.zero, counterType.soft, "Maestro's Evil Eye can destroy Zero's cameras.");
+maestro.addCounterNode(operatorId.hibana, counterType.hard, "Maestro's Evil Eye can destroy Hibana's shock pellets with its laser.")
 
 export default maestro
