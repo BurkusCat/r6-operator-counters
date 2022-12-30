@@ -64,7 +64,7 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-jshint": "^2.1.0",
     "gulp-livereload": "^3.8.1",
-    "gulp-mocha": "^7.0.2",
+    "gulp-mocha": "^8.0.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
