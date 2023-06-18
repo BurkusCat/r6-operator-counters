@@ -29,6 +29,9 @@
     "type": "git",
     "url": "https://github.com/BurkusCat/r6-operator-counters.git"
   },
+  "engines": {
+    "node": "13.9.0"
+  },
   "license": "MIT",
   "dependencies": {
     "file-system": "^2.2.2",
