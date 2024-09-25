@@ -1,10 +1,9 @@
 'use strict';
 
-import counterType from '../core/counterTypeEnums';
-import operatorId from '../core/operatorIdEnum';
-import Operator from '../core/operatorFactory';
+import counterType from '../core/counterTypeEnums.js';
+import operatorId from '../core/operatorIdEnum.js';
+import Operator from '../core/operatorFactory.js';
 import r6operators from "r6operators";
-
 let maverick = new Operator(r6operators.maverick, operatorId.maverick, "Operation Grim Sky");
 
 maverick.addCounterNode(operatorId.bandit, counterType.soft, "Maverick's Breaching Torch can make small holes in walls electrified by Bandit's Shock Wire.");

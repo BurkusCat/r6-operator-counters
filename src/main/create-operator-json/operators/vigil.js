@@ -1,10 +1,9 @@
 'use strict';
 
-import counterType from '../core/counterTypeEnums';
-import operatorId from '../core/operatorIdEnum';
-import Operator from '../core/operatorFactory';
+import counterType from '../core/counterTypeEnums.js';
+import operatorId from '../core/operatorIdEnum.js';
+import Operator from '../core/operatorFactory.js';
 import r6operators from "r6operators";
-
 let vigil = new Operator(r6operators.vigil, operatorId.vigil, "Operation White Noise");
 
 vigil.addCounterNode(operatorId.dokkaebi, counterType.soft,  "Vigil's ERC-7 allows him to remove himself from cameras hacked by Dokkaebi.");

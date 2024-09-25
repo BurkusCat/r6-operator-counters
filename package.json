@@ -36,12 +36,15 @@
   "dependencies": {
     "file-system": "^2.2.2",
     "gulp-run": "^1.7.1",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^5.1.0",
     "gulp-svg2png": "^2.0.2",
     "gulp-webp": "^4.0.1",
+    "phantomjs-prebuilt": "^2.1.16",
     "r6operators": "^2.1.0",
-    "sass": "^1.50.1",
-    "workbox-build": "^6.5.3"
+    "sass": "^1.79.3",
+    "webp-converter": "^2.3.3",
+    "workbox-build": "^6.5.3",
+    "xmlhttprequest-ssl": "^2.1.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.7",
@@ -89,7 +92,6 @@
     "karma-sinon": "^1.0.4",
     "lodash": "^4.17.19",
     "node-notifier": "^8.0.1",
-    "phantomjs": "^2.1.1",
     "proxyquire": "^1.7.9 ",
     "proxyquireify": "^3.2.0",
     "run-sequence": "^1.2.2",

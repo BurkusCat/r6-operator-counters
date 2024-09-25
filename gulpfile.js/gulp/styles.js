@@ -4,7 +4,7 @@
     cssnano = require('gulp-cssnano'),
     gulp = require('gulp'),
     rename = require('gulp-rename'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass')(require('sass'))
 
 function styles() {
     return gulp.src(conf.paths.src + '/styles/*.scss')
