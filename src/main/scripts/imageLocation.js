@@ -55,6 +55,7 @@ class ImageLocation {
             'Tachanka': 'img/' + fileFormat + '/tachanka.' + fileFormat,
             'Thatcher': 'img/' + fileFormat + '/thatcher.' + fileFormat,
             'Thermite': 'img/' + fileFormat + '/thermite.' + fileFormat,
+            'Thorn': 'img/' + fileFormat + '/thorn.' + fileFormat,
             'Thunderbird': 'img/' + fileFormat + '/thunderbird.' + fileFormat,
             'Twitch': 'img/' + fileFormat + '/twitch.' + fileFormat,
             'Valkyrie': 'img/' + fileFormat + '/valkyrie.' + fileFormat,
