@@ -18,10 +18,12 @@ import capitao from '../operators/capitao.js';
 import castle from '../operators/castle.js';
 import caviera from '../operators/caviera.js';
 import clash from '../operators/clash.js';
+import deimos from '../operators/deimos.js';
 import doc from '../operators/doc.js';
 import dokkaebi from '../operators/dokkaebi.js';
 import echo from '../operators/echo.js';
 import ela from '../operators/ela.js';
+import fenrir from '../operators/fenrir.js';
 import finka from '../operators/finka.js';
 import flores from '../operators/flores.js';
 import frost from '../operators/frost.js';
@@ -53,7 +55,11 @@ import oryx from '../operators/oryx.js';
 import osa from '../operators/osa.js';
 import pulse from '../operators/pulse.js';
 import sens from '../operators/sens.js';
-import solis from '../operators/solis.js'
+import sentry from '../operators/sentry.js';
+import skopos from '../operators/skopos.js';
+import solis from '../operators/solis.js';
+import striker from '../operators/striker.js';
+import ram from '../operators/ram.js';
 import recruit from '../operators/recruit.js';
 import rook from '../operators/rook.js';
 import sledge from '../operators/sledge.js';
@@ -63,6 +69,7 @@ import thatcher from '../operators/thatcher.js';
 import thermite from '../operators/thermite.js';
 import thorn from "../operators/thorn.js";
 import thunderbird from '../operators/thunderbird.js';
+import tubarao from '../operators/tubarao.js'
 import twitch from '../operators/twitch.js';
 import valkyrie from '../operators/valkyrie.js';
 import vigil from '../operators/vigil.js';
@@ -93,6 +100,7 @@ export default {
   dokkaebi,
   ela,
   echo,
+  fenrir,
   finka,
   flores,
   frost,

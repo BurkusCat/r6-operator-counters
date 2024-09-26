@@ -72,5 +72,12 @@ export default {
     sens:65,
     grim:66,
     solis:67,
-    brava:68
+    brava:68,
+    fenrir:69,
+    ram:70, 
+    tubaro:71, 
+    deimos:72, 
+    sentry:73, 
+    striker:74, 
+    skopos:75
 };
