@@ -10,6 +10,7 @@ class ImageLocation {
             'Bandit': 'img/' + fileFormat + '/bandit.' + fileFormat,
             'Blackbeard': 'img/' + fileFormat + '/blackbeard.' + fileFormat,
             'Blitz': 'img/' + fileFormat + '/blitz.' + fileFormat,
+            'Brava': 'img/' + fileFormat + '/brava.' + fileFormat,
             'Buck': 'img/' + fileFormat + '/buck.' + fileFormat,
             'Capitão': 'img/' + fileFormat + '/capitao.' + fileFormat,
             'Castle': 'img/' + fileFormat + '/castle.' + fileFormat,

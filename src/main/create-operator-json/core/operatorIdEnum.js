@@ -71,5 +71,6 @@ export default {
     azami:64,
     sens:65,
     grim:66,
-    solis:67
+    solis:67,
+    brava:68
 };

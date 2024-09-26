@@ -12,6 +12,7 @@ import azami from '../operators/azami.js';
 import bandit from '../operators/bandit.js';
 import blackbeard from '../operators/blackbeard.js';
 import blitz from '../operators/blitz.js';
+import brava from '../operators/brava.js';
 import buck from '../operators/buck.js';
 import capitao from '../operators/capitao.js';
 import castle from '../operators/castle.js';
@@ -82,6 +83,7 @@ export default {
   bandit,
   blackbeard,
   blitz,
+  brava,
   buck,
   capitao,
   castle,
