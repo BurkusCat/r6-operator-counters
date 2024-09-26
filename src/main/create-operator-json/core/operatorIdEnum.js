@@ -68,5 +68,6 @@ export default {
     thunderbird: 61,
     osa: 62,
     thorn:63,
-    azami:64
+    azami:64,
+    sens:65
 };
