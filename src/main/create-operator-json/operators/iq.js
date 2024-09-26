@@ -26,4 +26,7 @@ iq.addCounterNode(operatorId.warden, counterType.hard, "IQ's Electronics Detecto
 iq.addCounterNode(operatorId.kaid, counterType.soft, "IQ's Electronics Detector can detect and shoot Kaid's electroclaws through breakable surfaces.");
 iq.addCounterNode(operatorId.thunderbird, counterType.soft, "IQ's Electronics Detector can detect Thunderbird's Kona Station.");
 iq.addCounterNode(operatorId.thorn, counterType.soft, "IQ's Electronics Detector can detect Thorns's Razorbloom Shell.")
+iq.addCounterNode(operatorId.solis, counterType.hard, "IQ's Electronics Detector can detect Solis' visor while it's active.")
+
+
 export default iq
