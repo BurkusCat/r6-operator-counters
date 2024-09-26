@@ -59,8 +59,6 @@ class ImageLocation {
             'Sens': 'img/' + fileFormat + '/sens.' + fileFormat,
             'Sentry': 'img/' + fileFormat + '/sentry.' + fileFormat,
             'Skopos': 'img/' + fileFormat + '/skopos.' + fileFormat,
-            
-
             'Sledge': 'img/' + fileFormat + '/sledge.' + fileFormat,
             'Smoke': 'img/' + fileFormat + '/smoke.' + fileFormat,
             'Solis': 'img/' + fileFormat + '/solis.' + fileFormat,
