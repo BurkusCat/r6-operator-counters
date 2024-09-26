@@ -5,13 +5,6 @@ import operatorId from '../core/operatorIdEnum.js';
 import Operator from '../core/operatorFactory.js';
 import r6operators from "r6operators";
 
-// Need to control name
-const RecruitInfo = {
-    name: 'Recruit',
-    role: 'Recruit',
-    unit: 'Recruit',
-}
+let azami = new Operator(r6operators.azami, operatorId.azami, "Operation Demon Veil");
 
-let recruit = new Operator(RecruitInfo, operatorId.recruit, "N/A");
-
-export default recruit
+export default azami

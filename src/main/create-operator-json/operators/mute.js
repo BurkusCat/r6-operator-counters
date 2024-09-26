@@ -1,8 +1,8 @@
 'use strict';
 
-import counterType from '../core/counterTypeEnums';
-import operatorId from '../core/operatorIdEnum';
-import Operator from '../core/operatorFactory';
+import counterType from '../core/counterTypeEnums.js';
+import operatorId from '../core/operatorIdEnum.js';
+import Operator from '../core/operatorFactory.js';
 import r6operators from "r6operators";
 
 let mute = new Operator(r6operators.mute, operatorId.mute, "N/A");
