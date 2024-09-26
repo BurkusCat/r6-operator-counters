@@ -52,6 +52,7 @@ import oryx from '../operators/oryx.js';
 import osa from '../operators/osa.js';
 import pulse from '../operators/pulse.js';
 import sens from '../operators/sens.js';
+import solis from '../operators/solis.js'
 import recruit from '../operators/recruit.js';
 import rook from '../operators/rook.js';
 import sledge from '../operators/sledge.js';
@@ -121,6 +122,7 @@ export default {
   nomad,
   pulse,
   sens,
+  solis,
   recruit,
   rook,
   sledge,

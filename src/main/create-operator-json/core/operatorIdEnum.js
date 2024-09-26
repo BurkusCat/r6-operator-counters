@@ -70,5 +70,6 @@ export default {
     thorn:63,
     azami:64,
     sens:65,
-    grim:66
+    grim:66,
+    solis:67
 };
