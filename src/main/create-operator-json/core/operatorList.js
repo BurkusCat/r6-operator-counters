@@ -28,6 +28,7 @@ import fuze from '../operators/fuze.js';
 import glaz from '../operators/glaz.js';
 import goyo from '../operators/goyo.js';
 import gridlock from '../operators/gridlock.js';
+import grim from '../operators/grim.js';
 import hibana from '../operators/hibana.js';
 import iana from '../operators/iana.js';
 import iq from '../operators/iq.js';
@@ -96,6 +97,7 @@ export default {
   glaz,
   goyo,
   gridlock,
+  grim,
   hibana,
   iana,
   iq,

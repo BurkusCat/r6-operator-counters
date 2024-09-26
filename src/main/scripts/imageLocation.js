@@ -26,6 +26,7 @@ class ImageLocation {
             'Glaz': 'img/' + fileFormat + '/glaz.' + fileFormat,
             'Goyo': 'img/' + fileFormat + '/goyo.' + fileFormat,
             'Gridlock': 'img/' + fileFormat + '/gridlock.' + fileFormat,
+            'Grim': 'img/' + fileFormat + '/grim.' + fileFormat,
             'Hibana': 'img/' + fileFormat + '/hibana.' + fileFormat,
             'Iana': 'img/' + fileFormat + '/iana.' + fileFormat,
             'IQ': 'img/' + fileFormat + '/iq.' + fileFormat,

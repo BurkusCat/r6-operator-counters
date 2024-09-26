@@ -69,5 +69,6 @@ export default {
     osa: 62,
     thorn:63,
     azami:64,
-    sens:65
+    sens:65,
+    grim:66
 };
