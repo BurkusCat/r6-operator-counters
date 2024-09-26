@@ -6,6 +6,7 @@ class ImageLocation {
             'Amaru': 'img/' + fileFormat + '/amaru.' + fileFormat,
             'Aruni': 'img/' + fileFormat + '/aruni.' + fileFormat,
             'Ash': 'img/' + fileFormat + '/ash.' + fileFormat,
+            'Azami': 'img/' + fileFormat + '/azami.' + fileFormat,
             'Bandit': 'img/' + fileFormat + '/bandit.' + fileFormat,
             'Blackbeard': 'img/' + fileFormat + '/blackbeard.' + fileFormat,
             'Blitz': 'img/' + fileFormat + '/blitz.' + fileFormat,

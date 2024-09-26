@@ -8,6 +8,7 @@ import alibi from '../operators/alibi.js';
 import amaru from '../operators/amaru.js';
 import aruni from '../operators/aruni.js';
 import ash from '../operators/ash.js';
+import azami from '../operators/azami.js';
 import bandit from '../operators/bandit.js';
 import blackbeard from '../operators/blackbeard.js';
 import blitz from '../operators/blitz.js';
@@ -74,6 +75,7 @@ export default {
   amaru,
   aruni,
   ash,
+  azami,
   bandit,
   blackbeard,
   blitz,
