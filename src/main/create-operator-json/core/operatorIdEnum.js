@@ -67,4 +67,5 @@ export default {
     flores: 60,
     thunderbird: 61,
     osa: 62,
+    thorn:63
 };

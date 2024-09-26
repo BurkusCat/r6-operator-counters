@@ -56,6 +56,7 @@ import smoke from '../operators/smoke.js';
 import tachanka from '../operators/tachanka.js';
 import thatcher from '../operators/thatcher.js';
 import thermite from '../operators/thermite.js';
+import thorn from "../operators/thorn.js";
 import thunderbird from '../operators/thunderbird.js';
 import twitch from '../operators/twitch.js';
 import valkyrie from '../operators/valkyrie.js';
@@ -65,6 +66,7 @@ import warden from '../operators/warden.js';
 import ying from '../operators/ying.js';
 import zero from '../operators/zero.js';
 import zofia from '../operators/zofia.js';
+
 
 export default {
   ace,
@@ -120,6 +122,7 @@ export default {
   tachanka,
   thatcher,
   thermite,
+  thorn,
   thunderbird,
   twitch,
   valkyrie,
