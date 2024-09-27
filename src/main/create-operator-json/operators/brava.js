@@ -20,7 +20,7 @@ brava.addCounterNode(operatorId.mute, counterType.hard, "Brava's Krudge drone ca
 brava.addCounterNode(operatorId.thorn, counterType.hard, "Brava's Krudge drone can hack Thorn's razorblooms");
 brava.addCounterNode(operatorId.valkyrie, counterType.hard, "Brava's Krudge drone can hack Valkyrie's black eyes");
 brava.addCounterNode(operatorId.fenrir, counterType.hard, "Brava's Krudge drone can hack Fenrir's Dread Mines");
-brava.addCounterNode(operatorId.fenrir, counterType.hard, "Brava's Krudge drone can destroy Skopos' inactive shell");
+brava.addCounterNode(operatorId.skopos, counterType.hard, "Brava's Krudge drone can destroy Skopos' inactive shell");
 
 
 export default brava
