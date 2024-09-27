@@ -11,5 +11,7 @@ finka.addCounterNode(operatorId.ela, counterType.soft, "Finka's Adrenal Surge cl
 finka.addCounterNode(operatorId.caviera, counterType.soft, "Finka can use her Adrenal Surge to revive a downed ally preventing an interrogation from Caveira. This ally cannot be downed again.");
 finka.addCounterNode(operatorId.echo, counterType.soft, "Finka's Adrenal Surge cleanses the disorientation effect from Echo's Yokai drone.");
 finka.addCounterNode(operatorId.melusi, counterType.soft, "Finka's Adrenal Surge allow attackers to move through Melusi's Banshee.");
+finka.addCounterNode(operatorId.fenrir, counterType.soft, "Finka's Adrenal Surge allows attackers to see further through Fenrir's gas.");
+
 
 export default finka
