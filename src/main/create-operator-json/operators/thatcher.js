@@ -27,6 +27,7 @@ thatcher.addCounterNode(operatorId.thunderbird, counterType.soft, "Thatcher's EM
 thatcher.addCounterNode(operatorId.thorn, counterType.soft, "Thatcher's EMP Grenades can temporarily disable Thorn's RazorBloom Shell.");
 thatcher.addCounterNode(operatorId.solis, counterType.soft, "Thatcher's EMP Grenades can temporarily disable Solis' visor.");
 thatcher.addCounterNode(operatorId.fenrir, counterType.hard, "Thatcher's EMP Grenades can disable Fenrir's Dread Mines and prevent Fenrir from activating his mines if he's caught in the EMP.");
+thatcher.addCounterNode(operatorId.skopos, counterType.hard, "Thatcher's EMP Grenades can disable Fenrir's Dread Mines and prevent Fenrir from activating his mines if he's caught in the EMP.");
 
 
 export default thatcher
