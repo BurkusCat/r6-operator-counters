@@ -21,6 +21,7 @@ mute.addCounterNode(operatorId.zero, counterType.hard, "Mute's Signal Disruptor 
 mute.addCounterNode(operatorId.flores, counterType.hard, "Mute's Signal Disruptor can stop Flores' RCE-RATERO drone from working.")
 mute.addCounterNode(operatorId.sens, counterType.hard, "Mute's Signal Disruptor can stop Sens' ROU from working.")
 mute.addCounterNode(operatorId.grim, counterType.hard, "Mute's Signal Disruptor stops Grim's Hive from deploying their swarm and protects operators in the jammer's radius.")
+mute.addCounterNode(operatorId.ram, counterType.hard, "Mute's Signal Disruptor can stop Ram's BU-GI from activating.")
 
 
 export default mute
