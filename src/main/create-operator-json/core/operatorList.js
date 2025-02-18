@@ -60,7 +60,6 @@ import skopos from '../operators/skopos.js';
 import solis from '../operators/solis.js';
 import striker from '../operators/striker.js';
 import ram from '../operators/ram.js';
-import recruit from '../operators/recruit.js';
 import rook from '../operators/rook.js';
 import sledge from '../operators/sledge.js';
 import smoke from '../operators/smoke.js';
@@ -133,7 +132,6 @@ export default {
   nomad,
   pulse,
   ram,
-  recruit,
   rook,
   sens,
   sentry,

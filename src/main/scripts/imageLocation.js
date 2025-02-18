@@ -54,7 +54,6 @@ class ImageLocation {
             'Iana': 'img/' + fileFormat + '/iana.' + fileFormat,
             'Pulse': 'img/' + fileFormat + '/pulse.' + fileFormat,
             'Ram': 'img/' + fileFormat + '/ram.' + fileFormat,
-            'Recruit': 'img/' + fileFormat + '/recruit_blue.' + fileFormat,
             'Rook': 'img/' + fileFormat + '/rook.' + fileFormat,
             'Sens': 'img/' + fileFormat + '/sens.' + fileFormat,
             'Sentry': 'img/' + fileFormat + '/sentry.' + fileFormat,

@@ -7,5 +7,4 @@ import r6operators from "r6operators";
 
 let grim = new Operator(r6operators.grim, operatorId.grim, "Operation Brutal Swarm");
 
-
 export default grim

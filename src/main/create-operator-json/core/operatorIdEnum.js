@@ -18,7 +18,7 @@ export default {
     montagne: 11,
     mute: 12,
     pulse: 13,
-    recruit: 14,
+    //recruit: 14,
     rook: 15,
     sledge: 16,
     smoke: 17,
