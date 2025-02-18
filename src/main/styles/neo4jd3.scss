@@ -226,7 +226,6 @@ html, .neo4jd3 {
     opacity: 0.15;
 }
 
-.relationship.selected .overlay,
 .relationship:hover .overlay {
     filter: alpha(opacity=30);
     opacity: .3;
