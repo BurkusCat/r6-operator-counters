@@ -1,7 +1,7 @@
 {
   "name": "r6counters",
   "version": "0.0.5",
-  "description": "A graphical visualisation of how operators counter each other in Rainbow Six Siege. View hard and soft counters to help inform your operator choice against the current meta. R6 Operator Counters is an open source project.",
+  "description": "A graphical visualization of how operators counter each other in Rainbow Six Siege. View hard and soft counters to help inform your operator choice against the current meta. R6 Operator Counters is an open source project.",
   "main": "dist/neo4jd3.min.js",
   "bugs": {
     "url": "https://github.com/BurkusCat/r6-operator-counters/issues"
@@ -34,16 +34,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "file-system": "^2.2.2",
-    "r6operators": "^2.10.2",
-    "webp-converter": "^2.3.3",
-    "xmlhttprequest-ssl": "^3.1.0"
   },
   "devDependencies": {
     "browserify": "^13.3.0",
     "browserify-shim": "^3.8.16",
     "chai": "^3.5.0",
     "del": "^2.2.2",
+    "file-system": "^2.2.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-cache": "^0.5.0",
@@ -79,10 +76,12 @@
     "lodash": "^4.17.19",
     "node-notifier": "^8.0.2",
     "proxyquireify": "^3.2.0",
+    "r6operators": "^2.10.2",
     "sass": "^1.85.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.2",
     "watchify": "^3.11.1",
+    "webp-converter": "^2.3.3",
     "workbox-build": "^7.3.0"
   }
 }
