@@ -234,3 +234,5 @@ html, .neo4jd3 {
 svg {
     cursor: move;
 }
+
+/* :not(svg) is a user-agent style which causes the biggest performance impact inside of "Recalculate style" */
