@@ -15,5 +15,7 @@ zofia.addCounterNode(operatorId.maestro, counterType.hard,  "Zofia's Impact Gren
 zofia.addCounterNode(operatorId.melusi, counterType.hard, "Zofia's Impact Grenades can destroy Melusi's Banshee.");
 zofia.addCounterNode(operatorId.aruni, counterType.hard, "Zofia's Impact Grenades can temporarily disable Aruni's Surya laser gates.");
 zofia.addCounterNode(operatorId.thunderbird, counterType.hard, "Zofia's Impact Grenades can destroy Thunderbird's Kona Stations.");
+zofia.addCounterNode(operatorId.azami, counterType.hard, "Zofia's Impact Grenades can destroy Azami's Kiba Barriers.");
+
 
 export default zofia

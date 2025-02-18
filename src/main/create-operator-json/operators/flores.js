@@ -16,5 +16,7 @@ flores.addCounterNode(operatorId.kapkan, counterType.hard, "Flores' RCE-RATERO d
 flores.addCounterNode(operatorId.frost, counterType.hard, "Flores' RCE-RATERO drone can destroy Frost's Welcome Mats.");
 flores.addCounterNode(operatorId.rook, counterType.minor, "Flores' RCE-RATERO drone can destroy Rook's Armor Pack.");
 flores.addCounterNode(operatorId.thunderbird, counterType.hard, "Flores' RCE-RATERO drone can destroy Thunderbird's Kona Station.");
+flores.addCounterNode(operatorId.thunderbird, counterType.hard, "Flores' RCE-RATERO drone can destroy Azami's Kiba Barriers.");
+
 
 export default flores

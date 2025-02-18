@@ -18,6 +18,10 @@ mute.addCounterNode(operatorId.lion, counterType.soft, "When standing within ran
 mute.addCounterNode(operatorId.blitz, counterType.soft, "When standing within range of Mute's Signal Disruptor, Blitz's Flash Shield will be disrupted.");
 mute.addCounterNode(operatorId.iana, counterType.hard, "Mute's Signal Disruptor will neutralize Iana's hologram.");
 mute.addCounterNode(operatorId.zero, counterType.hard, "Mute's Signal Disruptor will disable Zero's cameras until they are destroyed.");
-mute.addCounterNode(operatorId.flores, counterType.hard, "Mute's Signal Disruptor can stop Flores' RCE-RATERO drone from working.")
+mute.addCounterNode(operatorId.flores, counterType.hard, "Mute's Signal Disruptor can stop Flores' RCE-RATERO drone from working.");
+mute.addCounterNode(operatorId.sens, counterType.hard, "Mute's Signal Disruptor can stop Sens' ROU from working.");
+mute.addCounterNode(operatorId.grim, counterType.hard, "Mute's Signal Disruptor stops Grim's Hive from deploying their swarm and protects operators in the jammer's radius.");
+mute.addCounterNode(operatorId.ram, counterType.hard, "Mute's Signal Disruptor can stop Ram's BU-GI from activating.");
+mute.addCounterNode(operatorId.deimos, counterType.hard, "Mute's Signal Disruptor can prevent defenders from getting trakced by Deimos' DeathMARK.");
 
 export default mute

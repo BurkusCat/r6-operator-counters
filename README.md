@@ -29,10 +29,10 @@ Open `http://localhost:8080` in your favorite browser.
 
 ### Tools needed
 * Node.js - https://nodejs.org/en/
-    - Minimum version required: 12.16.1
+    - Minimum version required: 20.11.0
     - Check your version using `node --version`
 * npm - installed alongside Node.js
-    - Minimum version required: 6.13.4
+    - Minimum version required: 10.2.4
     - Check your version using `npm --version`
 * git - https://git-scm.com/downloads
 * A text editor e.g. Visual Studio Code - https://code.visualstudio.com/

@@ -12,15 +12,18 @@ import azami from '../operators/azami.js';
 import bandit from '../operators/bandit.js';
 import blackbeard from '../operators/blackbeard.js';
 import blitz from '../operators/blitz.js';
+import brava from '../operators/brava.js';
 import buck from '../operators/buck.js';
 import capitao from '../operators/capitao.js';
 import castle from '../operators/castle.js';
 import caviera from '../operators/caviera.js';
 import clash from '../operators/clash.js';
+import deimos from '../operators/deimos.js';
 import doc from '../operators/doc.js';
 import dokkaebi from '../operators/dokkaebi.js';
 import echo from '../operators/echo.js';
 import ela from '../operators/ela.js';
+import fenrir from '../operators/fenrir.js';
 import finka from '../operators/finka.js';
 import flores from '../operators/flores.js';
 import frost from '../operators/frost.js';
@@ -28,6 +31,7 @@ import fuze from '../operators/fuze.js';
 import glaz from '../operators/glaz.js';
 import goyo from '../operators/goyo.js';
 import gridlock from '../operators/gridlock.js';
+import grim from '../operators/grim.js';
 import hibana from '../operators/hibana.js';
 import iana from '../operators/iana.js';
 import iq from '../operators/iq.js';
@@ -50,7 +54,12 @@ import nomad from '../operators/nomad.js';
 import oryx from '../operators/oryx.js';
 import osa from '../operators/osa.js';
 import pulse from '../operators/pulse.js';
-import recruit from '../operators/recruit.js';
+import sens from '../operators/sens.js';
+import sentry from '../operators/sentry.js';
+import skopos from '../operators/skopos.js';
+import solis from '../operators/solis.js';
+import striker from '../operators/striker.js';
+import ram from '../operators/ram.js';
 import rook from '../operators/rook.js';
 import sledge from '../operators/sledge.js';
 import smoke from '../operators/smoke.js';
@@ -59,6 +68,7 @@ import thatcher from '../operators/thatcher.js';
 import thermite from '../operators/thermite.js';
 import thorn from "../operators/thorn.js";
 import thunderbird from '../operators/thunderbird.js';
+import tubarao from '../operators/tubarao.js'
 import twitch from '../operators/twitch.js';
 import valkyrie from '../operators/valkyrie.js';
 import vigil from '../operators/vigil.js';
@@ -79,15 +89,18 @@ export default {
   bandit,
   blackbeard,
   blitz,
+  brava,
   buck,
   capitao,
   castle,
   caviera,
   clash,
+  deimos,
   doc,
   dokkaebi,
   ela,
   echo,
+  fenrir,
   finka,
   flores,
   frost,
@@ -95,6 +108,7 @@ export default {
   glaz,
   goyo,
   gridlock,
+  grim,
   hibana,
   iana,
   iq,
@@ -117,15 +131,21 @@ export default {
   osa,
   nomad,
   pulse,
-  recruit,
+  ram,
   rook,
+  sens,
+  sentry,
+  skopos,
   sledge,
   smoke,
+  solis,
+  striker,
   tachanka,
   thatcher,
   thermite,
   thorn,
   thunderbird,
+  tubarao,
   twitch,
   valkyrie,
   vigil,

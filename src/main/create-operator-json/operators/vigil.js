@@ -12,5 +12,6 @@ vigil.addCounterNode(operatorId.twitch, counterType.minor,  "Vigil's ERC-7 allow
 vigil.addCounterNode(operatorId.lion, counterType.hard, "Vigil cannot be detected by Lion's EE-ONE-D drone scan when his ER7-C gadget is active.");
 vigil.addCounterNode(operatorId.iana, counterType.minor, "Vigils ERC-7 makes him invisible from Iana's Hologram.");
 vigil.addCounterNode(operatorId.flores, counterType.soft,  "Vigil's ERC-7 allows him to remove himself from Flores' RCE-RATERO drone camera.");
+vigil.addCounterNode(operatorId.deimos, counterType.hard,  "Vigil's ERC-7 allows him to nullify Deimos' DeathMARK.");
 
 export default vigil

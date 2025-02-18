@@ -13,5 +13,6 @@ ash.addCounterNode(operatorId.maestro, counterType.hard, "Ash's Breaching Rounds
 ash.addCounterNode(operatorId.melusi, counterType.hard, "Ash's Breaching rounds can destroy Melusi's Banshee.");
 ash.addCounterNode(operatorId.aruni, counterType.soft, "Ash's Breaching rounds can temporarily disable Aruni's Surya laser gates.")
 ash.addCounterNode(operatorId.thunderbird, counterType.hard, "Ash's Breaching rounds can destroy Thunderbird's Kona Station.")
+ash.addCounterNode(operatorId.thorn, counterType.hard, "Ash's Breaching rounds can destroy Azami's Kiba Barriers.")
 
 export default ash

@@ -20,5 +20,7 @@ twitch.addCounterNode(operatorId.lesion, counterType.soft, "Twitch's Drone can s
 twitch.addCounterNode(operatorId.maestro, counterType.minor, "Twitch's Drone can temporarily disable Maestro's Evil Eye cameras by shooting at them when they are closed.");
 twitch.addCounterNode(operatorId.melusi, counterType.soft, "Twitch's Drone can temporarily disable Melusi's Banshee.");
 twitch.addCounterNode(operatorId.thunderbird, counterType.hard, "Twitch's Drone can shoot Thunderbird's Kona Station.");
+twitch.addCounterNode(operatorId.thorn, counterType.soft, "Twitch's Drone can shoot Thorn's Razorbloom shell.");
+twitch.addCounterNode(operatorId.fenrir, counterType.soft, "Twitch's Drone can shoot Fenrir's Dread Mines.");
 
 export default twitch
