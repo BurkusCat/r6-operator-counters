@@ -22,6 +22,7 @@ body {
     background-color: #333;
     height: 100%; 
     overflow: hidden; 
+    margin: 0px;
 }
 
 html, .neo4jd3 { 
@@ -227,6 +228,9 @@ html, .neo4jd3 {
     opacity: 0.15;
 }
 
+g {
+    content-visibility: auto;
+}
 .relationship:hover .overlay {
     filter: alpha(opacity=30);
     opacity: .3;
@@ -234,6 +238,8 @@ html, .neo4jd3 {
 
 svg {
     cursor: move;
+    contain: content;
 }
+    
 
 /* :not(svg) is a user-agent style which causes the biggest performance impact inside of "Recalculate style" */
