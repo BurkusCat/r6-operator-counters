@@ -229,9 +229,6 @@ html,
     opacity: 0.15;
 }
 
-g {
-    content-visibility: auto;
-}
 .relationship:hover .overlay {
     filter: alpha(opacity=30);
     opacity: .3;
@@ -239,8 +236,6 @@ g {
 
 svg {
     cursor: move;
-    contain: content;
 }
-    
 
 /* :not(svg) is a user-agent style which causes the biggest performance impact inside of "Recalculate style" */
