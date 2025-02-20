@@ -23,6 +23,12 @@ body {
     height: 100%; 
     overflow: hidden; 
     margin: 0px;
+
+	cursor: grab;
+}
+
+body:active {
+	cursor: grabbing;
 }
 
 html,
@@ -204,6 +210,7 @@ html,
     will-change: transform;
 
     transition: opacity 0.5s;
+    cursor: move;
 }
 
 .relationship {
@@ -213,14 +220,12 @@ html,
     cursor: default;
 
     .overlay {
-        cursor: default;
         fill: #6ac6ff;
         filter: alpha(opacity=0);
         opacity: 0;
     }
 
     text {
-        cursor: default;
         color: #ffffff;
     }
 }
@@ -232,10 +237,6 @@ html,
 .relationship:hover .overlay {
     filter: alpha(opacity=30);
     opacity: .3;
-}
-
-svg {
-    cursor: move;
 }
 
 /* :not(svg) is a user-agent style which causes the biggest performance impact inside of "Recalculate style" */
