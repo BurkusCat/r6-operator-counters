@@ -2,8 +2,6 @@
 /* jshint latedef:nofunc */
 'use strict';
 
-import fastdom from './fastdom.min.js';
-
 function Neo4jD3(_selector, _options) {
     var container, info, node, nodes, relationship, relationshipOverlay, relationshipText, relationships, selector, simulation, svg, svgNodes, svgRelationships, svgScale, svgTranslate,
         classes2colors = {},
@@ -561,7 +559,6 @@ function Neo4jD3(_selector, _options) {
             freezeNode(nodes[i]);
         }
     }
-
     function loadNeo4jData() {
         nodes = [];
         relationships = [];
@@ -695,9 +692,7 @@ function Neo4jD3(_selector, _options) {
         var relationshipTransforms = tickRelationships();
 
         // do all rendering AFTER processing for performance reasons
-        fastdom.mutate(() => {
-            renderGraph(nodeTransforms, relationshipTransforms);
-        });
+        renderGraph(nodeTransforms, relationshipTransforms);
     }
 
     /**
