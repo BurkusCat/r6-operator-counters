@@ -789,17 +789,30 @@ function Neo4jD3(_selector, _options) {
     }
 
     function tickStraightRelationshipsOutline(d, text) {
-        var center = { x: 0, y: 0 },
-            angle = rotation(d.source, d.target),
-            textBoundingBox = text.node().getBBox(),
-            textPadding = 5,
-            u = unitaryVector(d.source, d.target),
-            textMargin = { x: (d.target.x - d.source.x - (textBoundingBox.width + textPadding) * u.x) * 0.5, y: (d.target.y - d.source.y - (textBoundingBox.width + textPadding) * u.y) * 0.5 },
-            n = unitaryNormalVector(d.source, d.target),
-            rotatedPointA1 = rotatePoint(center, { x: textMargin.x - n.x, y: textMargin.y - n.y }, angle),
-            rotatedPointB1 = rotatePoint(center, { x: 0 + (options.nodeRadius + 1) * u.x, y: 0 + (options.nodeRadius + 1) * u.y }, angle),
-            rotatedPointA2 = rotatePoint(center, { x: d.target.x - d.source.x - (options.nodeRadius + 1) * u.x, y: d.target.y - d.source.y - (options.nodeRadius + 1) * u.y }, angle),
-            rotatedPointB2 = rotatePoint(center, { x: d.target.x - d.source.x - textMargin.x - n.x, y: d.target.y - d.source.y - textMargin.y - n.y }, angle);
+        const center = { x: 0, y: 0 };
+        const baseRadius = options.nodeRadius + 1;
+        const angle = rotation(d.source, d.target);
+
+        // getBBox is expensive so cache the
+        // bounding box on the data object
+        if (!d._cachedTextBBox) {
+            d._cachedTextBBox = text.node().getBBox();
+        }
+
+        const textPadding = 5;
+        const textWidthPad = d._cachedTextBBox.width + textPadding;
+
+        const u = unitaryVector(d.source, d.target);
+        const textMargin = {
+            x: (d.target.x - d.source.x - textWidthPad * u.x) * 0.5,
+            y: (d.target.y - d.source.y - textWidthPad * u.y) * 0.5
+        };
+        const n = unitaryNormalVector(d.source, d.target);
+
+        const rotatedPointA1 = rotatePoint(center, { x: textMargin.x - n.x, y: textMargin.y - n.y }, angle);
+        const rotatedPointB1 = rotatePoint(center, { x: baseRadius * u.x, y: baseRadius * u.y }, angle);
+        const rotatedPointA2 = rotatePoint(center, { x: d.target.x - d.source.x - baseRadius * u.x, y: d.target.y - d.source.y - baseRadius * u.y }, angle);
+        const rotatedPointB2 = rotatePoint(center, { x: d.target.x - d.source.x - textMargin.x - n.x, y: d.target.y - d.source.y - textMargin.y - n.y }, angle);
 
         return 'M ' + rotatedPointA1.x + ' ' + rotatedPointA1.y +
             ' L ' + rotatedPointB1.x + ' ' + rotatedPointB1.y +
