@@ -792,10 +792,15 @@ function Neo4jD3(_selector, _options) {
         const center = { x: 0, y: 0 };
         const baseRadius = options.nodeRadius + 1;
         const angle = rotation(d.source, d.target);
-        const textBoundingBox = text.node().getBBox();
+
+        // getBBox is expensive so cache the
+        // bounding box on the data object
+        if (!d._cachedTextBBox) {
+            d._cachedTextBBox = text.node().getBBox();
+        }
 
         const textPadding = 5;
-        const textWidthPad = textBoundingBox.width + textPadding;
+        const textWidthPad = d._cachedTextBBox.width + textPadding;
 
         const u = unitaryVector(d.source, d.target);
         const textMargin = {
