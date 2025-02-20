@@ -686,16 +686,16 @@ function Neo4jD3(_selector, _options) {
      * Tick function for the simulation
      */
     function tick() {
+        var nodeTransforms = tickNodes();
+
+        if (!node) {
+            return;
+        }
+
+        var relationshipTransforms = tickRelationships();
+
+        // do all rendering AFTER processing for performance reasons
         fastdom.mutate(() => {
-            var nodeTransforms = tickNodes();
-
-            if (!node) {
-                return;
-            }
-
-            var relationshipTransforms = tickRelationships();
-
-            // do all rendering AFTER processing for performance reasons
             renderGraph(nodeTransforms, relationshipTransforms);
         });
     }
