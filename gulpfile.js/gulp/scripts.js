@@ -20,7 +20,8 @@ var _ = require('lodash'),
 function scripts_start() {
     return gulp.src([
             conf.paths.src + '/scripts/app.js',
-            conf.paths.src + '/scripts/d3.min.js',
+        conf.paths.src + '/scripts/d3.min.js',
+        conf.paths.src + '/scripts/fastdom.min.js',
             conf.paths.src + '/scripts/neo4jd3.js',
             conf.paths.src + '/scripts/imageLocation.js',
             conf.paths.src + '/scripts/service-worker-register.js',
@@ -84,7 +85,7 @@ async function buildScript(filename, mode) {
 
     function rebundle() {
         var stream = bundler.bundle()
-            .on('error', function(err) {
+            .on('error', function (err) {
                 error.call(this, err);
             });
 
@@ -99,7 +100,7 @@ async function buildScript(filename, mode) {
     }
 
     // listen for an update and run rebundle
-    bundler.on('update', function() {
+    bundler.on('update', function () {
         rebundle();
         gutil.log('Rebundle...');
     });
@@ -109,7 +110,7 @@ async function buildScript(filename, mode) {
 }
 
 function error(err) {
-    notifier.notify({message: 'Error: ' + err.message});
+    notifier.notify({ message: 'Error: ' + err.message });
     gutil.log(gutil.colors.red('Error: ' + err));
     this.emit('end');
 }
