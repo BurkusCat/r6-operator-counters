@@ -30,7 +30,7 @@
     "url": "https://github.com/BurkusCat/r6-operator-counters.git"
   },
   "engines": {
-    "node": "13.9.0"
+    "node": "^20.11.0"
   },
   "license": "MIT",
   "dependencies": {
@@ -76,7 +76,7 @@
     "lodash": "^4.17.19",
     "node-notifier": "^8.0.2",
     "proxyquireify": "^3.2.0",
-    "r6operators": "^2.10.2",
+    "r6operators": "^2.11.1",
     "sass": "^1.85.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.2",
