@@ -16,7 +16,7 @@ kali.addCounterNode(operatorId.clash, counterType.soft, "Kali's CSRX 300 Rifle s
 kali.addCounterNode(operatorId.castle, counterType.hard, "Kali's Explosive Lance can destroy Melusi's Banshee.");
 kali.addCounterNode(operatorId.thunderbird, counterType.hard, "Kali's Explosive Lance can destroy Thunderbird's Kona Station.");
 kali.addCounterNode(operatorId.azami, counterType.hard, "Kali's Explosive Lance can destroy Azami's Kiba Barrier.");
-kali.addCounterNode(operatorId.jager, counterType.hard, "Kali's Explosive Lance can destroy Jäger's ADS if thrown carefully. However, ADS counters Kali's Explosive Lance.");
+kali.addCounterNode(operatorId.jager, counterType.hard, "Kali's Explosive Lance can destroy Jäger's ADS. However, ADS counters Kali's Explosive Lance.");
 kali.addCounterNode(operatorId.kaid, counterType.hard, "Kali's Explosive Lance can destroy Kaid's Electroclaw, even through reinforced walls.");
 kali.addCounterNode(operatorId.kapkan, counterType.hard, "Kali's Explosive Lance can destroy Kapkan's EDDs.");
 kali.addCounterNode(operatorId.lesion, counterType.hard, "Kali's Explosive Lance can destroy Lesion's Gu mines.");
