@@ -9,7 +9,7 @@ let iq = new Operator(r6operators.iq, operatorId.iq, "N/A");
 
 iq.addCounterNode(operatorId.pulse, counterType.hard, "IQ's Electronics Detector can detect Pulse's Heartbeat Sensor and therefore him.");
 iq.addCounterNode(operatorId.mute, counterType.soft, "IQ's Electronics Detector can detect Mute's Signal Disruptors.");
-iq.addCounterNode(operatorId.kapkan, counterType.soft, "IQ's Electronics Detector can detect Kapkan's Entry Denial Devices.");
+iq.addCounterNode(operatorId.kapkan, counterType.soft, "IQ's Electronics Detector can detect Kapkan's EDDs.");
 iq.addCounterNode(operatorId.jager, counterType.minor, "IQ's Electronics Detector can detect Jäger's ADS.");
 iq.addCounterNode(operatorId.bandit, counterType.minor, "IQ's Electronics Detector can detect Bandit's Shock Wire.");
 iq.addCounterNode(operatorId.smoke, counterType.minor, "IQ's Electronics Detector can detect Smoke's Gas Grenades.");

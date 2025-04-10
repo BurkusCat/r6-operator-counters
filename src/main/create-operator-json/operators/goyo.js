@@ -7,6 +7,7 @@ import r6operators from "r6operators";
 
 let goyo = new Operator(r6operators.goyo, operatorId.goyo, "Operation Ember Rise");
 
-goyo.addCounterNode(operatorId.twitch, counterType.minor, "Goyo's Volcán Shield cannot be detonated by Twitch's Drones.");
+goyo.addCounterNode(operatorId.montagne, counterType.soft, "Goyo's 4 Volcán Canisters are very effective against Montagne.");
+goyo.addCounterNode(operatorId.blitz, counterType.soft, "Goyo's 4 Volcán Canisters are very effective against Blitz.");
 
 export default goyo

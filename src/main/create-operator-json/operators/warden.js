@@ -9,7 +9,8 @@ let warden = new Operator(r6operators.warden, operatorId.warden, "Operation Phan
 
 warden.addCounterNode(operatorId.ying, counterType.hard, "Warden's smart glasses resist the flashes of Ying's Candelas.");
 warden.addCounterNode(operatorId.blitz, counterType.hard, "Warden's smart glasses resist the pop flashes from Blitz's shield.");
-warden.addCounterNode(operatorId.glaz, counterType.hard, "Warden's smart glasses can see through smokes and directly counters glaz.");
+warden.addCounterNode(operatorId.glaz, counterType.hard, "Warden's smart glasses can see through smokes and allow him to directly counter glaz.");
 warden.addCounterNode(operatorId.sens, counterType.hard, "Warden's smart glasses can see through Sens' ROU.");
+warden.addCounterNode(operatorId.capitao, counterType.minor, "Warden's smart glasses can see through Capitao's smokes.");
 
 export default warden
