@@ -12,5 +12,4 @@ warden.addCounterNode(operatorId.blitz, counterType.hard, "Warden's smart glasse
 warden.addCounterNode(operatorId.glaz, counterType.hard, "Warden's smart glasses can see through smokes and directly counters glaz.");
 warden.addCounterNode(operatorId.sens, counterType.hard, "Warden's smart glasses can see through Sens' ROU.");
 
-
 export default warden

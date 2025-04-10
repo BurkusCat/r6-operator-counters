@@ -17,5 +17,4 @@ zofia.addCounterNode(operatorId.aruni, counterType.hard, "Zofia's Impact Grenade
 zofia.addCounterNode(operatorId.thunderbird, counterType.hard, "Zofia's Impact Grenades can destroy Thunderbird's Kona Stations.");
 zofia.addCounterNode(operatorId.azami, counterType.hard, "Zofia's Impact Grenades can destroy Azami's Kiba Barriers.");
 
-
 export default zofia

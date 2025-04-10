@@ -1,4 +1,5 @@
 'use strict';
+
 import counterType from '../core/counterTypeEnums.js';
 import operatorId from '../core/operatorIdEnum.js';
 import Operator from '../core/operatorFactory.js';

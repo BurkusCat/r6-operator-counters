@@ -18,5 +18,4 @@ maestro.addCounterNode(operatorId.thermite, counterType.hard, "Maestro's Evil Ey
 maestro.addCounterNode(operatorId.ace, counterType.hard, "Maestro's Evil Eye can destroy Ace's SELMAs with its laser.")
 maestro.addCounterNode(operatorId.sens, counterType.soft, "Maestro's Evil Eye can see through ROUs.")
 
-
 export default maestro

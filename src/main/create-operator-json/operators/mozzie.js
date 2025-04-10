@@ -11,5 +11,4 @@ mozzie.addCounterNode(operatorId.twitch, counterType.hard, "Mozzie's Pests can h
 mozzie.addCounterNode(operatorId.flores, counterType.hard, "Mozzie's Pests can hack Flores' RCE-RATERO drone. The hacked drone cannot be controlled though.");
 mozzie.addCounterNode(operatorId.brava, counterType.hard, "Mozzie's Pests can hack Brava's Kludge drone. The hacked drones can un-hack previously hacked gadgets and hack attacker gadgets.");
 
-
 export default mozzie

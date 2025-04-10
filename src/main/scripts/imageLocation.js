@@ -36,7 +36,7 @@ class ImageLocation {
             'Jackal': 'img/' + fileFormat + '/jackal.' + fileFormat,
             'Jäger': 'img/' + fileFormat + '/jager.' + fileFormat,
             'Kaid': 'img/' + fileFormat + '/kaid.' + fileFormat,
-            'Kali':'img/' + fileFormat + '/kali.' + fileFormat,
+            'Kali': 'img/' + fileFormat + '/kali.' + fileFormat,
             'Kapkan': 'img/' + fileFormat + '/kapkan.' + fileFormat,
             'Lesion': 'img/' + fileFormat + '/lesion.' + fileFormat,
             'Lion': 'img/' + fileFormat + '/lion.' + fileFormat,

@@ -4,7 +4,7 @@
  * order of operators does not matter.
  * Make sure that every operator is assigned a unique integer
  */
-export default {  
+export default {
     ash: 1,
     bandit: 2,
     blitz: 3,
@@ -35,7 +35,7 @@ export default {
     hibana: 28,
     echo: 29,
     jackal: 30,
-    mira: 31, 
+    mira: 31,
     ying: 32,
     lesion: 33,
     zofia: 34,
@@ -67,18 +67,18 @@ export default {
     flores: 60,
     thunderbird: 61,
     osa: 62,
-    thorn:63,
-    azami:64,
-    sens:65,
-    grim:66,
-    solis:67,
-    brava:68,
-    fenrir:69,
-    ram:70, 
-    tubarao:71, 
-    deimos:72, 
-    sentry:73, 
-    striker:74, 
-    skopos:75
+    thorn: 63,
+    azami: 64,
+    sens: 65,
+    grim: 66,
+    solis: 67,
+    brava: 68,
+    fenrir: 69,
+    ram: 70,
+    tubarao: 71,
+    deimos: 72,
+    sentry: 73,
+    striker: 74,
+    skopos: 75,
     rauora: 76
 };
