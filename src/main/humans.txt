@@ -13,3 +13,5 @@ Making a contribution to R6 Operator Counters? Feel free to add your name here a
 
 	Name: Lily Huang
 	LinkedIn: https://www.linkedin.com/in/lily-huang-37406b2a1/
+
+	Name: Michael Krebs

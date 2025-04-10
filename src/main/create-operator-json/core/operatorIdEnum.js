@@ -80,4 +80,5 @@ export default {
     sentry:73, 
     striker:74, 
     skopos:75
+    rauora: 76
 };
