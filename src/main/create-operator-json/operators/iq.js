@@ -15,7 +15,6 @@ iq.addCounterNode(operatorId.bandit, counterType.minor, "IQ's Electronics Detect
 iq.addCounterNode(operatorId.smoke, counterType.minor, "IQ's Electronics Detector can detect Smoke's Gas Grenades.");
 iq.addCounterNode(operatorId.valkyrie, counterType.hard, "IQ's Electronics Detector can detect Valkyrie's Black Eye cameras.");
 iq.addCounterNode(operatorId.echo, counterType.hard, "IQ's Electronics Detector can detect Echo's Yokai drones, his wrist phone and therefore him.");
-iq.addCounterNode(operatorId.lesion, counterType.soft, "IQ's Electronics Detector can detect Lesion's Gu mines.");
 iq.addCounterNode(operatorId.ela, counterType.soft, "IQ's Electronics Detector can detect Ela's Grzmot mines.");
 iq.addCounterNode(operatorId.vigil, counterType.hard, "IQ's Electronics Detector can detect Vigil while he is using his ERC-7 ability.");
 iq.addCounterNode(operatorId.maestro, counterType.minor, "IQ's Electronics Detector can detect Maestro's Evil Eyes.");
