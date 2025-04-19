@@ -11,6 +11,6 @@ maverick.addCounterNode(operatorId.bandit, counterType.soft, "Maverick's Breachi
 maverick.addCounterNode(operatorId.kaid, counterType.soft, "Maverick's Breaching Torch can make small holes in walls electrified by Kaid's Electroclaws.");
 maverick.addCounterNode(operatorId.mute, counterType.soft, "Maverick's Breaching Torch can make small holes in walls affected by Mute's Signal Disruptors. His Breaching Torch does not get disrupted.");
 maverick.addCounterNode(operatorId.maestro, counterType.hard, "Maverick's Breaching Torch can destroy Maestro's Evil Eye.");
-maverick.addCounterNode(operatorId.mira, counterType.soft, "Although vulnerable while doing it, Maverick can use his Breaching Torch to drop the glass from Mira's Black Mirror from the opposite side of a reinforced wall.");
+maverick.addCounterNode(operatorId.mira, counterType.soft, "Maverick's Breaching Torch can be used to drop the glass from Mira's Black Mirror. Altough he is very vulnerable while doing it.");
 
 export default maverick
