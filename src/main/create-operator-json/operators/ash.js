@@ -8,11 +8,14 @@ import r6operators from "r6operators";
 let ash = new Operator(r6operators.ash, operatorId.ash, "N/A");
 
 ash.addCounterNode(operatorId.castle, counterType.hard, "Ash's Breaching rounds can destroy Castle's Armor Panels.");
-ash.addCounterNode(operatorId.tachanka, counterType.soft, "Ash's Breaching Rounds can be used to destroy a deployable shield protecting Tachanka's Mounted LMG.");
-ash.addCounterNode(operatorId.maestro, counterType.hard, "Ash's Breaching Rounds can destroy Maestro's Evil Eye cameras while they are closed.");
-ash.addCounterNode(operatorId.melusi, counterType.hard, "Ash's Breaching rounds can destroy Melusi's Banshee.");
+ash.addCounterNode(operatorId.maestro, counterType.hard, "Ash's Breaching rounds can destroy Maestro's Evil Eye cameras.");
+ash.addCounterNode(operatorId.melusi, counterType.hard, "Ash's Breaching rounds can destroy Melusi's Banshees.");
 ash.addCounterNode(operatorId.aruni, counterType.soft, "Ash's Breaching rounds can temporarily disable Aruni's Surya laser gates.")
-ash.addCounterNode(operatorId.thunderbird, counterType.hard, "Ash's Breaching rounds can destroy Thunderbird's Kona Station.")
+ash.addCounterNode(operatorId.thunderbird, counterType.hard, "Ash's Breaching rounds can destroy Thunderbird's Kona Stations.")
 ash.addCounterNode(operatorId.thorn, counterType.hard, "Ash's Breaching rounds can destroy Azami's Kiba Barriers.")
+ash.addCounterNode(operatorId.skopos, counterType.hard, "Ash's Breaching rounds can destroy Skopos' inactive shell.")
+ash.addCounterNode(operatorId.goyo, counterType.hard, "Ash's Breaching rounds can destroy Goyo's Volcán Canisters.");
+ash.addCounterNode(operatorId.kapkan, counterType.hard, "Ash's Breaching rounds can destroy Kapkan's EDDs when shooting barricades or deployable shields in doorways or windows.");
+ash.addCounterNode(operatorId.mira, counterType.hard, "Ash's Breaching rounds can shatter Mira's Black Mirror, making it not seethrough.");
 
 export default ash
