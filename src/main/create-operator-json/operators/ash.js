@@ -12,7 +12,7 @@ ash.addCounterNode(operatorId.maestro, counterType.hard, "Ash's Breaching rounds
 ash.addCounterNode(operatorId.melusi, counterType.hard, "Ash's Breaching rounds can destroy Melusi's Banshees.");
 ash.addCounterNode(operatorId.aruni, counterType.soft, "Ash's Breaching rounds can temporarily disable Aruni's Surya laser gates.")
 ash.addCounterNode(operatorId.thunderbird, counterType.hard, "Ash's Breaching rounds can destroy Thunderbird's Kona Stations.")
-ash.addCounterNode(operatorId.thorn, counterType.hard, "Ash's Breaching rounds can destroy Azami's Kiba Barriers.")
+ash.addCounterNode(operatorId.azami, counterType.hard, "Ash's Breaching rounds can destroy Azami's Kiba Barriers.")
 ash.addCounterNode(operatorId.skopos, counterType.hard, "Ash's Breaching rounds can destroy Skopos' inactive shell.")
 ash.addCounterNode(operatorId.goyo, counterType.hard, "Ash's Breaching rounds can destroy Goyo's Volcán Canisters.");
 ash.addCounterNode(operatorId.kapkan, counterType.hard, "Ash's Breaching rounds can destroy Kapkan's EDDs when shooting barricades or deployable shields in doorways or windows.");
