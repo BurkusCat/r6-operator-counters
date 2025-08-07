@@ -18,5 +18,7 @@ jager.addCounterNode(operatorId.kali, counterType.soft, "Jäger's ADS can interc
 jager.addCounterNode(operatorId.zero, counterType.hard, "Jäger's ADS can intercept Zero's Argus cameras.");
 jager.addCounterNode(operatorId.sens, counterType.hard, "Jäger's ADS can intercept Sens' ROU's.");
 jager.addCounterNode(operatorId.grim, counterType.hard, "Jäger's ADS can intercept Grim's Hive Canisters.");
+jager.addCounterNode(operatorId.capitao, counterType.hard, "Jäger's ADS can intercept Capitão's Crossbow Bolts.");
+jager.addCounterNode(operatorId.gridlock, counterType.hard, "Jäger's ADS can intercept Gridlock's Trax Stingers.");
 
 export default jager
