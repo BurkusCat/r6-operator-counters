@@ -26,8 +26,7 @@ function Neo4jD3(_selector, _options) {
             counters: [true, false, false],
             simulationQuality: 2,
         },
-        builtRelations = {},
-        VERSION = '0.0.1';
+        builtRelations = {};
 
     function appendGraph(container) {
         svg = container.append('svg')
@@ -309,7 +308,6 @@ function Neo4jD3(_selector, _options) {
         var color = classes2colors[cls];
 
         if (!color) {
-//            color = options.colors[Math.min(numClasses, options.colors.length - 1)];
             color = options.colors[numClasses % options.colors.length];
             classes2colors[cls] = color;
             numClasses++;
@@ -324,10 +322,6 @@ function Neo4jD3(_selector, _options) {
 
     function clearInfo() {
         info.html('');
-    }
-
-    function color() {
-        return options.colors[options.colors.length * Math.random() << 0];
     }
 
     function colors() {
@@ -492,7 +486,7 @@ function Neo4jD3(_selector, _options) {
     }
 
     function initImageMap() {
-        var key, keys, selector;
+        var key, keys;
 
         for (key in options.images) {
             if (options.images.hasOwnProperty(key)) {
@@ -559,6 +553,7 @@ function Neo4jD3(_selector, _options) {
             freezeNode(nodes[i]);
         }
     }
+
     function loadNeo4jData() {
         nodes = [];
         relationships = [];
@@ -1033,10 +1028,6 @@ function Neo4jD3(_selector, _options) {
         relationshipText = relationshipEnter.text.merge(relationshipText);
     }
 
-    function version() {
-        return VERSION;
-    }
-
     function zoomFit(transitionDuration) {
         var bounds = svg.node().getBBox(),
             parent = svg.node().parentElement.parentElement,
@@ -1064,7 +1055,6 @@ function Neo4jD3(_selector, _options) {
         size: size,
         updateWithD3Data: updateWithD3Data,
         updateWithNeo4jData: updateWithNeo4jData,
-        version: version,
         unfreezeAllNodes: unfreezeAllNodes,
         freezeAllNodes: freezeAllNodes,
         stopSimulation: stopSimulation
