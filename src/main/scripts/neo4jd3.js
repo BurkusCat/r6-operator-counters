@@ -894,29 +894,42 @@ function Neo4jD3(_selector, _options) {
         return textTransforms;
     }
 
-    function tickStraightRelationshipsText(d) {
-        var angle = (rotation(d.source, d.target) + 360) % 360,
-            mirror = angle > 90 && angle < 270,
-            center = { x: 0, y: 0 },
-            n = unitaryNormalVector(d.source, d.target),
-            nWeight = mirror ? 2 : -3,
-            point = { x: (d.target.x - d.source.x) * 0.5 + n.x * nWeight, y: (d.target.y - d.source.y) * 0.5 + n.y * nWeight },
-            rotatedPoint = rotatePoint(center, point, angle);
+    // reuse _center & _point instead of allocating a new object
+    const _center = { x: 0, y: 0 };
+    const _point = { x: 0, y: 0 };
 
-        return 'translate(' + rotatedPoint.x + ', ' + rotatedPoint.y + ') rotate(' + (mirror ? 180 : 0) + ')';
+    function tickStraightRelationshipsText(d) {
+        var angle = (rotation(d.source, d.target) + 360) % 360;
+        var mirror = angle > 90 && angle < 270;
+
+        var dx = d.target.x - d.source.x;
+        var dy = d.target.y - d.source.y;
+
+        var n = unitaryNormalVector(d.source, d.target);
+        var nWeight = mirror ? 2 : -3;
+
+        _point.x = dx * 0.5 + n.x * nWeight;
+        _point.y = dy * 0.5 + n.y * nWeight;
+
+        var rotated = rotatePoint(_center, _point, angle);
+
+        return 'translate(' + rotated.x + ', ' + rotated.y + ') rotate(' + (mirror ? 180 : 0) + ')';
     }
+
+    // reuse _middle instead of allocating a new object each call
+    const _middle = { x: 0, y: 0 };
 
     function tickCurvedRelationshipsText(d) {
         var angle = (rotation(d.source, d.target) + 360) % 360,
             mirror = angle > 90 && angle < 270,
             source = d.outline.source,
             target = d.outline.target,
-            u = d.outline.u,
-            middle = {
-                x: (source.x + target.x) / 2 + u.x * (mirror ? 8 : 10) + u.x,
-                y: (source.y + target.y) / 2 + u.y * (mirror ? 8 : 10) + u.y
-            };
-        return 'translate(' + middle.x + ', ' + middle.y + ') rotate(' + (mirror ? 180 : 0) + ')';
+            u = d.outline.u;
+
+        _middle.x = (source.x + target.x) / 2 + u.x * (mirror ? 8 : 10) + u.x;
+        _middle.y = (source.y + target.y) / 2 + u.y * (mirror ? 8 : 10) + u.y;
+
+        return 'translate(' + _middle.x + ', ' + _middle.y + ') rotate(' + (mirror ? 180 : 0) + ')';
     }
 
     /**
@@ -961,7 +974,12 @@ function Neo4jD3(_selector, _options) {
     }
 
     function unitaryVector(source, target, newLength) {
-        var length = Math.sqrt(Math.pow(target.x - source.x, 2) + Math.pow(target.y - source.y, 2)) / Math.sqrt(newLength || 1);
+        //var length = Math.sqrt(Math.pow(target.x - source.x, 2) + Math.pow(target.y - source.y, 2)) / Math.sqrt(newLength || 1);
+
+        var dx = target.x - source.x;
+        var dy = target.y - source.y;
+        var divisor = Math.sqrt(newLength || 1);
+        var length = Math.sqrt(dx * dx + dy * dy) / divisor;
 
         return {
             x: (target.x - source.x) / length,
