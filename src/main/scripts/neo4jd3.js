@@ -736,24 +736,24 @@ function Neo4jD3(_selector, _options) {
 
         // process all relationship transforms
         relationship.each(function (d) {
-            var center = {x: 0, y: 0},
-              angle = rotation(d.source, d.target),
-              u = unitaryVector(d.source, d.target),
-              n = unitaryNormalVector(d.source, d.target),
-              g = rotatePoint(center, u, -10),
-              source = rotatePoint(center, {
-                x: 0 + (options.nodeRadius + 1) * u.x - n.x,
-                y: 0 + (options.nodeRadius + 1) * u.y - n.y
-              }, angle + 10),
-              target = rotatePoint(center, {
-                x: d.target.x - d.source.x - (options.nodeRadius + 2) * g.x,
-                y: d.target.y - d.source.y - (options.nodeRadius + 2) * g.y
-              }, angle),
-              uu = unitaryNormalVector(source, target),
-              middle = {
-                x: (source.x + target.x) / 2 + uu.x * 20,
-                y: (source.y + target.y) / 2 + uu.y * 20
-              };
+            var center = { x: 0, y: 0 },
+                angle = rotation(d.source, d.target),
+                u = unitaryVector(d.source, d.target),
+                n = unitaryNormalVector(d.source, d.target),
+                g = rotatePoint(center, u, -10),
+                source = rotatePoint(center, {
+                    x: (options.nodeRadius + 1) * u.x - n.x,
+                    y: (options.nodeRadius + 1) * u.y - n.y
+                }, angle + 10),
+                target = rotatePoint(center, {
+                    x: d.target.x - d.source.x - (options.nodeRadius + 2) * g.x,
+                    y: d.target.y - d.source.y - (options.nodeRadius + 2) * g.y
+                }, angle),
+                uu = unitaryNormalVector(source, target),
+                middle = {
+                    x: (source.x + target.x) / 2 + uu.x * 20,
+                    y: (source.y + target.y) / 2 + uu.y * 20
+                };
             d.outline = { middle: middle, source: source, target: target, u: uu };
 
             relationshipTransforms.push('translate(' + d.source.x + ', ' + d.source.y + ') rotate(' + angle + ')');
