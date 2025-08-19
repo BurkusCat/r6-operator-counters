@@ -1,4 +1,4 @@
-if ('serviceWorker' in navigator) {
+if (window.location.hostname !== 'localhost' && 'serviceWorker' in navigator) {
     const serviceWorkerFilePath = '../service-worker.js';
 
     window.addEventListener('load', function() {
