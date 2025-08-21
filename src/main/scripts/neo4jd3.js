@@ -3,7 +3,7 @@
 'use strict';
 
 function Neo4jD3(_selector, _options) {
-    var container, info, node, nodes, relationship, relationshipOverlay, relationshipText, relationships, selector, simulation, svg, svgNodes, svgRelationships, svgScale, svgTranslate,
+    var container, info, node, nodes, relationship, relationshipOutline, relationshipOverlay, relationshipText, relationships, selector, simulation, svg, svgNodes, svgRelationships, svgScale, svgTranslate,
         classes2colors = {},
         justLoaded = false,
         numClasses = 0,
@@ -290,6 +290,15 @@ function Neo4jD3(_selector, _options) {
                 });
     }
 
+    /**
+     * Appends a relationship to the graph and adds associated elements such as text, outline, and overlay.
+     *
+     * @returns {Object} An object containing the created relationship, its text label, outline, and overlay elements.
+     * @property {Object} outline - The outline element of the relationship.
+     * @property {Object} overlay - The overlay element of the relationship.
+     * @property {Object} relationship - The relationship element itself.
+     * @property {Object} text - The text label associated with the relationship.
+     */
     function appendRelationshipToGraph() {
         var relationship = appendRelationship(),
             text = appendTextToRelationship(relationship),
@@ -503,26 +512,26 @@ function Neo4jD3(_selector, _options) {
 
     function initSimulation() {
         var simulation = d3.forceSimulation()
-//                           .velocityDecay(0.8)
-//                           .force('x', d3.force().strength(0.002))
-//                           .force('y', d3.force().strength(0.002))
-                           .force('collide', d3.forceCollide().radius(function(d) {
-                               return options.minCollision;
-                           }).iterations(options.simulationQuality))
-                           .force('charge', d3.forceManyBody())
-                           .force('link', d3.forceLink().id(function(d) {
-                               return d.id;
-                           }))
-                           .force('center', d3.forceCenter(svg.node().parentElement.parentElement.clientWidth / 2, svg.node().parentElement.parentElement.clientHeight / 2))
-                           .on('tick', function() {
-                               tick();
-                           })
-                           .on('end', function() {
-                               if (options.zoomFit && !justLoaded) {
-                                   justLoaded = true;
-                                   zoomFit(2);
-                               }
-                           });
+            //.velocityDecay(0.8)
+            //.force('x', d3.force().strength(0.002))
+            //.force('y', d3.force().strength(0.002))
+            .force('collide', d3.forceCollide().radius(function (d) {
+                return options.minCollision;
+            }).iterations(options.simulationQuality))
+            .force('charge', d3.forceManyBody())
+            .force('link', d3.forceLink().id(function (d) {
+                return d.id;
+            }))
+            .force('center', d3.forceCenter(svg.node().parentElement.parentElement.clientWidth / 2, svg.node().parentElement.parentElement.clientHeight / 2))
+            .on('tick', function () {
+                tick();
+            })
+            .on('end', function () {
+                if (options.zoomFit && !justLoaded) {
+                    justLoaded = true;
+                    zoomFit(2);
+                }
+            });
 
         return simulation;
     }
@@ -678,12 +687,11 @@ function Neo4jD3(_selector, _options) {
      * Tick function for the simulation
      */
     function tick() {
-        var nodeTransforms = tickNodes();
-
         if (!node) {
             return;
         }
 
+        var nodeTransforms = tickNodes();
         var relationshipTransforms = tickRelationships();
 
         // do all rendering AFTER processing for performance reasons
@@ -695,10 +703,6 @@ function Neo4jD3(_selector, _options) {
      * @returns {string[]} an array of transforms for each node
      */
     function tickNodes() {
-        if (!node) {
-            return null;
-        }
-
         var nodeTransforms = [];
         
         // process all node transforms
@@ -949,11 +953,9 @@ function Neo4jD3(_selector, _options) {
         });
 
         // render all outline transforms
-        relationship
-            .select('.hardcounter,.softcounter,.minorcounter')
-            .attr('d', function (d, index) {
-                return relationshipTransforms.outlineTransforms[index];
-            });
+        relationshipOutline.attr('d', function (d, index) {
+            return relationshipTransforms.outlineTransforms[index];
+        });
 
         // render all text transforms
         relationshipText.attr('transform', function (d, index) {
@@ -1038,6 +1040,9 @@ function Neo4jD3(_selector, _options) {
         var relationshipEnter = appendRelationshipToGraph();
 
         relationship = relationshipEnter.relationship.merge(relationship);
+
+        relationshipOutline = svg.selectAll('.hardcounter,.softcounter,.minorcounter');
+        relationshipOutline = relationshipEnter.outline.merge(relationshipOutline);
 
         relationshipOverlay = svg.selectAll('.relationship .overlay');
         relationshipOverlay = relationshipEnter.overlay.merge(relationshipOverlay);
