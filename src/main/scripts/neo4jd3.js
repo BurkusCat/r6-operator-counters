@@ -740,16 +740,15 @@ function Neo4jD3(_selector, _options) {
 
         // process all relationship transforms
         relationship.each(function (d) {
-            var center = { x: 0, y: 0 },
-                angle = rotation(d.source, d.target),
+            var angle = rotation(d.source, d.target),
                 u = unitaryVector(d.source, d.target),
                 n = unitaryNormalVector(d.source, d.target),
-                g = rotatePoint(center, u, -10),
-                source = rotatePoint(center, {
+                g = rotatePoint(_center, u, -10),
+                source = rotatePoint(_center, {
                     x: (options.nodeRadius + 1) * u.x - n.x,
                     y: (options.nodeRadius + 1) * u.y - n.y
                 }, angle + 10),
-                target = rotatePoint(center, {
+                target = rotatePoint(_center, {
                     x: d.target.x - d.source.x - (options.nodeRadius + 2) * g.x,
                     y: d.target.y - d.source.y - (options.nodeRadius + 2) * g.y
                 }, angle),
@@ -788,7 +787,6 @@ function Neo4jD3(_selector, _options) {
     }
 
     function tickStraightRelationshipsOutline(d, text) {
-        const center = { x: 0, y: 0 };
         const baseRadius = options.nodeRadius + 1;
         const angle = rotation(d.source, d.target);
 
@@ -808,10 +806,10 @@ function Neo4jD3(_selector, _options) {
         };
         const n = unitaryNormalVector(d.source, d.target);
 
-        const rotatedPointA1 = rotatePoint(center, { x: textMargin.x - n.x, y: textMargin.y - n.y }, angle);
-        const rotatedPointB1 = rotatePoint(center, { x: baseRadius * u.x, y: baseRadius * u.y }, angle);
-        const rotatedPointA2 = rotatePoint(center, { x: d.target.x - d.source.x - baseRadius * u.x, y: d.target.y - d.source.y - baseRadius * u.y }, angle);
-        const rotatedPointB2 = rotatePoint(center, { x: d.target.x - d.source.x - textMargin.x - n.x, y: d.target.y - d.source.y - textMargin.y - n.y }, angle);
+        const rotatedPointA1 = rotatePoint(_center, { x: textMargin.x - n.x, y: textMargin.y - n.y }, angle);
+        const rotatedPointB1 = rotatePoint(_center, { x: baseRadius * u.x, y: baseRadius * u.y }, angle);
+        const rotatedPointA2 = rotatePoint(_center, { x: d.target.x - d.source.x - baseRadius * u.x, y: d.target.y - d.source.y - baseRadius * u.y }, angle);
+        const rotatedPointB2 = rotatePoint(_center, { x: d.target.x - d.source.x - textMargin.x - n.x, y: d.target.y - d.source.y - textMargin.y - n.y }, angle);
 
         return 'M ' + rotatedPointA1.x + ' ' + rotatedPointA1.y +
             ' L ' + rotatedPointB1.x + ' ' + rotatedPointB1.y +
@@ -849,14 +847,13 @@ function Neo4jD3(_selector, _options) {
     }
 
     function tickStraightRelationshipsOverlay(d) {
-        var center = { x: 0, y: 0 },
-            angle = rotation(d.source, d.target),
+        var angle = rotation(d.source, d.target),
             n1 = unitaryNormalVector(d.source, d.target),
             n = unitaryNormalVector(d.source, d.target, 50),
-            rotatedPointA = rotatePoint(center, { x: 0 - n.x, y: 0 - n.y }, angle),
-            rotatedPointB = rotatePoint(center, { x: d.target.x - d.source.x - n.x, y: d.target.y - d.source.y - n.y }, angle),
-            rotatedPointC = rotatePoint(center, { x: d.target.x - d.source.x + n.x - n1.x, y: d.target.y - d.source.y + n.y - n1.y }, angle),
-            rotatedPointD = rotatePoint(center, { x: 0 + n.x - n1.x, y: 0 + n.y - n1.y }, angle);
+            rotatedPointA = rotatePoint(_center, { x: 0 - n.x, y: 0 - n.y }, angle),
+            rotatedPointB = rotatePoint(_center, { x: d.target.x - d.source.x - n.x, y: d.target.y - d.source.y - n.y }, angle),
+            rotatedPointC = rotatePoint(_center, { x: d.target.x - d.source.x + n.x - n1.x, y: d.target.y - d.source.y + n.y - n1.y }, angle),
+            rotatedPointD = rotatePoint(_center, { x: 0 + n.x - n1.x, y: 0 + n.y - n1.y }, angle);
 
         return 'M ' + rotatedPointA.x + ' ' + rotatedPointA.y +
             ' L ' + rotatedPointB.x + ' ' + rotatedPointB.y +
@@ -969,10 +966,9 @@ function Neo4jD3(_selector, _options) {
     }
 
     function unitaryNormalVector(source, target, newLength) {
-        var center = { x: 0, y: 0 },
-            vector = unitaryVector(source, target, newLength);
+        var vector = unitaryVector(source, target, newLength);
 
-        return rotatePoint(center, vector, 90);
+        return rotatePoint(_center, vector, 90);
     }
 
     function unitaryVector(source, target, newLength) {
