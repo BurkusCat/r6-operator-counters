@@ -7,7 +7,6 @@ import r6operators from "r6operators";
 
 let wamai = new Operator(r6operators.wamai, operatorId.wamai, "Operation Shifting Tides");
 
-wamai.addCounterNode(operatorId.thatcher, counterType.hard, "Wamai's MAG-NET System can pull and destroy Thatcher's EMP Grenades.");
 wamai.addCounterNode(operatorId.ash, counterType.hard, "Wamai's MAG-NET System can pull and destroy Ash's Breaching Charge.");
 wamai.addCounterNode(operatorId.fuze, counterType.soft, "Wamai's MAG-NET System can pull and destroy Fuze's Cluster Charges.");
 wamai.addCounterNode(operatorId.capitao, counterType.hard, "Wamai's MAG-NET System can pull and destroy Capitão's Smoke and Fire Bolts.");
