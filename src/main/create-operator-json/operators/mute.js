@@ -19,7 +19,5 @@ mute.addCounterNode(operatorId.flores, counterType.hard, "Mute's Signal Disrupto
 mute.addCounterNode(operatorId.sens, counterType.hard, "Mute's Signal Disruptor can stop Sens' ROU from working.");
 mute.addCounterNode(operatorId.ram, counterType.hard, "Mute's Signal Disruptor can stop Ram's BU-GI from activating.");
 mute.addCounterNode(operatorId.deimos, counterType.hard, "Mute's Signal Disruptor can prevent defenders from getting tracked by Deimos' DeathMARK.");
-mute.addCounterNode(operatorId.nokk, counterType.soft, "When standing within range of Mute's Signal Disruptor, Nokk's Hel Presence Device will be disabled.");
-
 
 export default mute
