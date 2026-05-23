@@ -22,5 +22,4 @@ jager.addCounterNode(operatorId.capitao, counterType.hard, "Jäger's ADS can int
 jager.addCounterNode(operatorId.gridlock, counterType.hard, "Jäger's ADS can intercept Gridlock's Trax Stingers.");
 jager.addCounterNode(operatorId.rauora, counterType.hard, "Jäger's ADS can intercept Rauora's DOM Panels.");
 
-
 export default jager
