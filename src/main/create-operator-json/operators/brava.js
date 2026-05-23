@@ -24,5 +24,4 @@ brava.addCounterNode(operatorId.skopos, counterType.hard, "Brava's Krudge drone 
 brava.addCounterNode(operatorId.bandit, counterType.hard, "Brava's Krudge drone can destroy Bandit's shock wire.");
 brava.addCounterNode(operatorId.thunderbird, counterType.hard, "Brava's Krudge drone can hack Thunderbird's Kona Stations.");
 
-
 export default brava
