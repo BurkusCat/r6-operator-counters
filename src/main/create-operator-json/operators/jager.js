@@ -7,7 +7,6 @@ import r6operators from "r6operators";
 
 let jager = new Operator(r6operators.jager, operatorId.jager, "N/A");
 
-jager.addCounterNode(operatorId.thatcher, counterType.hard, "Jäger's ADS can intercept Thatcher's EMP grenades.");
 jager.addCounterNode(operatorId.ying, counterType.hard, "Jäger's ADS can intercept Ying's Candela grenades or the Flash Charges.");
 jager.addCounterNode(operatorId.zofia, counterType.hard, "Jäger's ADS can intercept Zofia's Impact Grenades and Concussion Grenades.");
 jager.addCounterNode(operatorId.nomad, counterType.soft, "Jäger's ADS can intercept Nomad's Airjabs.");
