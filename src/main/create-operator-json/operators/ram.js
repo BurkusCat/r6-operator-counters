@@ -10,5 +10,4 @@ let ram = new Operator(r6operators.ram, operatorId.ram, "Operation Heavy Mettle"
 ram.addCounterNode(operatorId.aruni, counterType.hard, "Ram's BU-Gi can temporarily disable Aruni's Surya Gate, while staying intact.");
 ram.addCounterNode(operatorId.castle, counterType.hard, "Ram's BU-Gi can destroy Castle's Armor Panel.");
 
-
 export default ram
