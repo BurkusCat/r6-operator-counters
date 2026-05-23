@@ -22,5 +22,4 @@ tubarao.addCounterNode(operatorId.dokkaebi, counterType.hard, "Tubarao's Zoto Ca
 tubarao.addCounterNode(operatorId.rauora, counterType.soft, "Tubarao's Zoto Canister can delay Rauora's D.O.M Panel from closing.");
 tubarao.addCounterNode(operatorId.blackbeard, counterType.soft, "Tubarao's Zoto Canister can disable Blackbeard's H.U.L.L Adaptable Shield pneumatic charge.");
 
-
 export default tubarao
