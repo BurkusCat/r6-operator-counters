@@ -27,9 +27,4 @@ solis.addCounterNode(operatorId.hibana, counterType.soft, "Solis' visor can dete
 solis.addCounterNode(operatorId.flores, counterType.soft, "Solis' visor can detect and track the location of Flores's RCE-Ratero Charge.")
 solis.addCounterNode(operatorId.deimos, counterType.minor, "Solis' visor can detect and track Deimos's position while he's activating his DeathMARK tracker.")
 
-
-
-
-
-
 export default solis
