@@ -5,7 +5,7 @@ import operatorId from '../core/operatorIdEnum.js';
 import Operator from '../core/operatorFactory.js';
 import r6operators from "r6operators";
 
-let thatcher = new Operator(r6operators.thatcher, operatorId.thatcher, "N/A/Operation Tenfold Pursuit");
+let thatcher = new Operator(r6operators.thatcher, operatorId.thatcher, "N/A");
 
 thatcher.addCounterNode(operatorId.mute, counterType.soft, "Thatcher's E.G.S. Disruptor can temporarily disable Mute's Signal Disruptors.");
 thatcher.addCounterNode(operatorId.smoke, counterType.soft, "Thatcher's E.G.S. Disruptor can temporarily prevent Smoke's Gas Grenades from triggering.");
