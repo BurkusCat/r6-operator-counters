@@ -20,5 +20,6 @@ tubarao.addCounterNode(operatorId.jackal, counterType.soft, "Tubarao's Zoto Cani
 tubarao.addCounterNode(operatorId.ying, counterType.hard, "Tubarao's Zoto Canister can make Ying vulnerable to her own Candelas and delay Candelas from activating");
 tubarao.addCounterNode(operatorId.dokkaebi, counterType.hard, "Tubarao's Zoto Canister can prevent Dokkaebi from activating her hack and prevent defenders from getting hacked");
 tubarao.addCounterNode(operatorId.rauora, counterType.soft, "Tubarao's Zoto Canister can delay Rauora's D.O.M Panel from closing.");
+tubarao.addCounterNode(operatorId.blackbeard, counterType.soft, "Tubarao's Zoto Canister can disable Blackbeard's H.U.L.L Adaptable Shield pneumatic charge.");
 
 export default tubarao
