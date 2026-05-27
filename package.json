@@ -64,7 +64,7 @@
     "gulp-util": "^3.0.7",
     "gulp-webp": "^4.0.1",
     "jshint": "^2.13.4",
-    "karma": "^3.1.4",
+    "karma": "^6.4.4",
     "karma-bamboo-reporter": "^0.1.2",
     "karma-browserify": "^5.3.0",
     "karma-chai-plugins": "^0.7.0",
